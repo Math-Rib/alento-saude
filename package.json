@@ -1,0 +1,25 @@
+{
+  "name": "projeto-alento-saude",
+  "version": "1.0.0",
+  "description": "Projeto em NodeJS e MySQL",
+  "keywords": [
+    "express",
+    "bootstrap",
+    "mysql"
+  ],
+  "license": "ISC",
+  "author": "Christian Gabriel, Kauan de Nascimento, Lucas Costa, Matheus Ribeiro, Pedro Henrique Cantanhede, Rômulo dos Santos",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "exprss": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
