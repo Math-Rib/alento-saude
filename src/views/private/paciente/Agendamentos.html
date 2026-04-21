@@ -205,24 +205,10 @@
         © 2026 Alento Saúde - Todos os direitos reservados.
     </footer>
 
-    <script>
-        // Lógica simples para interatividade
-        document.querySelectorAll('.day-num:not(.muted)').forEach(day => {
-            day.addEventListener('click', function () {
-                document.querySelector('.day-num.active').classList.remove('active');
-                this.classList.add('active');
-            });
-        });
-
-        document.querySelectorAll('.slot.available').forEach(slot => {
-            slot.addEventListener('click', function () {
-                const prevSelected = document.querySelector('.slot.selected');
-                if (prevSelected) prevSelected.classList.replace('selected', 'available');
-
-                this.classList.replace('available', 'selected');
-            });
-        });
-    </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script type="module" src="/js/main.js"></script>
 </body>
 
 </html>

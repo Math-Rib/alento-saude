@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alento Saúde - Gestão de Usuários</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/gestao-usuario.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <span>Alento Saúde</span>
+        </div>
+        <ul class="menu">
+            <li class="active"><i class="fa-solid fa-house"></i> Início</li>
+            <li><i class="fa-solid fa-users"></i> Gestão de Usuários</li>
+            <li><i class="fa-solid fa-stethoscope"></i> Gestão de Especialidades</li>
+            <li><i class="fa-solid fa-file-lines"></i> Logs de Sistema</li>
+            <li><i class="fa-solid fa-database"></i> Backup do Banco</li>
+        </ul>
+    </aside>
+
+    <div class="main-wrapper">
+        
+        <header class="header">
+            <div class="header-icons">
+                <i class="fa-solid fa-toggle-off"></i>
+                <span><i class="fa-regular fa-circle-question"></i> Ajuda</span>
+            </div>
+            <div class="user-badge">
+                <i class="fa-regular fa-user"></i>
+                <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+            </div>
+        </header>
+
+        <main class="content">
+            
+            <div class="top-controls">
+                <div>
+                    <h1>Gestão de Usuários</h1>
+                    <div class="filters-group">
+                        <div class="search-box">
+                            <input type="text" placeholder="Pesquise por Nome, Email, CPF...">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <div class="filter-item">
+                            <label>Data de Cadastro:</label>
+                            <select class="select-box"><option>Selecione</option></select>
+                        </div>
+                        <div class="filter-item">
+                            <label>Perfil:</label>
+                            <select class="select-box"><option>Selecione</option></select>
+                        </div>
+                        <div class="filter-item">
+                            <label>Status:</label>
+                            <select class="select-box"><option>Selecione</option></select>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-register">Cadastrar Usuário</button>
+            </div>
+
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome Completo</th>
+                            <th>Email</th>
+                            <th>CPF</th>
+                            <th>Telefone</th>
+                            <th>Data de Cadastro</th>
+                            <th>Perfil</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>email1@email.com</td>
+                            <td>111.111.111-11</td>
+                            <td>(21) 12345-6789</td>
+                            <td>31/03/2026</td>
+                            <td>Administrador</td>
+                            <td><div class="status"><div class="dot dot-green"></div>Ativo</div></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
+                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
+                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>email1@email.com</td>
+                            <td>111.111.111-11</td>
+                            <td>(21) 12345-6789</td>
+                            <td>31/03/2026</td>
+                            <td>Médico</td>
+                            <td><div class="status"><div class="dot dot-green"></div>Ativo</div></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
+                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
+                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>email1@email.com</td>
+                            <td>111.111.111-11</td>
+                            <td>(21) 12345-6789</td>
+                            <td>31/03/2026</td>
+                            <td>Médico</td>
+                            <td><div class="status"><div class="dot dot-green"></div>Ativo</div></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
+                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
+                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>email1@email.com</td>
+                            <td>111.111.111-11</td>
+                            <td>(21) 12345-6789</td>
+                            <td>31/03/2026</td>
+                            <td>Paciente</td>
+                            <td><div class="status"><div class="dot dot-red"></div>Inativo</div></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
+                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
+                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>email1@email.com</td>
+                            <td>111.111.111-11</td>
+                            <td>(21) 12345-6789</td>
+                            <td>31/03/2026</td>
+                            <td>Paciente</td>
+                            <td><div class="status"><div class="dot dot-green"></div>Ativo</div></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
+                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
+                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>email1@email.com</td>
+                            <td>111.111.111-11</td>
+                            <td>(21) 12345-6789</td>
+                            <td>31/03/2026</td>
+                            <td>Paciente</td>
+                            <td><div class="status"><div class="dot dot-green"></div>Ativo</div></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
+                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
+                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>email1@email.com</td>
+                            <td>111.111.111-11</td>
+                            <td>(21) 12345-6789</td>
+                            <td>31/03/2026</td>
+                            <td>Médico</td>
+                            <td><div class="status"><div class="dot dot-red"></div>Inativo</div></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
+                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
+                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>email1@email.com</td>
+                            <td>111.111.111-11</td>
+                            <td>(21) 12345-6789</td>
+                            <td>31/03/2026</td>
+                            <td>Paciente</td>
+                            <td><div class="status"><div class="dot dot-red"></div>Inativo</div></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
+                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
+                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <span>&lt;</span>
+                    <span>1</span>
+                    <span class="active">2</span>
+                    <span>3</span>
+                    <span>&gt;</span>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            © 2026 Alento Saúde - Todos os direitos reservados.
+        </footer>
+    </div>
+
+</body>
+</html>

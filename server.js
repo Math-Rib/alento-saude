@@ -33,9 +33,21 @@ app.get('/cadastro', (req, res) => {
 });
 
 /* Configura a rota da página principal do paciente ao acessar o localhost */
-app.get('/paciente/home', (req, res) => {
+app.get('/home', (req, res) => {
     /* Envia para o servidor o arquivo cadastro.html */
     res.sendFile(path.join(__dirname, 'src', 'views', 'private', 'paciente', 'home_paciente.html'));
+});
+
+/* Configura a rota da página principal do paciente ao acessar o localhost */
+app.get('/agendamentos', (req, res) => {
+    /* Envia para o servidor o arquivo agendamentos.html */
+    res.sendFile(path.join(__dirname, 'src', 'views', 'private', 'paciente', 'agendamentos.html'));
+});
+
+/* Configura a rota da página principal do paciente ao acessar o localhost */
+app.get('/gestao-usuario', (req, res) => {
+    /* Envia para o servidor o arquivo gestao-usuario.html */
+    res.sendFile(path.join(__dirname, 'src', 'views', 'private', 'admin', 'gestao-usuario.html'));
 });
 
 app.listen(porta, () => {

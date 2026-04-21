@@ -1,0 +1,293 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #eef2f6; /* Cor de fundo cinza/azulada */
+            color: #333;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- BARRA LATERAL (SIDEBAR) --- */
+        .sidebar {
+            width: 250px;
+            background-color: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .logo i {
+            color: #3470d0;
+            font-size: 24px;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .menu li {
+            padding: 12px 20px;
+            margin: 5px 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #a0aec0; /* Cor dos ícones/textos inativos */
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        /* Item ativo no menu (Início, igual à imagem) */
+        .menu li.active {
+            background-color: #e8f0fe;
+            color: #3470d0;
+        }
+
+        /* --- ÁREA PRINCIPAL --- */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        /* --- CABEÇALHO (HEADER) --- */
+        .header {
+            height: 60px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 30px;
+            gap: 20px;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #718096;
+            font-size: 14px;
+        }
+
+        .user-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #cbd5e0;
+            padding: 4px 10px;
+            border-radius: 20px;
+            color: #718096;
+        }
+
+        /* --- CONTEÚDO DA PÁGINA --- */
+        .content {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        /* --- FILTROS E BOTÃO --- */
+        .top-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .filters-group {
+            display: flex;
+            gap: 20px;
+            align-items: flex-end;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 280px;
+            padding: 10px 10px 10px 15px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            outline: none;
+            color: #4a5568;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #cbd5e0;
+        }
+
+        .filter-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .filter-item label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .select-box {
+            padding: 10px 15px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            width: 160px;
+            color: #a0aec0;
+            appearance: none;
+            background: #fff url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23cbd5e0%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E") no-repeat right 10px center;
+            background-size: 10px;
+        }
+
+        .btn-register {
+            background-color: #3470d0;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            height: 40px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* --- TABELA --- */
+        .table-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            padding: 15px 20px;
+            font-size: 13px;
+            color: #000;
+            font-weight: bold;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        td {
+            padding: 15px 20px;
+            font-size: 13px;
+            color: #333;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        /* --- STATUS (Bolinhas) --- */
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-green { background-color: #38a169; }
+        .dot-red { background-color: #e53e3e; }
+
+        /* --- BOTÕES DE AÇÃO NA TABELA --- */
+        .actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .btn-action {
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .btn-list {
+            background-color: #e8f0fe;
+            border: 1px solid #a3c2e6;
+            color: #3470d0;
+        }
+
+        .btn-edit {
+            background-color: #3470d0;
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #e53e3e;
+            color: white;
+        }
+
+        /* --- PAGINAÇÃO --- */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            gap: 10px;
+            color: #a0aec0;
+            font-size: 14px;
+        }
+
+        .pagination .active {
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* --- RODAPÉ --- */
+        .footer {
+            background-color: #344558;
+            color: #cbd5e0;
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            margin-top: auto;
+        }
