@@ -1,0 +1,579 @@
+:root {
+            --blue-primary: #5da3cc;
+            --blue-light-bg: #f0f7fb;
+            --blue-calendar: #008aff;
+            --gray-sidebar: #6d767e;
+            --text-dark: #2c3e50;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+
+        body { background-color: #f8fafc; color: var(--text-dark); min-height: 100vh; display: flex; flex-direction: column; }
+
+        /* --- Barra Superior (Fininha e perfeitamente alinhada) --- */
+.top-bar {
+    height: 40px; /* Altura fixa e reduzida */
+    padding: 0 40px; /* Padding apenas nas laterais */
+    display: flex;
+    justify-content: flex-end; /* Joga os itens para a direita */
+    align-items: center; /* Centraliza os botões exatamente no meio vertical da barra */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Borda bem sutil para dividir */
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.top-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+/* Ajuste rápido para o botão de ajuda não alterar a altura da barra */
+.btn-ajuda {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    cursor: pointer;
+    color: inherit; /* Herda a cor do texto do tema */
+}
+
+/* --- Header Principal --- */
+.main-header {
+    background: #ffffff;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between; /* Empurra a logo pra esquerda e o menu pra direita */
+    align-items: center; /* Centraliza tudo perfeitamente na vertical */
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* Sombra bem leve e moderna */
+}
+
+/* --- Logo --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #212936;
+    text-decoration: none; /* Tira o sublinhado caso vire um link */
+}
+
+.logo-container i {
+    color: #3a7bd5;
+    font-size: 1.8rem;
+}
+
+/* --- Navegação e Links --- */
+.top-nav {
+    display: flex;
+    align-items: center; /* Garante que os links e o crachá fiquem na mesma linha horizontal */
+    gap: 30px; /* Um respiro elegante entre as opções do menu */
+}
+
+.top-nav a {
+    text-decoration: none; /* Remove o sublinhado roxo feio padrão do HTML */
+    color: #4a5568; /* Um tom de cinza mais sofisticado */
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.top-nav a:hover {
+    color: #3a7bd5; /* Fica azul suavemente ao passar o mouse */
+}
+
+/* --- Crachá do Usuário --- */
+.user-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background-color: #f4f6f9; /* Fundo cinza bem claro para destacar */
+    border: 1px solid #d9e2ec;
+    border-radius: 25px; /* Bordas bem arredondadas, estilo pílula */
+    color: #212936;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 10px; /* Dá uma leve separada extra do último link "Contato" */
+}
+
+.user-badge:hover {
+    background-color: #e2e8f0;
+    border-color: #bcccdc;
+    color: #3a7bd5;
+}
+
+
+/* Barra Superior */
+
+/* Estilização do Modo Noturno */
+.input-group-darkmode {
+    color: white;
+}
+
+.checkbox-group-darkmode {
+    color: white;
+}
+
+.login-link-darkmode {
+    color: white;
+}
+
+.hero- {
+    color: white;
+}
+
+.toggle-dark-mode {
+    margin-top: 2px;
+    width: 45px;
+    height: 17px;
+    background-color: #CCCCCC;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-dark-mode::before {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: transform 0.3s;
+}
+
+/* Fundo da Página */
+body.dark-mode {
+    background-color: #353535;
+    color: white;
+}
+
+/* Botão do Modo Noturno */
+body.dark-mode .toggle-dark-mode {
+    background-color: #2196F3;
+}
+
+body.dark-mode .form-side {
+    background-color: #2d3748;
+
+}
+
+body.dark-mode .form-side h2{
+    color: white;
+}
+
+body.dark-mode .toggle-dark-mode::before {
+    transform: translateX(25px);
+}
+
+body.dark-mode .top-bar {
+    background-color: #2d3748;
+}
+
+/* Fundo do Header Principal */
+body.dark-mode .main-header {
+    background-color: #1a202c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Texto da Logo */
+body.dark-mode .alento-logo h2 {
+    color: white;
+}
+
+body.dark-mode .form-side h3 {
+    color: white;
+}
+
+/* Texto do Menu de Navegação */
+body.dark-mode .alento-nav .nav-link {
+    color: #e2e8f0;
+}
+
+body.dark-mode .alento-nav .nav-link:hover {
+    border-right: 2px solid #3182ce;
+    color: #3182ce;
+    color: #3182ce;
+}
+
+/* Botão de Entrar */
+body.dark-mode #btn-entrar {
+    border: 1px solid #63b3ed;
+    color: #63b3ed;
+    background-color: transparent;
+}
+
+body.dark-mode #btn-entrar:hover {
+    background-color: #63b3ed;
+    color: white;
+}
+
+/* Fundo do Banner */
+body.dark-mode .banner {
+    background-color: #2d3748;
+}
+
+/* Título do Banner */
+body.dark-mode .banner-text h1 {
+    color: #f7fafc;
+}
+
+/* Subtítulo do Banner */
+body.dark-mode .banner-text p {
+    color: #cbd5e0;
+}
+
+/* Botão Agendar */
+body.dark-mode .btn-agendar {
+    background-color: #4a90e2;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .btn-agendar:hover {
+    background-color: #357abd;
+}
+
+/* Imagem do Banner */
+body.dark-mode .banner-imagem img {
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+}
+
+/* Fundo da Seção Especialidades */
+body.dark-mode .servicos-section {
+    background-color: #363636;
+}
+
+/* Título da Seção Especialidades (h2) */
+body.dark-mode .servicos-title {
+    color: white;
+}
+
+/* Fundo dos Cards */
+body.dark-mode .servico-card {
+    background-color: #2d3748;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* do Título dos Cards */
+body.dark-mode .servico-card .card-title {
+    color: #f7fafc;
+}
+
+/* Fundo da Descrição dos Cards */
+body.dark-mode .servico-card .card-text {
+    color: #cbd5e0;
+}
+
+/* Fundo da Seção Sobre Nós */
+body.dark-mode .sobre-nos-intro {
+    background-color: #2d3748;
+}
+
+/* Título da Seção Sobre Nós */
+body.dark-mode .sobre-nos-title {
+    color: #f7fafc;
+}
+
+/* Subtítlo da Seção Sobre Nós */
+body.dark-mode .sobre-nos-subtitle {
+    color: #f7fafc;
+}
+
+/* Descrição da Seção Sobre Nós */
+body.dark-mode .sobre-nos-text p {
+    color: #cbd5e0;
+}
+
+/* Botão Saiba Mais da Seção Sobre Nós */
+body.dark-mode .btn-saiba-mais {
+    background-color: #4a90e2;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .btn-saiba-mais:hover {
+    background-color: #357abd;
+    color: white;
+}
+
+/* Fundo da Seção dos Pilares */
+body.dark-mode .pilares-section {
+    background-color: #363636;
+}
+
+/* Subtítulo da Seção dos Pilares */
+body.dark-mode .pilares-subtitle {
+    color: #f7fafc;
+}
+
+/* Fundo dos Cards da Seção dos Pilares */
+body.dark-mode .pilares-card {
+    background-color: #2d3748;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Título dos Cards da Seção Pilares */
+body.dark-mode .pilares-card .card-title {
+    color: #f7fafc;
+}
+
+/* Descrição dos Cards da Seção Pilares */
+body.dark-mode .pilares-card .card-text {
+    color: #cbd5e0;
+}
+
+/* Fundo Área do Modal Saiba Mais */
+body.dark-mode .modal-box {
+    background-color: #1e293b;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Descrição dos Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-description {
+    color: #cbd5e1;
+}
+
+/* Botão de Fechar o Modal Saiba Mais */
+body.dark-mode .modal-close {
+    color: #94a3b8;
+}
+
+body.dark-mode .modal-close:hover {
+    color: #ef4444;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}
+
+/* Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-item {
+    background-color: #334155;
+    border-color: #475569;
+}
+
+/* Título dos Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-item-title {
+    color: #f1f5f9;
+}
+
+/* Descrição dos Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-item-text {
+    color: #94a3b8;
+}
+
+/* Título dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format h3 {
+    color: #f1f5f9;
+}
+
+/* Subtítulo dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format h6 {
+    color: #f1f5f9;
+}
+
+/* Descrição dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format p {
+    color: #cbd5e1;
+}
+
+/* Descrição em Negrito dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format strong {
+    color: #ffffff;
+}
+
+/* Linha de Divisão do Modal Ajuda */
+body.dark-mode .modal-divider {
+    border-color: #334155;
+}
+
+/* Footer */
+body.dark-mode .alento-footer {
+    background-color: #0b0f19;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Transição das Cores */
+.main-header,
+.nav-link,
+#btn-entrar,
+.banner,
+.banner-text h1,
+.banner-text p,
+.btn-agendar,
+.servicos-section,
+.servicos-title,
+.servico-card,
+.servico-card .card-title,
+.servico-card .card-text,
+.sobre-nos-intro,
+.sobre-nos-title,
+.sobre-nos-subtitle,
+.sobre-nos-text p,
+.btn-saiba-mais,
+.pilares-section,
+.pilares-subtitle,
+.pilares-card,
+.pilares-card .card-title,
+.pilares-card .card-text,
+.alento-footer {
+    transition: all 0.3s ease, color 0.3s ease;
+}
+
+
+.top-bar {
+    background-color: #e6edf2;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: end;
+    gap: 5px;
+}
+
+.top-bar-item {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.top-bar-item img {
+    width: 20px;
+    height: 20px;
+}
+
+.top-bar-item button {
+    color: #718096;
+    font-weight: 500;
+    text-decoration: none;
+}
+        
+        /* --- Layout Principal --- */
+        .wrapper { display: flex; flex: 1; }
+
+        /* Sidebar */
+        aside {
+            width: 260px; background: #fff; border-right: 1px solid var(--border-color);
+            padding: 20px 0; display: flex; flex-direction: column;
+        }
+
+        .nav-item {
+            display: flex; align-items: center; gap: 15px; padding: 12px 30px;
+            text-decoration: none; color: var(--gray-sidebar); font-size: 1rem; transition: 0.2s;
+        }
+
+        .nav-item.active {
+            background: var(--blue-light-bg); color: var(--text-dark);
+            font-weight: 600; border-right: 4px solid var(--blue-primary);
+        }
+
+        .nav-item:hover:not(.active) { background: #fcfcfc; color: var(--blue-primary); }
+
+        /* Main Content */
+        main { flex: 1; padding: 30px 50px; }
+
+        .page-title-row {
+            display: flex; justify-content: space-between; align-items: center;
+            background: #fff; padding: 15px 25px; border: 1px solid var(--blue-primary);
+            border-radius: 8px; margin-bottom: 30px;
+        }
+
+        .user-info-detail { display: flex; align-items: center; gap: 12px; }
+        .user-info-detail img { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--blue-primary); }
+
+        /* --- Seções de Formulário --- */
+        .step-container { margin-bottom: 25px; }
+        .step-title { font-size: 1rem; font-weight: 700; margin-bottom: 15px; }
+
+        .form-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px; background: #f1f5f9; padding: 20px; border-radius: 8px;
+        }
+
+        .field-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+        .field-group select, .field-group input {
+            width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.9rem;
+        }
+
+        /* --- Calendário e Horários --- */
+        .scheduling-grid {
+            display: grid; grid-template-columns: 320px 1fr; gap: 30px; margin-top: 10px;
+        }
+
+        .calendar-card {
+            background: white; border-radius: 20px; overflow: hidden;
+            box-shadow: var(--shadow); border: 1px solid #eee;
+        }
+
+        .calendar-header {
+            background: var(--blue-calendar); color: white; padding: 15px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .calendar-days {
+            display: grid; grid-template-columns: repeat(7, 1fr);
+            padding: 15px; gap: 5px; text-align: center; font-size: 0.8rem;
+        }
+
+        .day-name { font-weight: bold; color: #64748b; padding-bottom: 10px; }
+        .day-num { 
+            padding: 10px 0; cursor: pointer; border-radius: 8px; transition: 0.2s; 
+            color: #334155;
+        }
+        .day-num:hover { background: #f1f5f9; }
+        .day-num.active { background: var(--blue-calendar); color: white; font-weight: bold; }
+        .day-num.muted { color: #cbd5e1; }
+
+        /* Horários */
+        .time-panel { background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #eee; }
+        .doctor-name { font-weight: bold; margin-bottom: 15px; font-size: 0.9rem; }
+        
+        .slots-container {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px; margin-bottom: 20px;
+        }
+
+        .slot {
+            padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;
+            text-align: center; font-size: 0.75rem; cursor: pointer; transition: 0.2s;
+        }
+        .slot.reserved { background: #f8fafc; color: #94a3b8; cursor: not-allowed; }
+        .slot.available { border-color: #22c55e; color: #15803d; }
+        .slot.selected { background: var(--blue-calendar); color: white; border-color: var(--blue-calendar); }
+
+        .appointment-summary {
+            background: #f0f7fb; border: 1px solid #d0e2ef; padding: 15px;
+            border-radius: 8px; font-size: 0.85rem; line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50; color: #fff; text-align: center;
+            padding: 15px; font-size: 0.75rem; color: #94a3b8;
+        }
+
+        /* --- Utils --- */
+        hr { border: 0; border-top: 1px solid #f1f5f9; margin: 15px 0; }

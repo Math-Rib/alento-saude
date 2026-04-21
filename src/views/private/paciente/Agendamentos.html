@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alento Saúde | Agendamento Completo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style-agendamento.css">
+</head>
+
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-right">
+        <div class="top-bar-item nav-item">
+            <img id="img-modo-noturno" src="/img/icone_modo_noturno.png" alt="Ícone de Modo Noturno">
+            <div id="toggle-dark-mode" class="toggle-dark-mode"></div>
+        </div>
+        <div class="top-bar-item nav-item">
+            <button class="nav-link btn-ajuda"> 
+                <img src="/img/icone_ajuda.png" alt="Ícone de Ajuda"> Ajuda 
+            </button>
+        </div>
+    </div>
+</div>
+
+<header class="main-header">
+    <div class="logo-container">
+        <i class="fas fa-heart-pulse"></i> Alento Saúde
+    </div>
+    
+            <nav class="top-nav">
+                <a href="#">Início</a>
+                <a href="#">Especialidades</a>
+                <a href="#">Sobre Nós</a>
+                <a href="#">Contato</a>
+                <div class="user-badge">
+                    <i class="fas fa-circle-user"></i> Cláudio
+                </div>
+            </nav>
+</header>
+
+    <div class="wrapper">
+        <aside>
+            <a href="#" class="nav-item"><i class="fas fa-house"></i> Início</a>
+            <a href="#" class="nav-item active"><i class="fas fa-calendar-check"></i> Meus Agendamentos</a>
+            <a href="#" class="nav-item"><i class="fas fa-user-injured"></i> Paciente</a>
+            <a href="#" class="nav-item"><i class="fas fa-hand-holding-medical"></i> Serviços</a>
+            <div style="flex: 1;"></div>
+            <hr>
+            <a href="#" class="nav-item"><i class="fas fa-right-from-bracket"></i> Sair (Pacientes)</a>
+        </aside>
+
+        <main>
+            <div class="page-title-row">
+                <h1 style="font-size: 1.8rem;">Agendamento</h1>
+                <div class="user-info-detail">
+                    <span style="font-weight: 600;">Cláudio</span>
+                    <img src="https://i.pravatar.cc/150?u=claudio" alt="Avatar">
+                </div>
+            </div>
+
+            <section class="step-container">
+                <h3 class="step-title">Passo 1: Selecione a Especialidade e Profissional</h3>
+                <div class="form-grid">
+                    <div class="field-group">
+                        <label>Especialidade</label>
+                        <select>
+                            <option>Clínica Geral</option>
+                            <option>Cardiologia</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label>Profissional</label>
+                        <select>
+                            <option>Dra. Ana Silva</option>
+                            <option>Dr. Roberto Souza</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label>Tipo de Consulta</label>
+                        <select>
+                            <option>Presencial</option>
+                            <option>Telemedicina</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label>Motivo</label>
+                        <select>
+                            <option>Check-up Anual</option>
+                            <option>Dor Crônica</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="step-container">
+                <h3 class="step-title">Passo 2: Escolha Data e Horário</h3>
+                <div class="scheduling-grid">
+                    <div class="calendar-card">
+                        <div class="calendar-header">
+                            <i class="fas fa-chevron-left" style="cursor:pointer"></i>
+                            <span>Junho 2024</span>
+                            <i class="fas fa-chevron-right" style="cursor:pointer"></i>
+                        </div>
+                        <div class="calendar-days">
+                            <div class="day-name">Sun</div>
+                            <div class="day-name">Seg</div>
+                            <div class="day-name">Mor</div>
+                            <div class="day-name">Qui</div>
+                            <div class="day-name">Viv</div>
+                            <div class="day-name">Sat</div>
+                            <div class="day-name">Sun</div>
+
+                            <div class="day-num muted">28</div>
+                            <div class="day-num muted">29</div>
+                            <div class="day-num muted">30</div>
+                            <div class="day-num">1</div>
+                            <div class="day-num">2</div>
+                            <div class="day-num">3</div>
+                            <div class="day-num">4</div>
+
+                            <div class="day-num">5</div>
+                            <div class="day-num">6</div>
+                            <div class="day-num">7</div>
+                            <div class="day-num">8</div>
+                            <div class="day-num">9</div>
+                            <div class="day-num">10</div>
+                            <div class="day-num">13</div>
+
+                            <div class="day-num">12</div>
+                            <div class="day-num">13</div>
+                            <div class="day-num">14</div>
+                            <div class="day-num">15</div>
+                            <div class="day-num">16</div>
+                            <div class="day-num">17</div>
+                            <div class="day-num">20</div>
+
+                            <div class="day-num">21</div>
+                            <div class="day-num">20</div>
+                            <div class="day-num active">24</div>
+                            <div class="day-num">22</div>
+                            <div class="day-num">23</div>
+                            <div class="day-num">24</div>
+                            <div class="day-num">27</div>
+                        </div>
+                    </div>
+
+                    <div class="time-panel">
+                        <p class="doctor-name">Dra. Ana Silva</p>
+                        <div class="slots-container">
+                            <div class="slot reserved">09:00<br>Reservado</div>
+                            <div class="slot reserved">09:30<br>Reservado</div>
+                            <div class="slot available">10:00<br>Disponível</div>
+                            <div class="slot selected">10:30<br>Disponível</div>
+                            <div class="slot reserved">11:00<br>Reservado</div>
+                            <div class="slot available">11:30<br>Disponível</div>
+                            <div class="slot available">14:00<br>Disponível</div>
+                            <div class="slot reserved">14:30<br>Reservado</div>
+                        </div>
+                        <div class="appointment-summary">
+                            <strong>Resumo do Agendamento</strong><br>
+                            Especialidade: Clínica Geral | Profissional: Dra. Ana Silva<br>
+                            Data: 24/06/2024 (Segunda) | Horário: 10:30<br>
+                            Local: Clínica Vida Saudável (Rua Flores, 123)
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="step-container">
+                <h3 class="step-title">Passo 3: Seus Dados (Obrigatório)</h3>
+                <div class="form-grid">
+                    <div class="field-group">
+                        <label>Nome</label>
+                        <input type="text" value="Cláudio Almeida">
+                    </div>
+                    <div class="field-group">
+                        <label>CPF</label>
+                        <input type="text" placeholder="000.000.000-00">
+                    </div>
+                    <div class="field-group">
+                        <label>E-mail</label>
+                        <input type="email" placeholder="claudio@email.com">
+                    </div>
+                    <div class="field-group">
+                        <label>Celular</label>
+                        <input type="tel" placeholder="(21) 99999-9999">
+                    </div>
+                    <div class="field-group">
+                        <label>Convênio</label>
+                        <select>
+                            <option>Unimed</option>
+                            <option>Bradesco Saúde</option>
+                            <option>Particular</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        © 2026 Alento Saúde - Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Lógica simples para interatividade
+        document.querySelectorAll('.day-num:not(.muted)').forEach(day => {
+            day.addEventListener('click', function () {
+                document.querySelector('.day-num.active').classList.remove('active');
+                this.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.slot.available').forEach(slot => {
+            slot.addEventListener('click', function () {
+                const prevSelected = document.querySelector('.slot.selected');
+                if (prevSelected) prevSelected.classList.replace('selected', 'available');
+
+                this.classList.replace('available', 'selected');
+            });
+        });
+    </script>
+</body>
+
+</html>
