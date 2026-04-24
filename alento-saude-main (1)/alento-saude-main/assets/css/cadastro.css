@@ -1,0 +1,644 @@
+:root {
+    --blue-primary: #5da3cc;
+    --blue-dark: #2c3e50;
+    --gray-bg: #f4f7f6;
+    --text-dark: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--gray-bg);
+    color: var(--text-dark);
+}
+
+/* Estilização do Header */
+.alento-header {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra Superior */
+
+/* Estilização do Modo Noturno */
+.input-group {
+    color: black;
+}
+
+.checkbox-group {
+    color: black;
+}
+
+.login-link {
+    color: black;
+}
+
+.hero- { 
+    color: white;}
+
+.toggle-dark-mode {
+    margin-top: 2px;
+    width: 45px;
+    height: 17px;
+    background-color: #CCCCCC;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-dark-mode::before {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: transform 0.3s;
+}
+
+/* Fundo da Página */
+body.dark-mode {
+    background-color: #353535;
+    color: white;
+}
+
+/* Botão do Modo Noturno */
+body.dark-mode .toggle-dark-mode {
+    background-color: #2196F3;
+}
+
+body.dark-mode .toggle-dark-mode::before {
+    transform: translateX(25px);
+}
+
+body.dark-mode .top-bar {
+    background-color: #2d3748;
+}
+
+/* Fundo do Header Principal */
+body.dark-mode .main-header {
+    background-color: #1a202c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Texto da Logo */
+body.dark-mode .alento-logo h2 {
+    color: white;
+}
+body.dark-mode .hero-side h3 {
+    color: white;
+}
+
+/* Texto do Menu de Navegação */
+body.dark-mode .alento-nav .nav-link {
+    color: #e2e8f0;
+}
+
+body.dark-mode .alento-nav .nav-link:hover {
+    border-right: 2px solid #3182ce;
+    color: #3182ce;
+    color: #3182ce;
+}
+
+/* Botão de Entrar */
+body.dark-mode #btn-entrar {
+    border: 1px solid #63b3ed;
+    color: #63b3ed;
+    background-color: transparent;
+}
+
+body.dark-mode #btn-entrar:hover {
+    background-color: #63b3ed;
+    color: white;
+}
+
+/* Fundo do Banner */
+body.dark-mode .banner {
+    background-color: #2d3748;
+}
+
+/* Título do Banner */
+body.dark-mode .banner-text h1 {
+    color: #f7fafc;
+}
+
+/* Subtítulo do Banner */
+body.dark-mode .banner-text p {
+    color: #cbd5e0;
+}
+
+/* Botão Agendar */
+body.dark-mode .btn-agendar {
+    background-color: #4a90e2;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .btn-agendar:hover {
+    background-color: #357abd;
+}
+
+/* Imagem do Banner */
+body.dark-mode .banner-imagem img {
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+}
+
+/* Fundo da Seção Especialidades */
+body.dark-mode .servicos-section {
+    background-color: #363636;
+}
+
+/* Título da Seção Especialidades (h2) */
+body.dark-mode .servicos-title {
+    color: white;
+}
+
+/* Fundo dos Cards */
+body.dark-mode .servico-card {
+    background-color: #2d3748;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* do Título dos Cards */
+body.dark-mode .servico-card .card-title {
+    color: #f7fafc;
+}
+
+/* Fundo da Descrição dos Cards */
+body.dark-mode .servico-card .card-text {
+    color: #cbd5e0;
+}
+
+/* Fundo da Seção Sobre Nós */
+body.dark-mode .sobre-nos-intro {
+    background-color: #2d3748;
+}
+
+/* Título da Seção Sobre Nós */
+body.dark-mode .sobre-nos-title {
+    color: #f7fafc;
+}
+
+/* Subtítlo da Seção Sobre Nós */
+body.dark-mode .sobre-nos-subtitle {
+    color: #f7fafc;
+}
+
+/* Descrição da Seção Sobre Nós */
+body.dark-mode .sobre-nos-text p {
+    color: #cbd5e0;
+}
+
+/* Botão Saiba Mais da Seção Sobre Nós */
+body.dark-mode .btn-saiba-mais {
+    background-color: #4a90e2;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .btn-saiba-mais:hover {
+    background-color: #357abd;
+    color: white;
+}
+
+/* Fundo da Seção dos Pilares */
+body.dark-mode .pilares-section {
+    background-color: #363636;
+}
+
+/* Subtítulo da Seção dos Pilares */
+body.dark-mode .pilares-subtitle {
+    color: #f7fafc;
+}
+
+/* Fundo dos Cards da Seção dos Pilares */
+body.dark-mode .pilares-card {
+    background-color: #2d3748;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Título dos Cards da Seção Pilares */
+body.dark-mode .pilares-card .card-title {
+    color: #f7fafc;
+}
+
+/* Descrição dos Cards da Seção Pilares */
+body.dark-mode .pilares-card .card-text {
+    color: #cbd5e0;
+}
+
+/* Fundo Área do Modal Saiba Mais */
+body.dark-mode .modal-box {
+    background-color: #1e293b;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Descrição dos Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-description {
+    color: #cbd5e1;
+}
+
+/* Botão de Fechar o Modal Saiba Mais */
+body.dark-mode .modal-close {
+    color: #94a3b8;
+}
+
+body.dark-mode .modal-close:hover {
+    color: #ef4444;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}
+
+/* Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-item {
+    background-color: #334155;
+    border-color: #475569;
+}
+
+/* Título dos Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-item-title {
+    color: #f1f5f9;
+}
+
+/* Descrição dos Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-item-text {
+    color: #94a3b8;
+}
+
+/* Título dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format h3 {
+    color: #f1f5f9;
+}
+
+/* Subtítulo dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format h6 {
+    color: #f1f5f9;
+}
+
+/* Descrição dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format p {
+    color: #cbd5e1;
+}
+
+/* Descrição em Negrito dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format strong {
+    color: #ffffff;
+}
+
+/* Linha de Divisão do Modal Ajuda */
+body.dark-mode .modal-divider {
+    border-color: #334155;
+}
+
+/* Footer */
+body.dark-mode .alento-footer {
+    background-color: #0b0f19;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Transição das Cores */
+.main-header,
+.nav-link,
+#btn-entrar,
+.banner,
+.banner-text h1,
+.banner-text p,
+.btn-agendar,
+.servicos-section,
+.servicos-title,
+.servico-card,
+.servico-card .card-title,
+.servico-card .card-text,
+.sobre-nos-intro,
+.sobre-nos-title,
+.sobre-nos-subtitle,
+.sobre-nos-text p,
+.btn-saiba-mais,
+.pilares-section,
+.pilares-subtitle,
+.pilares-card,
+.pilares-card .card-title,
+.pilares-card .card-text,
+.alento-footer {
+    transition: all 0.3s ease, color 0.3s ease;
+}
+
+
+.top-bar {
+    background-color: #e6edf2;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: end;
+    gap: 5px;
+}
+
+.top-bar-item {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.top-bar-item img {
+    width: 20px;
+    height: 20px;
+}
+
+.top-bar-item button {
+    color: #718096;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Header Principal */
+.main-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.alento-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.alento-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.alento-logo h2 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: var(--blue-dark);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Main Content */
+.container {
+    display: flex;
+    max-width: 1100px;
+    margin: 40px auto;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.container h3 {
+    color: #2c3e50
+}
+
+.hero-side {
+    flex: 1;
+    text-align: center;
+
+}
+
+.hero-side img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+}
+
+/* Form Card */
+.form-side {
+    flex: 1;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.form-side h2 {
+    color: #446a83;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    line-height: 1.2;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 38px;
+    color: #999;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.85rem;
+    margin: 20px 0;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: var(--blue-primary);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #4a8fb8;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.login-link a {
+    color: var(--blue-primary);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Estilização do Footer */
+
+.alento-footer {
+    background-color: #2f3e4e;
+    color: #ffffff;
+    padding: 30px 20px 10px;
+    border-top: 5px solid #90b6d6;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    flex-shrink: 0;
+}
+
+/* Área do Footer */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Colunas do Footer */
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Logo */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo img {
+    width: 40px;
+}
+
+.footer-col h3 {
+    margin: 0;
+}
+
+.footer-col h4 {
+    margin-bottom: 10px;
+}
+
+/* Texto */
+.footer-col p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Lista dos Links */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 5px;
+}
+
+/* Links */
+.footer-col ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #d1d5db;
+    font-size: 14px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    transform: translateX(10px);
+}
+
+/* itens de contato */
+.footer-contato-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+/* ícones */
+.footer-contato-item img {
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+}
+
+/* texto */
+.footer-contato-item span {
+    font-size: 14px;
+    color: #d1d5db;
+}
+
+/* Linha inferior */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #3e4f5f;
+    padding-top: 20px;
+    font-size: 0.7rem;
+    color: #7f8c8d;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

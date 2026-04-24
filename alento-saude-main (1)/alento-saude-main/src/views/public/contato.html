@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Alento Saúde</title>
+    <link rel="stylesheet" href="/contato.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="alento-header navbar navbar-expand-lg">
+        <!-- Barra Superior -->
+        <div class="top-bar">
+            <div class="top-bar-right">
+                <div class="top-bar-item nav-item">
+                    <img id="img-modo-noturno" src="/img/icone_modo_noturno.png" alt="Ícone de Modo Noturno">
+                    <div id="toggle-dark-mode" class="toggle-dark-mode"></div>
+                </div>
+                <div class="top-bar-item nav-item">
+                    <button class="nav-link btn-ajuda"> <img src="/img/icone_ajuda.png" alt="Ícone de Ajuda">
+                        Ajuda </button>
+                </div>
+            </div>
+        </div>
+        <!-- Header Principal -->
+        <div class="container-fluid main-header">
+
+            <!-- Botão Mobile -->
+            <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Logo -->
+            <a class="alento-logo d-flex align-items-center order-2 mx-auto mx-lg-0" href="/">
+                <img src="/img/logo_padrao.png" alt="Ícone Padrão da Logo">
+                <h2> Alento Saúde </h2>
+            </a>
+
+            <!-- Menu de Navegação -->
+            <div class="collapse navbar-collapse order-3" id="menu">
+                <ul class="navbar-nav ms-auto alento-nav">
+                    <li class="nav-item"><a class="nav-link" href="/">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#servicos">Especialidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#sobre-nos">Sobre nós</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contato">Contato</a></li>
+                    <li class="nav-item">
+                        <a class="btn-entrar" id="btn-entrar" href="/login">Entrar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="titulo">
+        <h1>Fale Conosco</h1>
+        <p>Estamos prontos para atender você</p>
+    </section>
+
+    <section class="container">
+
+        <!-- FORMULÁRIO -->
+        <div class="formulario">
+            <form>
+                <label>Nome</label>
+                <input type="text" placeholder="Seu nome completo">
+
+                <label>Email</label>
+                <input type="email" placeholder="seu@email.com">
+
+                <label>Telefone</label>
+                <input type="text" placeholder="(21)99999-9999">
+
+                <label>Mensagem</label>
+                <textarea placeholder="Digite aqui sua mensagem"></textarea>
+
+                <!-- BOTÃO DE ENVIAR -->
+                <button type="submit" class="btn-enviar">Enviar</button>
+            </form>
+        </div>
+
+        <!-- INFORMAÇÕES -->
+        <div class="info">
+            <h3>Endereço</h3>
+            <p>Rua Exemplo, 123</p>
+
+            <h3>Telefone</h3>
+            <p>(21)40000-000</p>
+
+            <h3>Horário de atendimento</h3>
+            <p>Segunda a sexta<br>08:00 às 18:00</p>
+
+            <p class="whatsapp">📱 (21)40000-000</p>
+
+            <div class="logo baixo"><img src="/img/logo.jpeg" alt="">Alento Saúde</div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="footer">
+            <div>
+                <h4>Alento Saúde</h4>
+                <p>Sua saúde merece um novo fôlego.</p>
+            </div>
+
+            <div>
+                <h4>Links rápidos</h4>
+                <p>Início | Especialidades | Sobre Nós | Contato</p>
+            </div>
+
+            <div>
+                <h4>Contato</h4>
+                <p>(21) 3456-7890</p>
+            </div>
+
+            <div>
+                <h4>Horário</h4>
+                <p>Segunda a Sexta: 08h às 20h</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

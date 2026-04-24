@@ -1,0 +1,235 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f2f4f7;
+}
+
+/* HEADER */
+.alento-header {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra Superior */
+.top-bar {
+    background-color: #e6edf2;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: end;
+    gap: 5px;
+}
+
+.top-bar-item {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.top-bar-item img {
+    width: 20px;
+    height: 20px;
+}
+
+.top-bar-item button {
+    color: #718096;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Header Principal */
+.main-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.alento-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.alento-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.alento-logo h2 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.alento-nav {
+    gap: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.alento-nav .nav-item a {
+    color: black;
+}
+
+.alento-nav .nav-link {
+    padding: 5px 10px;
+    border-right: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.alento-nav .nav-link:hover {
+    color: #3182ce;
+    border-right: 2px solid #3182ce;
+}
+
+#btn-entrar {
+    border: 1px solid #3182ce;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    position: relative;
+    top: 5px;
+    margin-left: 20px;
+}
+
+#btn-entrar:hover {
+    background-color: #3182ce;
+    color: white;
+}
+
+/* TÍTULO */
+.titulo {
+    text-align: center;
+    color: black;
+    padding: 30px;
+    border-radius: 40px;
+    width: 60%;
+    margin: 20px auto 10px auto; /* menos espaço embaixo */
+}
+/* CONTAINER */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px; /* diminui o espaço de cima */
+}
+
+/* FORMULÁRIO */
+.formulario {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 500px; /* aumentou */
+    min-height: 420px; /* mais altura */
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario label {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.formulario input,
+.formulario textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: #eee;
+    margin-top: 5px;
+}
+
+textarea {
+    height: 80px;
+}
+
+/* BOTÃO */
+.btn-enviar {
+    margin-top: 15px;
+    padding: 12px;
+    background: #7da8c4;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    background: #5c8ea8;
+}
+
+/* INFO */
+.info {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 320px; /* aumentou */
+    min-height: 420px; /* mesma altura do formulário */
+}
+
+.info h3 {
+    margin-top: 15px;
+}
+
+.whatsapp {
+    margin-top: 10px;
+    font-weight: bold;
+    color: green;
+}
+
+.logo-info {
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    background: #2f3e4e;
+    color: white;
+    padding: 20px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* padrão */
+.logo img {
+    width: 100%;
+}
+
+/* LOGO DO TOPO (PEQUENA) */
+.logo.topo img {
+    width: 120px;
+}
+
+/* LOGO DE BAIXO (MÉDIA) */
+.logo.baixo img {
+    width: 180px;
+}
