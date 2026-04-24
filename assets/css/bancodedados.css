@@ -1,0 +1,526 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #eef3f7;
+  color: #222;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: #fff;
+  border-right: 1px solid #d9d9d9;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.menu {
+  padding: 18px 14px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 14px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #b7b7b7;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.menu-item .icon {
+  font-size: 24px;
+}
+
+.menu-item.active {
+  background: #e8f1f7;
+  color: #5b99c8;
+}
+
+.menu-item:hover {
+  background: #f4f7fa;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 76px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 22px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #6d7c8f;
+  font-size: 15px;
+}
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #b5d1e8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.content {
+  padding: 28px 24px;
+}
+
+.content h1 {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: flex-end;
+  margin-bottom: 22px;
+}
+
+.filters input,
+.filters select {
+  height: 44px;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  padding: 0 12px;
+  background: #fff;
+  min-width: 180px;
+  color: #777;
+}
+
+.filters input {
+  min-width: 270px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #222;
+}
+
+.btn-primary {
+  height: 44px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 5px;
+  background: #3f73d8;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.table-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #fff;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e6e6e6;
+  font-size: 14px;
+}
+
+th {
+  font-size: 15px;
+  color: #1d1d1d;
+}
+
+.status {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.status.success {
+  background: #35c93d;
+}
+
+.status.error {
+  background: #e03030;
+}
+
+.status.warning {
+  background: #ead11a;
+}
+
+.actions {
+  white-space: nowrap;
+}
+
+.btn-action {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  margin-right: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-action.green {
+  background: #0f6f2a;
+}
+
+.btn-action.blue {
+  background: #2d64d6;
+}
+
+.btn-action.red {
+  background: #e33131;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px;
+  color: #a8a8a8;
+  font-weight: bold;
+}
+
+.active-page {
+  color: #111;
+}
+
+@media (max-width: 1100px) {
+  .sidebar {
+    width: 190px;
+  }
+
+  th,
+  td {
+    padding: 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
+.login-footer {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-footer a {
+    text-decoration: none;
+    color: #666;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+.login-footer p {
+    margin-top: 15px;
+}
+
+.create-account {
+    color: #5bc0de !important;
+    font-weight: bold;
+}
+
+/* --- Footer --- */
+/* Estilização do Footer */
+.alento-footer {
+    background-color: #2f3e4e;
+    color: #ffffff;
+    padding: 30px 20px 10px;
+    border-top: 5px solid #90b6d6;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    flex-shrink: 0;
+}
+
+/* Área do Footer */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Colunas do Footer */
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Logo */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo img {
+    width: 40px;
+}
+
+.footer-col h3 {
+    margin: 0;
+}
+
+.footer-col h4 {
+    margin-bottom: 10px;
+}
+
+/* Texto */
+.footer-col p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Lista dos Links */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 5px;
+}
+
+/* Links */
+.footer-col ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #d1d5db;
+    font-size: 14px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    transform: translateX(10px);
+}
+
+/* itens de contato */
+.footer-contato-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+/* ícones */
+.footer-contato-item img {
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+}
+
+/* texto */
+.footer-contato-item span {
+    font-size: 14px;
+    color: #d1d5db;
+}
+
+/* Linha inferior */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 13px;
+}
+/* Estilização do Header */
+.alento-header {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra Superior */
+.top-bar {
+    background-color: #e6edf2;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: end;
+    gap: 5px;
+}
+
+.top-bar-item {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.top-bar-item img {
+    width: 20px;
+    height: 20px;
+}
+
+.top-bar-item button {
+    color: #718096;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Estilização do Botão Modo Noturno */
+.toggle-dark-mode {
+    margin-top: 2px;
+    width: 45px;
+    height: 17px;
+    background-color: #CCCCCC;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-dark-mode::before {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: transform 0.3s;
+}
+
+/* Header Principal */
+.main-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.alento-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.alento-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.alento-logo h2 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.alento-nav {
+    gap: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.alento-nav .nav-item a {
+    color: black;
+}
+
+.alento-nav .nav-link {
+    padding: 5px 10px;
+    border-right: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.alento-nav .nav-link:hover {
+    color: #3182ce;
+    border-right: 2px solid #3182ce;
+}
+
+#btn-entrar {
+    border: 1px solid #3182ce;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    position: relative;
+    top: 5px;
+    margin-left: 20px;
+}
+
+#btn-entrar:hover {
+    background-color: #3182ce;
+    color: white;
+}

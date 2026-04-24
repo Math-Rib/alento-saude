@@ -1,0 +1,450 @@
+/* --- Resets e Estilos Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte similar à do site */
+}
+
+body {
+    background-color: #f4f7f6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Estilização do Header */
+.alento-header {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra Superior */
+.top-bar {
+    background-color: #e6edf2;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: end;
+    gap: 5px;
+}
+
+.top-bar-item {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.top-bar-item img {
+    width: 20px;
+    height: 20px;
+}
+
+.top-bar-item button {
+    color: #718096;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Estilização do Botão Modo Noturno */
+.toggle-dark-mode {
+    margin-top: 2px;
+    width: 45px;
+    height: 17px;
+    background-color: #CCCCCC;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-dark-mode::before {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: transform 0.3s;
+}
+
+/* Header Principal */
+.main-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.alento-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.alento-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.alento-logo h2 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.alento-nav {
+    gap: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.alento-nav .nav-item a {
+    color: black;
+}
+
+.alento-nav .nav-link {
+    padding: 5px 10px;
+    border-right: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.alento-nav .nav-link:hover {
+    color: #3182ce;
+    border-right: 2px solid #3182ce;
+}
+
+#btn-entrar {
+    border: 1px solid #3182ce;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    position: relative;
+    top: 5px;
+    margin-left: 20px;
+}
+
+#btn-entrar:hover {
+    background-color: #3182ce;
+    color: white;
+}
+
+/* --- Main Content (com o fundo de nuvens) --- */
+.main-content {
+    flex: 1;
+    background-image: url('https://alentosaude.com.br/wp-content/uploads/2023/10/bg-nuvens.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.main-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* ÁREA MODIFICADA: Estilo da imagem centralizada */
+.welcome-image-area {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doctor-image {
+    max-width: 200%;
+    height: 600px;
+    
+    /* Adiciona uma sombra leve para destacar a ilustração */
+    filter: drop-shadow(0px 0px 15px rgba(0,0,0,0.1)); 
+}
+
+/* --- Box de Login --- */
+.login-box {
+    background-color: #fff;
+    width: 380px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-box h2 {
+    color: #1a4f8b;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btn-social {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-fb { background-color: #3b5998; }
+.btn-google { background-color: #db4a39; }
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-size: 15px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #a3c4f3;
+}
+
+.btn-login-main {
+    width: 100%;
+    padding: 15px;
+    background-color: #5bc0de; /* Azul claro do botão LOGIN */
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(91, 192, 222, 0.3);
+    transition: background 0.3s;
+}
+
+.btn-login-main:hover {
+    background-color: #46b8da;
+}
+
+.login-footer {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-footer a {
+    text-decoration: none;
+    color: #666;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+.login-footer p {
+    margin-top: 15px;
+}
+
+.create-account {
+    color: #5bc0de !important;
+    font-weight: bold;
+}
+
+/* --- Footer --- */
+/* Estilização do Footer */
+.alento-footer {
+    background-color: #2f3e4e;
+    color: #ffffff;
+    padding: 30px 20px 10px;
+    border-top: 5px solid #90b6d6;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    flex-shrink: 0;
+}
+
+/* Área do Footer */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Colunas do Footer */
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Logo */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo img {
+    width: 40px;
+}
+
+.footer-col h3 {
+    margin: 0;
+}
+
+.footer-col h4 {
+    margin-bottom: 10px;
+}
+
+/* Texto */
+.footer-col p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Lista dos Links */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 5px;
+}
+
+/* Links */
+.footer-col ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #d1d5db;
+    font-size: 14px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    transform: translateX(10px);
+}
+
+/* itens de contato */
+.footer-contato-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+/* ícones */
+.footer-contato-item img {
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+}
+
+/* texto */
+.footer-contato-item span {
+    font-size: 14px;
+    color: #d1d5db;
+}
+
+/* Linha inferior */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 13px;
+}
+/* Estilização no Modo Noturno */
+/* Fundo da Página */
+body.dark-mode {
+    background-color: #353535;
+    color: white;
+}
+
+/* Botão do Modo Noturno */
+body.dark-mode .toggle-dark-mode {
+    background-color: #2196F3;
+}
+
+body.dark-mode .toggle-dark-mode::before {
+    transform: translateX(25px);
+}
+
+body.dark-mode .top-bar {
+    background-color: #2d3748;
+}
+
+
+/* Fundo do Header Principal */
+body.dark-mode .main-header {
+    background-color: #1a202c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+
+/*Mensagem de boas-vindas */
+body .mensagem-boas-vindas {
+    font-size: 18px;
+    color: #1a4f8b;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/*agendamento*/
+body .agendamento-online {
+    font-size: 16px;
+    color: #1a4f8b;
+    margin-bottom: 30px;
+}
+
+/*histórico de consultas*/
+body .historico-consultas {
+    font-size: 16px;
+    color: #1a4f8b;
+    margin-bottom: 30px;
+}
+ */resultado de exames*/
+body .resultado-exames {
+    font-size: 16px;
+    color: #1a4f8b;
+    margin-bottom: 30px;
+}

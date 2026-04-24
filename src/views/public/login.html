@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap e CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/login.css">
+    <!-- Ícone do Navegador -->
+    <link rel="icon" type="image/x-icon" href="/img/logo_alternativa.png">
+    <title> Alento Saúde - Login </title>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="alento-header navbar navbar-expand-lg">
+        <!-- Barra Superior -->
+        <div class="top-bar">
+            <div class="top-bar-right">
+                <div class="top-bar-item nav-item">
+                    <img id="img-modo-noturno" src="/img/icone_modo_noturno.png" alt="Ícone de Modo Noturno">
+                    <div id="toggle-dark-mode" class="toggle-dark-mode"></div>
+                </div>
+                <div class="top-bar-item nav-item">
+                    <button class="nav-link btn-ajuda"> <img src="/img/icone_ajuda.png" alt="Ícone de Ajuda">
+                        Ajuda </button>
+                </div>
+            </div>
+        </div>
+        <!-- Header Principal -->
+        <div class="container-fluid main-header">
+
+            <!-- Botão Mobile -->
+            <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Logo -->
+            <a class="alento-logo d-flex align-items-center order-2 mx-auto mx-lg-0" href="/">
+                <img src="/img/logo_padrao.png" alt="Ícone Padrão da Logo">
+                <h2> Alento Saúde </h2>
+            </a>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="main-container">
+
+            <div class="welcome-image-area">
+                <img src="/img/medicologin.png" alt="Médico Alento Saúde" class="doctor-image">
+            </div>
+
+            <div class="login-box">
+                <h2>Entrar</h2>
+                <div class="social-login">
+                    <button class="btn-social btn-fb">f</button>
+                    <button class="btn-social btn-google">G</button>
+                </div>
+                <form>
+                    <div class="input-group">
+                        <input type="email" placeholder="E-mail" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" placeholder="Senha" required>
+                    </div>
+                    <button type="submit" class="btn-login-main">LOGIN</button>
+                </form>
+                <div class="login-footer">
+                    <a href="#">Esqueceu sua senha?</a>
+                    <p>Ainda não tem uma conta? <a href="#" class="create-account">Criar Conta</a></p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+<div class="mensagem-de-boas-vindas">    
+    <h1>Bem-vindo ao Alento Saúde</h1>
+</div>
+<div class="agendamento-online">     
+    <h2>Agendamento Online</h2>
+</div>
+<div class="historico-consultas">       
+    <h2>Histórico de Consultas</h2>
+</div>
+<div class="resultados-exames">       
+    <h2>Resultados de Exames</h2>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="alento-footer">
+
+        <div class="footer-container">
+
+            <!-- Logo + descrição -->
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="/img/logo_alternativa.png" alt="Ícone Alternativo da Logo">
+                    <h3>Alento Saúde</h3>
+                </div>
+                <p>Sua saúde merece um novo fôlego.</p>
+            </div>
+
+            <!-- Links rápidos -->
+            <div class="footer-col">
+                <h4>LINKS RÁPIDOS</h4>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/#servicos">Especialidades</a></li>
+                    <li><a href="/#sobre-nos">Sobre Nós</a></li>
+                    <li><a href="/contato">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Contato -->
+            <div class="footer-col">
+                <h4>Contato</h4>
+
+                <div class="footer-contato-item">
+                    <img src="/img/icone_telefone.png" alt="Ícone de Telefone">
+                    <span>(21) 3456-7890</span>
+                </div>
+
+                <div class="footer-contato-item">
+                    <img src="/img/icone_email.png" alt="Ícone do Email">
+                    <span>contato@alentosuade.com.br</span>
+                </div>
+
+                <div class="footer-contato-item">
+                    <img src="/img/icone_localizacao.png" alt="Ícone de Localização">
+                    <span>Av. Rio Branco, 123 - Centro, Rio de Janeiro - RJ</span>
+                </div>
+            </div>
+
+            <!-- Horário -->
+            <div class="footer-col">
+                <h4>Horário</h4>
+                <p>Segunda a Sexta: 08h às 20h</p>
+                <p>Sábado: 08h às 14h</p>
+            </div>
+
+        </div>
+
+        <!-- Linha inferior -->
+        <div class="footer-bottom">
+            <p>© 2026 Alento Saúde - Todos os direitos reservados.</p>
+        </div>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+        <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>
