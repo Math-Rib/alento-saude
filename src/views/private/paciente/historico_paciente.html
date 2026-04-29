@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap e CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="/css/historico_paciente.css" rel="stylesheet">
+    <!-- Ícone do Navegador -->
+    <link rel="icon" type="image/x-icon" href="/img/logo_alternativa.png">
+    <title> Alento Saúde | Histórico do Paciente </title>
+</head>
+
+<body>
+    <header class="alento-header navbar navbar-expand-lg">
+        <!-- Barra Superior -->
+        <div class="top-bar">
+            <div class="top-bar-right">
+                <div class="top-bar-item nav-item">
+                    <img id="img-modo-noturno" src="/img/icone_modo_noturno.png" alt="Ícone de Modo Noturno">
+                    <div id="toggle-dark-mode" class="toggle-dark-mode"></div>
+                </div>
+                <div class="top-bar-item nav-item">
+                    <button class="nav-link btn-ajuda"> <img class="img-item-default" src="/img/icone_ajuda.png"
+                            alt="Ícone de Ajuda">
+                        <img class="img-item-hover" src="/img/icone_ajuda_hover.png" alt="Ícone de Ajuda">
+                        <img class="img-item-dark-hover" src="/img/icone_ajuda_dark_hover.png" alt="Ícone de Ajuda">
+                        Ajuda
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Header Principal -->
+        <div class="container-fluid main-header">
+
+            <!-- Ícone Menu Hamburguer -->
+            <button class="btn-hamburguer-custom order-0" id="btn-menu-mobile">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Logo -->
+            <a class="alento-logo d-flex align-items-center order-1" href="/paciente/home">
+                <img src="/img/logo_padrao.png" alt="Ícone Padrão da Logo">
+                <h2> Alento Saúde </h2>
+            </a>
+
+            <nav class="menu-central order-lg-2">
+                <a href="/paciente/home">
+                    <img class="img-menu-default" src="/img/icone_inicio.png">
+                    Início
+                </a>
+                <a href="/paciente/agendamento">
+                    <img class="img-menu-default" src="/img/icone_agendamento.png">
+                    Meus Agendamentos
+                </a>
+                <a href="/paciente/historico">
+                    <img src="/img/icone_historico.png">
+                    Histórico & Documentos
+                </a>
+            </nav>
+
+            <div class="user-dropdown d-flex align-items-center order-3">
+                <div class="user-profile">
+                    <img src="/img/icone_perfil.png" alt="Perfil" class="img-perfil-nav">
+                    <i class="fa fa-chevron-down arrow-icon"></i>
+                </div>
+                <div id="dropdownMenu" class="dropdown-content">
+                    <div class="dropdown-header">
+                        <h6>Olá, João Roberto da Silva!</h6>
+                    </div>
+                    <a href=""><i class="fa fa-user"></i> Meu Perfil</a>
+                    <hr>
+                    <a href="" class="logout-item">
+                        <i class="fa fa-sign-out-alt"></i> Sair
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- Menu Lateral -->
+        <nav class="sidebar">
+            <ul class="menu-items">
+                <li>
+                    <a href="/paciente/home">
+                        <img class="img-menu-default" src="/img/icone_inicio.png">
+                        <img class="img-menu-hover" src="/img/icone_inicio_ativo.png">
+                        Início
+                    </a>
+                </li>
+                <li>
+                    <a href="/paciente/agendamento">
+                        <img class="img-menu-default" src="/img/icone_agendamento.png">
+                        <img class="img-menu-hover" src="/img/icone_agendamento_ativo.png">
+                        Meus Agendamentos
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/paciente/historico">
+                        <img src="/img/icone_historico_ativo.png">
+                        Histórico & Documentos
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="container-fluid main-content">
+            <!-- Banner do Paciente -->
+            <section class="banner-paciente">
+                <div class="header-main">
+                    <div class="main-titulo">
+                        <h1> Histórico de Consultas & Documentos </h1>
+                        <p> Confira sua ficha, o histórico de atendimento e documentos. </p>
+                    </div>
+                    <div class="paciente-header">
+                        <div class="paciente-img">
+                            <img src="/img/icone_perfil.png">
+                        </div>
+                        <div class="paciente-info">
+                            <h3> João Roberto da Silva </h3>
+                            <div class="paciente-tags">
+                                <div class="paciente-tag-item paciente-id">
+                                    <p> ID: PAC12345 </p>
+                                </div>
+                                <div class="paciente-tag-item">
+                                    <img src="/img/icone_idade.png">
+                                    <p> 70 anos </p>
+                                </div>
+                                <div class="paciente-tag-item">
+                                    <img src="/img/icone_sexo_masculino.png">
+                                    <p> Masculino </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ficha Paciente -->
+            <section class="ficha-paciente">
+                <div class="card-ficha-paciente">
+                    <div class="header-ficha-paciente">
+                        <div class="ficha-paciente-titulo">
+                            <img src="/img/icone_carteirinha.png">
+                            <h5> Ficha Cadastral do Paciente </h4>
+                        </div>
+                        <div class="btn-editar-ficha">
+                            <button>
+                                <img src="/img/icone_editar_ficha.png">
+                                Editar Ficha
+                            </button>
+                        </div>
+                    </div>
+                    <div class="body-ficha-paciente">
+                        <div class="dados-paciente">
+                            <h6> Dados Pessoais </h6>
+                            <div class="linha-1">
+                                <p class="conteudo-titulo"> Nome Completo </p>
+                                <p class="conteudo-desc"> João Roberto da Silva </p>
+                            </div>
+                            <div class="linha-2">
+                                <p class="conteudo-titulo"> CPF </p>
+                                <p class="conteudo-desc"> 999.999.999-99 </p>
+                            </div>
+                            <div class="linha-3">
+                                <p class="conteudo-titulo"> Data de Nascimento </p>
+                                <p class="conteudo-desc"> 15/03/1954 </p>
+                            </div>
+                            <div class="linha-4">
+                                <p class="conteudo-titulo"> Telefone </p>
+                                <p class="conteudo-desc"> (21) 99999-9999 </p>
+                            </div>
+                            <div class="linha-5">
+                                <p class="conteudo-titulo"> Email </p>
+                                <p class="conteudo-desc"> joao.silva@email.com </p>
+                            </div>
+                            <div class="linha-6">
+                                <p class="conteudo-titulo"> Endereço </p>
+                                <p class="conteudo-desc"> Rua Algum Lugar, nº 5 </p>
+                            </div>
+                            <div class="linha-7">
+                                <p class="conteudo-titulo"> Complemento </p>
+                                <p class="conteudo-desc"> Apto. 111 </p>
+                            </div>
+                            <div class="linha-8">
+                                <p class="conteudo-titulo"> Plano de Saúde </p>
+                                <p class="conteudo-desc"> UNIMED Títular </p>
+                            </div>
+                            <div class="linha-9">
+                                <p class="conteudo-titulo"> Número da Carteirinha </p>
+                                <p class="conteudo-desc"> 123456789 </p>
+                            </div>
+                        </div>
+                        <div class="info-paciente">
+                            <h6> Informações Médicas </h6>
+                            <div class="linha-1">
+                                <p class="conteudo-titulo"> Tipo Sanguíneo </p>
+                                <p class="conteudo-desc"> A+ </p>
+                            </div>
+                            <div class="linha-2">
+                                <p class="conteudo-titulo"> Alergias </p>
+                                <p class="conteudo-desc"> Nenhuma Conhecida </p>
+                            </div>
+                            <div class="linha-3">
+                                <p class="conteudo-titulo"> Doenças Crônicas </p>
+                                <p class="conteudo-desc"> Nenhuma Conhecida </p>
+                            </div>
+                            <div class="linha-4">
+                                <p class="conteudo-titulo"> Medicações de Uso Contínuo </p>
+                                <p class="conteudo-desc"> Nenhuma Conhecida </p>
+                            </div>
+                            <div class="linha-5">
+                                <p class="conteudo-titulo"> Peso Atual </p>
+                                <p class="conteudo-desc"> 60 Kg </p>
+                            </div>
+                            <div class="linha-6">
+                                <p class="conteudo-titulo"> Altura </p>
+                                <p class="conteudo-desc"> 1.60m </p>
+                            </div>
+                            <div class="linha-7">
+                                <p class="conteudo-titulo"> Índice de Massa Corporal Atual (IMC) </p>
+                                <p class="conteudo-desc"> 23.4 </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Histórico de Consultas -->
+            <section class="historico-consultas">
+                <div class="card-historico-consultas">
+                    <div class="historico-header">
+                        <img src="/img/icone_historico_consulta.png">
+                        <h5>Histórico de Consultas</h5>
+                    </div>
+                    <div class="grid-historico-header">
+                        <div>Data</div>
+                        <div>Hora</div>
+                        <div>Especialidade/Profissional</div>
+                        <div>Diagnóstico</div>
+                        <div>Status</div>
+                        <div>Ações</div>
+                    </div>
+                    <div class="historico-grid">
+                        <div>15/03/2024</div>
+                        <div>14:00</div>
+                        <div>Clínica Geral - Dra. Ana Silva</div>
+                        <div>Gripe Viral</div>
+                        <div><span class="status-hist-badge status-hist-agendada">Agendada</span></div>
+                        <div class="btn-hist-acao">
+                            <button type="button" class="btn-remarcar">
+                                <img class="img-default" src="/img/icone_editar.png">
+                                <img class="img-hover" src="/img/icone_editar_hover.png">
+                                <span> Remarcar </span>
+                            </button>
+                            <button type="button" class="btn-desmarcar">
+                                <img class="img-default" src="/img/icone_excluir.png">
+                                <img class="img-hover" src="/img/icone_excluir_hover.png">
+                                <span> Desmarcar </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="historico-grid">
+                        <div>14/01/2024</div>
+                        <div>09:00</div>
+                        <div>Cargiologista - Dra. Fernanda Costa</div>
+                        <div>Avaliação Geral</div>
+                        <div><span class="status-hist-badge status-hist-agendada">Agendada</span></div>
+                        <div class="btn-hist-acao">
+                            <button type="button" class="btn-remarcar">
+                                <img class="img-default" src="/img/icone_editar.png">
+                                <img class="img-hover" src="/img/icone_editar_hover.png">
+                                <span> Remarcar </span>
+                            </button>
+                            <button type="button" class="btn-desmarcar">
+                                <img class="img-default" src="/img/icone_excluir.png">
+                                <img class="img-hover" src="/img/icone_excluir_hover.png">
+                                <span> Desmarcar </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="historico-grid">
+                        <div>22/11/2023</div>
+                        <div>11:00</div>
+                        <div>Ortopedia - Dra. Bruno Almeida</div>
+                        <div>Dor no Joelho Direito</div>
+                        <div><span class="status-hist-badge status-hist-realizada">Realizada</span></div>
+                        <div class="btn-hist-acao">
+                            <button type="button" class="btn-remarcar">
+                                <img class="img-default" src="/img/icone_editar.png">
+                                <img class="img-hover" src="/img/icone_editar_hover.png">
+                                <span> Remarcar </span>
+                            </button>
+                            <button type="button" class="btn-desmarcar">
+                                <img class="img-default" src="/img/icone_excluir.png">
+                                <img class="img-hover" src="/img/icone_excluir_hover.png">
+                                <span> Desmarcar </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="historico-grid">
+                        <div>05/03/2023</div>
+                        <div>09:30</div>
+                        <div>Dermatologia - Dra. Paula Lima</div>
+                        <div>Avalição de Pinta</div>
+                        <div><span class="status-hist-badge status-hist-realizada">Realizada</span></div>
+                        <div class="btn-hist-acao">
+                            <button type="button" class="btn-remarcar">
+                                <img class="img-default" src="/img/icone_editar.png">
+                                <img class="img-hover" src="/img/icone_editar_hover.png">
+                                <span> Remarcar </span>
+                            </button>
+                            <button type="button" class="btn-desmarcar">
+                                <img class="img-default" src="/img/icone_excluir.png">
+                                <img class="img-hover" src="/img/icone_excluir_hover.png">
+                                <span> Desmarcar </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="historico-grid">
+                        <div>25/01/2023</div>
+                        <div>11:00</div>
+                        <div>Clínica Geral - Dra. Ana Silva</div>
+                        <div> Pressão Alta </div>
+                        <div><span class="status-hist-badge status-hist-realizada">Realizada</span></div>
+                        <div class="btn-hist-acao">
+                            <button type="button" class="btn-remarcar">
+                                <img class="img-default" src="/img/icone_editar.png">
+                                <img class="img-hover" src="/img/icone_editar_hover.png">
+                                <span> Remarcar </span>
+                            </button>
+                            <button type="button" class="btn-desmarcar">
+                                <img class="img-default" src="/img/icone_excluir.png">
+                                <img class="img-hover" src="/img/icone_excluir_hover.png">
+                                <span> Desmarcar </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="paginacao-historico-container">
+                        <button class="btn-seta" id="prev-hist">&laquo;</button>
+                        <div class="paginacao-historico-numerica">
+                            <span class="num-pag active">1</span>
+                            <span class="num-pag">2</span>
+                            <span class="num-pag">3</span>
+                        </div>
+                        <button class="btn-seta" id="next-hist">&raquo;</button>
+                    </div>
+            </section>
+
+            <!-- Biblioteca de Documentos -->
+            <section class="biblioteca-documentos">
+                <div class="card-biblioteca-documentos">
+                    <div class="biblioteca-header">
+                        <div class="biblioteca-titulo-header">
+                            <img src="/img/icone_biblioteca.png">
+                            <h5>Biblioteca de Documentos</h5>
+                        </div>
+                        <p> Receitas e Atestados dos últimos 12 meses </p>
+                    </div>
+                    <div class="grid-biblioteca-header">
+                        <div>Tipo</div>
+                        <div>Nome</div>
+                        <div>Data</div>
+                        <div>Hora</div>
+                        <div>Médico Relacionado</div>
+                        <div>Ações</div>
+                    </div>
+                    <div class="biblioteca-grid">
+                        <div><span class="status-bib-badge status-bib-atestado">Atestado</span></div>
+                        <div> Atestado_PAC12345 </div>
+                        <div> 15/03/2024 </div>
+                        <div> 14:00 </div>
+                        <div> Clínica Geral - Dra. Ana Silva </div>
+                        <div class="btn-bib-acao">
+                            <button type="button" class="btn-visualizar">
+                                <img class="img-default" src="/img/icone_visualizar.png">
+                                <img class="img-hover" src="/img/icone_visualizar_hover.png">
+                                <span> Visualizar </span>
+                            </button>
+                            <button type="button" class="btn-baixar">
+                                <img class="img-default" src="/img/icone_baixar.png">
+                                <img class="img-hover" src="/img/icone_baixar_hover.png">
+                                <span> Download </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="biblioteca-grid">
+                        <div><span class="status-bib-badge status-bib-receita">Receita</span></div>
+                        <div> Receita_PAC12345 </div>
+                        <div> 14/01/2024 </div>
+                        <div> 09:00 </div>
+                        <div> Cadiologista - Dra. Fernanda Costa </div>
+                        <div class="btn-bib-acao">
+                            <button type="button" class="btn-visualizar">
+                                <img class="img-default" src="/img/icone_visualizar.png">
+                                <img class="img-hover" src="/img/icone_visualizar_hover.png">
+                                <span> Visualizar </span>
+                            </button>
+                            <button type="button" class="btn-baixar">
+                                <img class="img-default" src="/img/icone_baixar.png">
+                                <img class="img-hover" src="/img/icone_baixar_hover.png">
+                                <span> Download </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="biblioteca-grid">
+                        <div><span class="status-bib-badge status-bib-receita">Receita</span></div>
+                        <div> Receita_PAC12345 </div>
+                        <div> 22/11/2023 </div>
+                        <div> 11:00 </div>
+                        <div> Ortopedia - Dr. Bruno Almeida </div>
+                        <div class="btn-bib-acao">
+                            <button type="button" class="btn-visualizar">
+                                <img class="img-default" src="/img/icone_visualizar.png">
+                                <img class="img-hover" src="/img/icone_visualizar_hover.png">
+                                <span> Visualizar </span>
+                            </button>
+                            <button type="button" class="btn-baixar">
+                                <img class="img-default" src="/img/icone_baixar.png">
+                                <img class="img-hover" src="/img/icone_baixar_hover.png">
+                                <span> Download </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="biblioteca-grid">
+                        <div><span class="status-bib-badge status-bib-receita">Receita</span></div>
+                        <div> Receita_PAC12345 </div>
+                        <div> 05/03/2023 </div>
+                        <div> 09:30 </div>
+                        <div> Dermatologia - Dra. Paula Lima </div>
+                        <div class="btn-bib-acao">
+                            <button type="button" class="btn-visualizar">
+                                <img class="img-default" src="/img/icone_visualizar.png">
+                                <img class="img-hover" src="/img/icone_visualizar_hover.png">
+                                <span> Visualizar </span>
+                            </button>
+                            <button type="button" class="btn-baixar">
+                                <img class="img-default" src="/img/icone_baixar.png">
+                                <img class="img-hover" src="/img/icone_baixar_hover.png">
+                                <span> Download </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="biblioteca-grid">
+                        <div><span class="status-bib-badge status-bib-atestado">Atestado</span></div>
+                        <div> Atestado_PAC12345 </div>
+                        <div> 25/01/2023 </div>
+                        <div> 11:00 </div>
+                        <div> Clínica Geral - Dra. Ana Silva </div>
+                        <div class="btn-bib-acao">
+                            <button type="button" class="btn-visualizar">
+                                <img class="img-default" src="/img/icone_visualizar.png">
+                                <img class="img-hover" src="/img/icone_visualizar_hover.png">
+                                <span> Visualizar </span>
+                            </button>
+                            <button type="button" class="btn-baixar">
+                                <img class="img-default" src="/img/icone_baixar.png">
+                                <img class="img-hover" src="/img/icone_baixar_hover.png">
+                                <span> Download </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="paginacao-biblioteca-container">
+                        <button class="btn-seta" id="prev-bib">&laquo;</button>
+                        <div class="paginacao-biblioteca-numerica">
+                            <span class="num-pag active">1</span>
+                            <span class="num-pag">2</span>
+                            <span class="num-pag">3</span>
+                        </div>
+                        <button class="btn-seta" id="next-bib">&raquo;</button>
+                    </div>
+            </section>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="alento-footer">
+        <p>© 2026 Alento Saúde - Todos os direitos reservados.</p>
+    </footer>
+
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>

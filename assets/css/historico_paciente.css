@@ -1,0 +1,1532 @@
+/* Estilização Global */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Layout da página inteira */
+body {
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Estilização do Header */
+.alento-header {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    position: sticky !important;
+    top: 0;
+    width: 100%;
+    z-index: 1050;
+}
+
+/* Barra Superior */
+.top-bar {
+    background-color: #e6edf2;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: end;
+    gap: 5px;
+}
+
+.top-bar-item {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.top-bar-item img {
+    width: 20px;
+    height: 20px;
+}
+
+.top-bar-item button {
+    color: #718096;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.top-bar-item button:hover {
+    color: #000000;
+}
+
+/* Troca dos Ícones do Botão Ajuda */
+.top-bar-item button .img-item-hover,
+.top-bar-item .img-item-dark-hover {
+    display: none;
+}
+
+.top-bar-item button:hover .img-item-default {
+    display: none;
+}
+
+.top-bar-item button:hover .img-item-hover {
+    display: inline-block;
+}
+
+/* Estilização do Botão Modo Noturno */
+.toggle-dark-mode {
+    margin-top: 2px;
+    width: 45px;
+    height: 17px;
+    background-color: #CCCCCC;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-dark-mode::before {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: transform 0.3s;
+}
+
+/* Header Principal */
+.main-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+    min-height: 70px;
+    padding: 0 20px;
+}
+
+.header-left,
+.header-right {
+    flex: 1;
+}
+
+.header-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-hamburguer-custom {
+    border: none;
+    color: #2b3d4f;
+    padding: 5px 10px;
+    display: none;
+}
+
+.header-right {
+    justify-content: flex-end;
+    display: flex;
+}
+
+.header-center button {
+    display: none;
+}
+
+
+.alento-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.alento-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.alento-logo h2 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Botão de Perfil */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 4px 10px 4px 10px;
+    background-color: transparent;
+    border: 1.5px solid #197bb0;
+    border-radius: 50px;
+}
+
+.user-profile:hover {
+    background-color: #197bb0;
+}
+
+.img-perfil-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    object-fit: cover;
+}
+
+.user-profile .arrow-icon {
+    color: #197bb0;
+}
+
+.user-profile:hover .arrow-icon {
+    color: white;
+}
+
+/* Menu Dropdown */
+.dropdown-header {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.dropdown-header h6 {
+    color: #2c3e50;
+    cursor: default;
+    font-weight: bold;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 110%;
+    background-color: #fff;
+    min-width: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    color: #333;
+    margin: 10px;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-content .logout-item {
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.dropdown-content.ativo {
+    display: block;
+}
+
+.btn-hamburguer-custom {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #2b3d4f;
+}
+
+.menu-central {
+    display: none;
+    gap: 20px;
+}
+
+.menu-central a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.menu-central a img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Estilização do Corpo da Página */
+/* Layout Principal Estendível */
+main {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 auto;
+    margin: 0;
+    align-items: stretch;
+    gap: 0;
+}
+
+/* Sidebar fixa */
+.sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 20px;
+    position: sticky;
+    top: 100px;
+    height: calc(100vh - 130px);
+    overflow-y: auto;
+    z-index: 900;
+}
+
+.sidebar .logo {
+    margin-bottom: 40px;
+}
+
+.menu-items {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.menu-items li {
+    margin-bottom: 15px;
+}
+
+.menu-items a {
+    text-decoration: none;
+    color: #c7c4bd;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.menu-items a img {
+    height: 25px;
+    width: 25px;
+}
+
+/* Estilo do item ativo*/
+.menu-items li.active a {
+    background-color: #e0f2f1;
+    color: #236a99;
+    font-weight: bold;
+}
+
+.menu-items a:hover {
+    background-color: #f5f5f5;
+    color: #2196f3;
+}
+
+.menu-items a .img-menu-hover {
+    display: none;
+}
+
+.menu-items a:hover .img-menu-default {
+    display: none;
+}
+
+.menu-items a:hover .img-menu-hover {
+    display: inline-block;
+}
+
+/* Conteudo Principal */
+.main-content {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    background-color: #ebf0f2;
+}
+
+/* Seção Banner do Paciente */
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #ebf0f2;
+    border-bottom: none;
+}
+
+/* Títulos */
+.main-titulo h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f1f1f;
+    margin-left: 40px;
+    cursor: default;
+}
+
+.main-titulo p {
+    color: #666;
+    margin: 5px 0 0 40px;
+    cursor: default;
+}
+
+.paciente-header {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-right: 40px;
+}
+
+.paciente-img {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: white;
+    object-fit: cover;
+}
+
+.paciente-img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.paciente-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.paciente-info h3 {
+    font-size: 18px;
+    margin: 0;
+    cursor: default;
+}
+
+/* Tags do Paciente */
+.paciente-tags {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.paciente-tag-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    padding: 2px 5px;
+}
+
+.paciente-tag-item img {
+    height: 20px;
+    width: 20px;
+}
+
+.paciente-tag-item p {
+    margin: 0;
+    cursor: default;
+}
+
+/* Destaque para o ID */
+.paciente-id {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #197bb0;
+    color: white;
+    border-radius: 12px;
+    padding: 2px 10px;
+    margin: 0;
+    height: 24px;
+    width: auto;
+}
+
+/* Seção Ficha do Paciente */
+.card-ficha-paciente {
+    background-color: white;
+    border: 1px solid #cccccc;
+    border-radius: 15px;
+    margin: 20px 2%;
+    width: auto;
+}
+
+.header-ficha-paciente {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 40px;
+    border-bottom: 1px solid #cccccc;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #2b3d4f;
+}
+
+.ficha-paciente-titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ficha-paciente-titulo h5 {
+    margin-top: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: default;
+}
+
+.ficha-paciente-titulo img {
+    height: 30px;
+    width: 30px;
+}
+
+/* Estilo do botão de editar */
+.btn-editar-ficha button {
+    background-color: transparent;
+    color: white;
+    font-weight: 600;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 3px 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.btn-editar-ficha button:hover {
+    background-color: #197bb0;
+    color: white;
+    border: 1px solid #197bb0;
+    border-radius: 10px;
+}
+
+.btn-editar-ficha img {
+    height: 20px;
+    width: 20px;
+}
+
+.body-ficha-paciente {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 20px 0;
+    margin: 0 30px;
+}
+
+.dados-paciente {
+    border-right: 1px solid #cccccc;
+    padding-right: 40px;
+}
+
+.dados-paciente div,
+.info-paciente div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.conteudo-titulo {
+    width: 250px;
+    font-weight: 500;
+    color: #000000;
+    margin: 0;
+    flex-shrink: 0;
+    cursor: default;
+}
+
+.conteudo-desc {
+    color: #202020;
+    text-align: right;
+    margin: 0;
+    font-weight: 400;
+    cursor: default;
+}
+
+.dados-paciente h6,
+.info-paciente h6 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    cursor: default;
+}
+
+/* Seção Histórico de Consultas */
+.card-historico-consultas {
+    background: white;
+    border: 1px solid #cccccc;
+    border-radius: 15px;
+    margin: 20px 2%;
+    width: auto;
+}
+
+/* Header do Histórico de Consultas */
+.historico-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 40px;
+    background-color: #2b3d4f;
+    border-bottom: 1px solid #cccccc;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.historico-header img {
+    height: 30px;
+    width: 30px;
+}
+
+.historico-header h5 {
+    margin-top: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: default;
+}
+
+/* Títulos do Header da Tabela */
+.grid-historico-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 2fr 1fr 2fr;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    color: #2c3e50;
+    background-color: #e6edf2;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    padding: 10px 0;
+    cursor: default;
+}
+
+/* Corpo da Tabela do Histórico de Consultas */
+.historico-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 2fr 1fr 2fr;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+    color: #1f1f1f;
+    font-weight: 600;
+    padding: 5px 0;
+    cursor: default;
+}
+
+.historico-grid:hover {
+    background-color: rgba(226, 226, 226, 0.534);
+}
+
+.status-hist-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.status-hist-realizada {
+    background: #e0f2f1;
+    color: #00796b;
+}
+
+.status-hist-agendada {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.btn-hist-acao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 4px;
+    width: 100%;
+}
+
+.btn-hist-acao img {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin: 5px;
+}
+
+.btn-hist-acao button {
+    display: flex;
+    align-items: center;
+}
+
+.btn-remarcar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 20px;
+    background-color: #e3f5ff;
+    color: #197bb0;
+    border: 1px solid #197bb0;
+    border-radius: 15px;
+}
+
+.btn-remarcar:hover {
+    background-color: #197bb0;
+    color: white;
+}
+
+.btn-desmarcar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 20px;
+    background-color: #fff1f0;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    margin-left: 8px;
+    border-radius: 15px;
+}
+
+.btn-desmarcar:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* Trocar dos Ícones dos Botões Remarcar e Desmarcar */
+.btn-remarcar .img-hover,
+.btn-desmarcar .img-hover {
+    display: none;
+}
+
+.btn-remarcar:hover .img-default,
+.btn-desmarcar:hover .img-default {
+    display: none;
+}
+
+.btn-remarcar:hover .img-hover,
+.btn-desmarcar:hover .img-hover {
+    display: inline-block;
+}
+
+.paginacao-historico-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+.btn-seta {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #cccccc;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #2b3d4f;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-seta:hover:not(:disabled) {
+    background-color: #2b3d4f;
+    color: white;
+}
+
+.btn-seta:disabled {
+    filter: grayscale(1);
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.paginacao-historico-numerica {
+    display: flex;
+    gap: 10px;
+}
+
+.num-pag {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    color: #2b3d4f;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.num-pag:hover {
+    background-color: #2b3d4f;
+    color: white;
+    border-color: #2b3d4f;
+}
+
+.num-pag.active {
+    background-color: #2b3d4f;
+    color: white;
+    border-color: #2b3d4f;
+}
+
+.card-biblioteca-documentos {
+    background: white;
+    border: 1px solid #cccccc;
+    border-radius: 15px;
+    margin: 20px 2% 40px 2%;
+    width: auto;
+}
+
+.biblioteca-header {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 40px;
+    background-color: #2b3d4f;
+    border-bottom: 1px solid #cccccc;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.biblioteca-header img {
+    height: 30px;
+    width: 30px;
+}
+
+.biblioteca-titulo-header {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.biblioteca-header h5 {
+    margin-top: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: default;
+}
+
+.biblioteca-header p {
+    color: #ffffff;
+    cursor: default;
+}
+
+.grid-biblioteca-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 2fr 2fr;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    color: #2c3e50;
+    background-color: #e6edf2;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    padding: 10px 0;
+    cursor: default;
+}
+
+.biblioteca-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 2fr 2fr;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+    color: #1f1f1f;
+    font-weight: 600;
+    padding: 5px 0;
+    cursor: default;
+}
+
+.biblioteca-grid:hover {
+    background-color: rgba(226, 226, 226, 0.534);
+}
+
+.status-bib-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.status-bib-receita {
+    background: #f7d7ab;
+    color: #9c6c43;
+}
+
+.status-bib-atestado {
+    background: #7458a3;
+    color: #ffffff;
+}
+
+.btn-bib-acao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 4px;
+    width: 100%;
+}
+
+.btn-bib-acao img {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin: 5px;
+}
+
+.btn-bib-acao button {
+    display: flex;
+    align-items: center;
+}
+
+.btn-visualizar {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 20px;
+    background-color: #e3f5ff;
+    color: #f39c12;
+    border: 1px solid #f39c12;
+    border-radius: 15px;
+}
+
+.btn-visualizar:hover {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-baixar {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 20px;
+    background-color: #fff1f0;
+    color: #1E8449;
+    border: 1px solid #1E8449;
+    margin-left: 8px;
+    border-radius: 15px;
+}
+
+.btn-baixar:hover {
+    background-color: #1E8449;
+    color: white;
+}
+
+/* Troca de Ícones dos Botões Visualizar e Baixar */
+.btn-visualizar .img-hover,
+.btn-baixar .img-hover {
+    display: none;
+}
+
+.btn-visualizar:hover .img-default,
+.btn-baixar:hover .img-default {
+    display: none;
+}
+
+.btn-visualizar:hover .img-hover,
+.btn-baixar:hover .img-hover {
+    display: inline-block;
+}
+
+.paginacao-biblioteca-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+.paginacao-biblioteca-numerica {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilização do Footer */
+.alento-footer {
+    background-color: #2f3e4e;
+    color: #ffffff;
+    padding-top: 10px;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+/* Linha inferior */
+.alento-footer p {
+    text-align: center;
+    font-size: 13px;
+}
+
+/* Estilização da Página no Modo Noturno */
+/* Fundo da Página */
+body.dark-mode {
+    background-color: #353535;
+    color: white;
+}
+
+body.dark-mode .main-content {
+    background-color: #353535;
+    color: white;
+}
+
+/* Botão do Modo Noturno */
+body.dark-mode .toggle-dark-mode {
+    background-color: #2196F3;
+}
+
+body.dark-mode .toggle-dark-mode::before {
+    transform: translateX(25px);
+}
+
+/* Fundo da Barra Superior */
+body.dark-mode .top-bar {
+    background-color: #2d3748;
+}
+
+body.dark-mode .top-bar-item button:hover .img-item-hover {
+    display: none;
+}
+
+body.dark-mode .top-bar-item button:hover .img-item-dark-hover {
+    display: inline-block;
+}
+
+body.dark-mode .top-bar-item button:hover {
+    color: #ffffff;
+}
+
+/* Fundo do Header Principal */
+body.dark-mode .main-header {
+    background-color: #1a202c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Texto da Logo */
+body.dark-mode .alento-logo h2 {
+    color: white;
+}
+
+body.dark-mode .main-header .user-dropdown .user-profile {
+    border: 1.5px solid #2d3747;
+}
+
+body.dark-mode .main-header .user-dropdown .user-profile .arrow-icon {
+    color: #2d3747;
+}
+
+body.dark-mode .main-header .user-dropdown .user-profile:hover .arrow-icon {
+    color: #ffffff;
+}
+
+body.dark-mode .main-header .user-dropdown .dropdown-content h6 {
+    color: #2c3e50;
+}
+
+/* Fundo do Menu Lateral */
+body.dark-mode .sidebar {
+    background-color: #2d3747;
+    border-right: 1px solid #4a5568;
+}
+
+body.dark-mode .sidebar .menu-items li a {
+    color: #cbd5e0;
+}
+
+body.dark-mode .sidebar .menu-items li.active {
+    background-color: #2d3748;
+}
+
+body.dark-mode .sidebar .menu-items li.active a {
+    color: #63b3ed;
+}
+
+body.dark-mode .main-content .banner-paciente .header-main {
+    background-color: #353535;
+    color: white;
+}
+
+body.dark-mode .main-content .banner-paciente .header-main .main-titulo h1 {
+    color: #ffffff;
+}
+
+body.dark-mode .main-content .banner-paciente .header-main .main-titulo p {
+    color: #ffffff;
+}
+
+/* Fundo dos Cards e das Seções */
+body.dark-mode .card-ficha-paciente,
+body.dark-mode .card-historico-consultas,
+body.dark-mode .card-biblioteca-documentos {
+    background-color: #2b3d4f;
+    color: #f7fafc;
+    border: 1px solid #4a5568;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .ficha-paciente-titulo img,
+body.dark-mode .historico-header img,
+body.dark-mode .biblioteca-titulo-header img {
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode .banner-paciente .header-main {
+    background-color: #1a202c;
+}
+
+/* Títulos dentro dos cards */
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode .conteudo-titulo {
+    color: #ffffff;
+}
+
+body.dark-mode .conteudo-desc {
+    color: #ffffff;
+}
+
+/* Headers das Grids */
+body.dark-mode .grid-historico-header,
+body.dark-mode .grid-biblioteca-header {
+    background-color: #1a202c;
+    color: #edf2f7;
+    border-bottom: 2px solid #4a5568;
+}
+
+/* Linhas das Grids */
+body.dark-mode .historico-grid,
+body.dark-mode .biblioteca-grid {
+    border-bottom: 1px solid #4a5568;
+    background-color: #768196;
+}
+
+body.dark-mode .historico-grid:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background 0.2s;
+}
+
+body.dark-mode .historico-grid:hover,
+body.dark-mode .biblioteca-grid:hover {
+    background-color: #3e4a5e;
+}
+
+/* Fundo da Paginação */
+body.dark-mode .num-pag {
+    background-color: #1a202c;
+    color: #cbd5e0;
+    border: 1px solid #4a5568;
+}
+
+body.dark-mode .num-pag.active {
+    background-color: #778296;
+    color: white;
+    border-color: #63b3ed;
+}
+
+body.dark-mode .num-pag:hover {
+    background-color: #778296;
+}
+
+body.dark-mode .btn-seta {
+    background-color: #2d3748;
+    color: white;
+}
+
+/* Transição das Cores */
+.main-header,
+.main-content,
+.top-bar,
+.card-ficha-paciente,
+.card-historico-consultas,
+.card-biblioteca-documentos,
+.main-content .banner-paciente .header-main,
+.main-content .banner-paciente .header-main .main-titulo h1,
+.main-content .banner-paciente .header-main .main-titulo p,
+h5,
+h6,
+.conteudo-titulo,
+.conteudo-desc,
+.grid-historico-header,
+.grid-biblioteca-header,
+.num-pag,
+.num-pag.active,
+.btn-seta,
+.alento-footer {
+    transition: all 0.3s ease, color 0.3s ease;
+}
+
+/* Responsividade */
+/* Para Telas menores que 1735px */
+@media (max-width: 1735px) {
+
+    .card-historico-consultas .historico-grid .btn-hist-acao .btn-remarcar,
+    .card-historico-consultas .historico-grid .btn-hist-acao .btn-desmarcar {
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 3px 15px;
+    }
+
+    .card-biblioteca-documentos .biblioteca-grid .btn-bib-acao .btn-visualizar,
+    .card-biblioteca-documentos .biblioteca-grid .btn-bib-acao .btn-baixar {
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 3px 15px;
+    }
+}
+
+/* Para Telas menores que 1585px */
+@media (max-width: 1585px) {
+
+    .card-historico-consultas .historico-grid .btn-hist-acao .btn-remarcar,
+    .card-historico-consultas .historico-grid .btn-hist-acao .btn-desmarcar {
+        gap: 6px;
+        font-size: 10px;
+        font-weight: 500;
+        padding: 2px 10px;
+    }
+
+    .card-biblioteca-documentos .biblioteca-grid .btn-bib-acao .btn-visualizar,
+    .card-biblioteca-documentos .biblioteca-grid .btn-bib-acao .btn-baixar {
+        gap: 6px;
+        font-size: 10px;
+        font-weight: 500;
+        padding: 2px 10px;
+    }
+}
+
+/* Para Telas menores que 1350px */
+@media (max-width: 1350px) {
+
+    .card-historico-consultas .historico-grid .btn-hist-acao .btn-remarcar,
+    .card-historico-consultas .historico-grid .btn-hist-acao .btn-desmarcar {
+        gap: 4px;
+        font-size: 8px;
+        font-weight: 500;
+        padding: 2px 8px;
+    }
+
+    .card-biblioteca-documentos .biblioteca-grid .btn-bib-acao .btn-visualizar,
+    .card-biblioteca-documentos .biblioteca-grid .btn-bib-acao .btn-baixar {
+        gap: 4px;
+        font-size: 8px;
+        font-weight: 500;
+        padding: 2px 8px;
+    }
+}
+
+/* Para Telas menores que 1300px */
+@media (max-width: 1300px) {
+    .body-ficha-paciente {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .dados-paciente {
+        border-right: none;
+        border-bottom: 1px solid #cccccc;
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+
+    .grid-historico-header,
+    .historico-grid {
+        grid-template-columns: 1fr 1fr 1.5fr 1.5fr 1fr 1.5fr;
+        font-size: 13px;
+    }
+
+    .btn-remarcar,
+    .btn-desmarcar {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}
+
+/* Para Telas menores que 1290px */
+@media (max-width: 1290px) {
+
+    .card-historico-consultas .historico-grid .btn-hist-acao .btn-remarcar,
+    .card-historico-consultas .historico-grid .btn-hist-acao .btn-desmarcar {
+        gap: 4px;
+        font-size: 8px;
+        font-weight: 500;
+        padding: 2px 8px;
+    }
+
+    .card-historico-consultas .historico-grid .btn-hist-acao .btn-remarcar span,
+    .card-historico-consultas .historico-grid .btn-hist-acao .btn-desmarcar span {
+        display: none;
+    }
+
+    .card-biblioteca-documentos .biblioteca-grid .btn-bib-acao .btn-visualizar,
+    .card-biblioteca-documentos .biblioteca-grid .btn-bib-acao .btn-baixar {
+        padding: 2px 8px;
+    }
+
+    .card-biblioteca-documentos .biblioteca-grid .btn-bib-acao .btn-visualizar span,
+    .card-biblioteca-documentos .biblioteca-grid .btn-bib-acao .btn-baixar span {
+        display: none;
+    }
+}
+
+/* Para Telas menores que 1200px */
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-titulo h1 {
+        margin-left: 20px;
+    }
+}
+
+/* Para Telas maiores que 1050px */
+@media (max-width: 1050px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .card-ficha-paciente,
+    .card-historico-consultas,
+    .card-biblioteca-documentos {
+        margin: 20px 15px;
+    }
+
+    .menu-hamburger {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .nav-mobile {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+    }
+
+    .nav-mobile.active {
+        display: block;
+    }
+}
+
+/* Para Telas menores que 1050px */
+@media (max-width: 1050px) {
+    .main-header {
+        justify-content: space-between !important;
+    }
+
+    .btn-hamburguer-custom {
+        display: block;
+        order: 0;
+        flex: 1;
+        text-align: left;
+    }
+
+    .alento-logo {
+        order: 1;
+        flex: 2;
+        justify-content: center;
+    }
+
+    .logo-texto {
+        display: block;
+    }
+
+    .user-dropdown {
+        order: 2;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .menu-central {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        padding: 10px 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .menu-central.show {
+        display: flex;
+    }
+
+    .menu-central a {
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+    }
+}
+
+/* Para Telas menores que 768px */
+@media (max-width: 768px) {
+    .header-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .main-titulo h1,
+    .main-titulo p {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .paciente-header {
+        margin-right: 0;
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .grid-historico-header,
+    .grid-biblioteca-header {
+        display: none;
+    }
+
+    .historico-grid,
+    .biblioteca-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        gap: 8px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin: 10px auto;
+        text-align: center;
+        width: 90%;
+    }
+
+    .btn-hist-acao,
+    .btn-bib-acao {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .dados-paciente div,
+    .info-paciente div {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .conteudo-titulo {
+        width: 100%;
+        font-size: 14px;
+        color: #718096;
+        text-align: center;
+    }
+
+    .conteudo-desc {
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .body-ficha-paciente .dados-paciente h6,
+    .body-ficha-paciente .info-paciente h6 {
+        text-align: center;
+    }
+
+    .num-pag,
+    .btn-seta {
+        width: 44px;
+        height: 44px;
+    }
+
+    .paginacao-historico-container {
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card-historico-consultas .historico-grid .btn-hist-acao .btn-remarcar span,
+    .card-historico-consultas .historico-grid .btn-hist-acao .btn-desmarcar span {
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 500;
+        display: block;
+    }
+
+    .card-biblioteca-documentos .biblioteca-grid .btn-bib-acao .btn-visualizar span,
+    .card-biblioteca-documentos .biblioteca-grid .btn-bib-acao .btn-baixar span {
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 500;
+        display: block;
+    }
+
+}

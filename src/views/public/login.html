@@ -31,12 +31,6 @@
         </div>
         <!-- Header Principal -->
         <div class="container-fluid main-header">
-
-            <!-- Botão Mobile -->
-            <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
             <!-- Logo -->
             <a class="alento-logo d-flex align-items-center order-2 mx-auto mx-lg-0" href="/">
                 <img src="/img/logo_padrao.png" alt="Ícone Padrão da Logo">
@@ -45,113 +39,102 @@
         </div>
     </header>
     <main class="main-content">
-        <div class="main-container">
+        <div class="main-container container">
+            <div class="row align-items-center w-100">
 
-            <div class="welcome-image-area">
-                <img src="/img/medicologin.png" alt="Médico Alento Saúde" class="doctor-image">
-            </div>
-
-            <div class="login-box">
-                <h2>Entrar</h2>
-                <div class="social-login">
-                    <button class="btn-social btn-fb">f</button>
-                    <button class="btn-social btn-google">G</button>
-                </div>
-                <form>
-                    <div class="input-group">
-                        <input type="email" placeholder="E-mail" required>
+                <div class="col-lg-7 col-md-12 banner-content">
+                    <div class="banner-titulo">
+                        <h3>Bem-vindo à Clínica Alento Saúde</h3>
+                        <p>Acesse sua conta para agendar consultas, ver seus laudos e acompanhar seu histórico médico.
+                        </p>
                     </div>
-                    <div class="input-group">
-                        <input type="password" placeholder="Senha" required>
-                    </div>
-                    <button type="submit" class="btn-login-main">LOGIN</button>
-                </form>
-                <div class="login-footer">
-                    <a href="#">Esqueceu sua senha?</a>
-                    <p>Ainda não tem uma conta? <a href="#" class="create-account">Criar Conta</a></p>
-                </div>
-            </div>
 
+                    <div class="banner-descricao">
+                        <div class="banner-text">
+                            <ul class="lista-beneficios">
+                                <li><span class="check">✓</span> Agendamentos Online</li>
+                                <li><span class="check">✓</span> Histórico de Consultas</li>
+                                <li><span class="check">✓</span> Resultados de Exames</li>
+                            </ul>
+                        </div>
+                        <div class="welcome-image-area d-none d-lg-flex">
+                            <img src="/img/fundo_login.png" alt="Médico Alento Saúde" class="doctor-image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-12 d-flex justify-content-center">
+                    <div class="login-box">
+                        <h2>Entrar</h2>
+                        <div class="social-login">
+                            <button class="btn-social btn-google">G</button>
+                        </div>
+                        <form>
+                            <div class="input-group">
+                                <input type="email" placeholder="E-mail" required>
+                            </div>
+                            <div class="input-group">
+                                <input type="password" placeholder="Senha" required>
+                            </div>
+                            <button type="submit" class="btn-login-main">LOGIN</button>
+                        </form>
+                        <div class="login-footer">
+                            <a href="">Esqueceu sua senha?</a>
+                            <p>Ainda não tem uma conta? <a href="/cadastro" class="create-account">Criar Conta</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </main>
-<div class="mensagem-de-boas-vindas">    
-    <h1>Bem-vindo ao Alento Saúde</h1>
-</div>
-<div class="agendamento-online">     
-    <h2>Agendamento Online</h2>
-</div>
-<div class="historico-consultas">       
-    <h2>Histórico de Consultas</h2>
-</div>
-<div class="resultados-exames">       
-    <h2>Resultados de Exames</h2>
-</div>
 
+    <!-- Modal Ajuda -->
+    <div id="modalAjuda" class="modal-container">
+        <div class="modal-box">
+            <span class="modal-close" id="closeAjuda">&times;</span>
+
+            <h2 class="modal-title">Como podemos te ajudar?</h2>
+
+            <div class="modal-info-list text-format">
+                <h3>FAQ</h3>
+
+                <p><strong>Vocês aceitam convênios?</strong><br>
+                    Trabalhamos apenas com consultas particulares, mas fornecemos nota fiscal completa para você
+                    solicitar o reembolso junto ao seu plano de saúde.</p>
+
+                <p><strong>Como faço para cancelar uma consulta?</strong><br>
+                    Os cancelamentos devem ser feitos diretamente via WhatsApp com pelo menos 24h de antecedência.</p>
+
+                <p><strong>Quais documentos preciso levar?</strong><br>
+                    Apenas um documento oficial com foto. Se possuir exames recentes de outras clínicas, recomendamos
+                    trazê-los.</p>
+
+                <hr class="modal-divider">
+
+                <h3>Canais de Contato</h3>
+                <h6>Para casos de urgência ou dúvidas rápidas: </h6>
+                <p><strong>WhatsApp: </strong> (21) 99999-9999 <br> Seg a Sex - 08h às 18h | Sab - 08h às 14h.</p>
+
+                <p><strong>Localização:</strong> Av. Rio Branco, 123 - Centro - Rio de Janeiro.</p>
+
+                <a class="modal-btn-action btn-whatsapp" href="https://wa.me" target="_blank">Falar com Atendente
+                    agora</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="alento-footer">
-
-        <div class="footer-container">
-
-            <!-- Logo + descrição -->
-            <div class="footer-col">
-                <div class="footer-logo">
-                    <img src="/img/logo_alternativa.png" alt="Ícone Alternativo da Logo">
-                    <h3>Alento Saúde</h3>
-                </div>
-                <p>Sua saúde merece um novo fôlego.</p>
-            </div>
-
-            <!-- Links rápidos -->
-            <div class="footer-col">
-                <h4>LINKS RÁPIDOS</h4>
-                <ul>
-                    <li><a href="/">Início</a></li>
-                    <li><a href="/#servicos">Especialidades</a></li>
-                    <li><a href="/#sobre-nos">Sobre Nós</a></li>
-                    <li><a href="/contato">Contato</a></li>
-                </ul>
-            </div>
-
-            <!-- Contato -->
-            <div class="footer-col">
-                <h4>Contato</h4>
-
-                <div class="footer-contato-item">
-                    <img src="/img/icone_telefone.png" alt="Ícone de Telefone">
-                    <span>(21) 3456-7890</span>
-                </div>
-
-                <div class="footer-contato-item">
-                    <img src="/img/icone_email.png" alt="Ícone do Email">
-                    <span>contato@alentosuade.com.br</span>
-                </div>
-
-                <div class="footer-contato-item">
-                    <img src="/img/icone_localizacao.png" alt="Ícone de Localização">
-                    <span>Av. Rio Branco, 123 - Centro, Rio de Janeiro - RJ</span>
-                </div>
-            </div>
-
-            <!-- Horário -->
-            <div class="footer-col">
-                <h4>Horário</h4>
-                <p>Segunda a Sexta: 08h às 20h</p>
-                <p>Sábado: 08h às 14h</p>
-            </div>
-
+        <div class="container-footer">
+            <p>&copy; 2026 Alento Saúde - Todos os direitos reservados.</p>
         </div>
-
-        <!-- Linha inferior -->
-        <div class="footer-bottom">
-            <p>© 2026 Alento Saúde - Todos os direitos reservados.</p>
-        </div>
-
     </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-        <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/main.js"></script>
 </body>
 
 </html>

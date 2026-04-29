@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/contato.css">
+    <link rel="icon" type="image/x-icon" href="/img/logo_alternativa.png">
+    <title> Alento Saúde | Contato </title>
+</head>
+
+<body>
+    <header class="alento-header navbar navbar-expand-lg">
+        <div class="top-bar">
+            <div class="top-bar-right">
+                <div class="top-bar-item nav-item">
+                    <img id="img-modo-noturno" src="/img/icone_modo_noturno.png" alt="Ícone de Modo Noturno">
+                    <div id="toggle-dark-mode" class="toggle-dark-mode"></div>
+                </div>
+                <div class="top-bar-item nav-item">
+                    <button class="nav-link btn-ajuda">
+                        <img src="/img/icone_ajuda.png" alt="Ícone de Ajuda"> Ajuda
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid main-header">
+            <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a class="alento-logo d-flex align-items-center order-2 mx-auto mx-lg-0" href="/">
+                <img src="/img/logo_padrao.png" alt="Ícone Padrão da Logo">
+                <h2> Alento Saúde </h2>
+            </a>
+
+            <div class="collapse navbar-collapse order-3" id="menu">
+                <ul class="navbar-nav ms-auto alento-nav">
+                    <li class="nav-item"><a class="nav-link" href="/">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#servicos">Especialidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#sobre-nos">Sobre nós</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contato">Contato</a></li>
+                    <li class="nav-item">
+                        <a class="btn-entrar" id="btn-entrar" href="/login">Entrar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <div class="row g-4 justify-content-center align-items-stretch">
+
+            <div class="col-lg-7">
+                <div class="contato-card shadow-sm h-100">
+                    <h1 class="card-title">Fale Conosco</h1>
+                    <p class="card-subtitle">Estamos prontos para atender você e tirar suas dúvidas.</p>
+
+                    <h4 class="form-heading">Envie uma mensagem</h4>
+
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Nome</label>
+                            <input type="text" class="form-control custom-input" placeholder="Seu nome completo">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control custom-input" placeholder="seu@email.com">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Telefone</label>
+                                <input type="text" class="form-control custom-input" placeholder="(21) 99999-9999">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Mensagem</label>
+                            <textarea class="form-control custom-input" rows="5"
+                                placeholder="Como podemos ajudar?"></textarea>
+                        </div>
+                        <button type="submit" class="btn-enviar-contato w-100">ENVIAR MENSAGEM</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="info-card shadow-sm h-100">
+                    <h3 class="info-header">Informações</h3>
+
+                    <div class="info-body">
+                        <div class="info-item">
+                            <h5><i class="bi bi-geo-alt"></i> Endereço</h5>
+                            <p>Av. Rio Branco, 123 - Centro<br>Rio de Janeiro - RJ</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h5><i class="bi bi-telephone"></i> Telefone</h5>
+                            <p>(21) 3456-7890</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h5><i class="bi bi-clock"></i> Horário</h5>
+                            <p>Segunda a sexta: 08h às 18h</p>
+                        </div>
+                    </div>
+
+                    <div class="info-footer">
+                        <div class="whatsapp-box">
+                            <p>Fale agora pelo WhatsApp</p>
+                            <a href="/" class="whatsapp-link">
+                                <img src="/img/icone_whatsapp.png" alt="WhatsApp">
+                                (21) 99999-9999
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Ajuda -->
+    <div id="modalAjuda" class="modal-container">
+        <div class="modal-box">
+            <span class="modal-close" id="closeAjuda">&times;</span>
+
+            <h2 class="modal-title">Como podemos te ajudar?</h2>
+
+            <div class="modal-info-list text-format">
+                <h3>FAQ</h3>
+
+                <p><strong>Vocês aceitam convênios?</strong><br>
+                    Trabalhamos apenas com consultas particulares, mas fornecemos nota fiscal completa para você
+                    solicitar o reembolso junto ao seu plano de saúde.</p>
+
+                <p><strong>Como faço para cancelar uma consulta?</strong><br>
+                    Os cancelamentos devem ser feitos diretamente via WhatsApp com pelo menos 24h de antecedência.</p>
+
+                <p><strong>Quais documentos preciso levar?</strong><br>
+                    Apenas um documento oficial com foto. Se possuir exames recentes de outras clínicas, recomendamos
+                    trazê-los.</p>
+
+                <hr class="modal-divider">
+
+                <h3>Canais de Contato</h3>
+                <h6>Para casos de urgência ou dúvidas rápidas: </h6>
+                <p><strong>WhatsApp: </strong> (21) 99999-9999 <br> Seg a Sex - 08h às 18h | Sab - 08h às 14h.</p>
+
+                <p><strong>Localização:</strong> Av. Rio Branco, 123 - Centro - Rio de Janeiro.</p>
+
+                <a class="modal-btn-action btn-whatsapp" href="https://wa.me" target="_blank">Falar com Atendente
+                    agora</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="alento-footer">
+
+        <div class="footer-container">
+
+            <!-- Logo + descrição -->
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="/img/logo_alternativa.png" alt="Ícone Alternativo da Logo">
+                    <h3>Alento Saúde</h3>
+                </div>
+                <p>Sua saúde merece um novo fôlego.</p>
+            </div>
+
+            <!-- Links rápidos -->
+            <div class="footer-col">
+                <h4>LINKS RÁPIDOS</h4>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/#servicos">Especialidades</a></li>
+                    <li><a href="/#sobre-nos">Sobre Nós</a></li>
+                    <li><a href="/contato">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Contato -->
+            <div class="footer-col">
+                <h4>Contato</h4>
+
+                <div class="footer-contato-item">
+                    <img src="/img/icone_telefone.png" alt="Ícone de Telefone">
+                    <span>(21) 3456-7890</span>
+                </div>
+
+                <div class="footer-contato-item">
+                    <img src="/img/icone_email.png" alt="Ícone do Email">
+                    <span>contato@alentosuade.com.br</span>
+                </div>
+
+                <div class="footer-contato-item">
+                    <img src="/img/icone_localizacao.png" alt="Ícone de Localização">
+                    <span>Av. Rio Branco, 123 - Centro, Rio de Janeiro - RJ</span>
+                </div>
+            </div>
+
+            <!-- Horário -->
+            <div class="footer-col">
+                <h4>Horário</h4>
+                <p>Segunda a Sexta: 08h às 20h</p>
+                <p>Sábado: 08h às 14h</p>
+            </div>
+
+        </div>
+
+        <!-- Linha inferior -->
+        <div class="footer-bottom">
+            <p>© 2026 Alento Saúde - Todos os direitos reservados.</p>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>

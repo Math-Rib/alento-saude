@@ -223,7 +223,7 @@ main {
 }
 
 .btn-agendar:hover {
-    background-color: #132f44;
+    background-color: #3182ce;
     transform: translateY(-3px);
 }
 
@@ -389,15 +389,14 @@ main {
 .sobre-nos-imagem {
     border: 1px solid rgba(93, 153, 198, 0.4);
     border-radius: 20px;
-    /* position: relative; */
-    /* bottom: 50px; */
-    margin-bottom: 10px;
+    position: relative;
+    bottom: 50px;
 }
 
 /* Imagem do Banner Sobre Nós */
 .sobre-nos-imagem img {
     max-width: 450px;
-    height: 450px;
+    height: auto;
     border: 1px solid transparent;
     border-radius: 20px;
 }
@@ -591,7 +590,7 @@ main {
 }
 
 .modal-info-list a:hover {
-    background-color: #132f44;
+    background-color: #5D99C6;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(93, 153, 198, 0.4);
 }
@@ -657,14 +656,16 @@ main {
 }
 
 /* Estilização do Footer */
+
 .alento-footer {
     background-color: #2f3e4e;
     color: #ffffff;
-    padding: 30px 20px 10px;
+    padding: 40px 0 20px;
     border-top: 5px solid #90b6d6;
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
     cursor: default;
     flex-shrink: 0;
+    width: 100%;
 }
 
 /* Área do Footer */
@@ -673,6 +674,9 @@ main {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 30px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Colunas do Footer */
@@ -759,9 +763,10 @@ main {
     padding-top: 10px;
     text-align: center;
     font-size: 13px;
+    max-width: 1200px;
+    margin: 30px auto 0;
 }
 
-/* Estilização no Modo Noturno */
 /* Fundo da Página */
 body.dark-mode {
     background-color: #353535;
@@ -837,7 +842,7 @@ body.dark-mode .btn-agendar {
 }
 
 body.dark-mode .btn-agendar:hover {
-    background-color: #357abd;
+    background-color: #132f44;
 }
 
 /* Imagem do Banner */
@@ -993,6 +998,10 @@ body.dark-mode .modal-divider {
     border-color: #334155;
 }
 
+body.dark-mode .modal-btn-action:hover{
+    background-color: #132f44;
+}
+
 /* Footer */
 body.dark-mode .alento-footer {
     background-color: #0b0f19;
@@ -1027,7 +1036,7 @@ body.dark-mode .alento-footer {
 }
 
 /* Para Telas menores que 1198px */
-@media (max-width: 1198px) {
+@media (max-width: 1198px){
     .banner-imagem img {
         display: none;
     }
@@ -1075,7 +1084,7 @@ body.dark-mode .alento-footer {
     .sobre-nos-imagem {
         position: static;
         display: block;
-        bottom: auto;
+        bottom: auto;   
     }
 
     .sobre-nos-text {
@@ -1149,7 +1158,7 @@ body.dark-mode .alento-footer {
         padding: 5px 10px;
     }
 
-    #btn-entrar:hover {
+    #btn-entrar:hover{
         background-color: transparent;
         color: #3182ce;
     }
@@ -1231,28 +1240,28 @@ body.dark-mode .alento-footer {
 /* Para Telas menores que 576px */
 @media (max-width: 575px) {
 
-    body,
-    main.container-fluid,
+    body, 
+    main.container-fluid, 
     .main-content {
         padding-left: 0;
         padding-right: 0;
         overflow-x: hidden;
     }
 
-    .banner,
-    .sobre-nos-section,
-    .sobre-nos-intro,
-    .pilares-section,
+    .banner, 
+    .sobre-nos-section, 
+    .sobre-nos-intro, 
+    .pilares-section, 
     .alento-footer {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
     }
 
-    .banner-text,
-    .servicos-title,
-    .sobre-nos-text p,
-    .sobre-nos-title,
+    .banner-text, 
+    .servicos-title, 
+    .sobre-nos-text p, 
+    .sobre-nos-title, 
     .sobre-nos-subtitle,
     .pilares-subtitle {
         padding-left: 20px;
@@ -1260,7 +1269,7 @@ body.dark-mode .alento-footer {
         box-sizing: border-box;
     }
 
-    .sobre-nos-section,
+    .sobre-nos-section, 
     .sobre-nos-intro {
         width: 100%;
         margin-left: 0;
@@ -1275,7 +1284,7 @@ body.dark-mode .alento-footer {
         font-size: 20px;
     }
 
-    #btn-entrar:hover {
+    #btn-entrar:hover{
         background-color: transparent;
         color: #3182ce;
     }
@@ -1285,7 +1294,7 @@ body.dark-mode .alento-footer {
         margin: 0 10px;
     } */
 
-    .sobre-nos-text p {
+    .sobre-nos-text p{
         text-align: left;
         margin: 0 40px;
     }
@@ -1299,9 +1308,9 @@ body.dark-mode .alento-footer {
 
     .pilares-card {
         flex: 1 1 100%;
-        width: 100%;
+        width: 100%; 
         max-width: 350px;
-        margin: 0 auto;
+        margin: 0 auto;  
     }
 
     .pilares-subtitle {
@@ -1311,7 +1320,7 @@ body.dark-mode .alento-footer {
         font-size: 20px;
     }
 
-    .footer-logo {
+    .footer-logo{
         display: flex;
         justify-content: center;
     }

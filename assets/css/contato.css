@@ -1,18 +1,6 @@
-/* --- Resets e Estilos Globais --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Fonte similar à do site */
-}
-
 body {
+    margin: 0;
     background-color: #ebf0f2;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    color: #333;
 }
 
 /* Estilização do Header */
@@ -113,226 +101,225 @@ body {
     font-weight: bold;
 }
 
-/* --- Main Content (com o fundo de nuvens) --- */
-.main-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px 0;
-    gap: 0px;
+.alento-nav {
+    gap: 20px;
+    font-weight: 500 !important;
+    text-decoration: none;
 }
 
-.main-container {
-    max-width: 1200px;
-    margin: 20px auto;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    background-color: #fbf7fcb0;
+.alento-nav .nav-item a {
+    color: black;
+}
+
+.alento-nav .nav-link {
+    padding: 5px 10px;
+    border-right: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.alento-nav .nav-link:hover {
+    color: #3182ce;
+    border-right: 2px solid #3182ce;
+}
+
+#btn-entrar {
+    border: 1px solid #3182ce;
+    padding: 5px 15px;
     border-radius: 20px;
-    gap: 0px;
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    position: relative;
+    top: 5px;
+    margin-left: 20px;
 }
 
-.banner-content {
-    flex: 1;
+#btn-entrar:hover {
+    background-color: #3182ce;
+    color: white;
+}
+
+/* Base dos Cards (Formulário e Info) */
+.contato-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    border: none;
+    transition: transform 0.3s ease;
+    margin: 10px 0;
     display: flex;
     flex-direction: column;
-    z-index: 1;
 }
 
-.banner-titulo h3 {
+.contato-card .card-title {
     color: #1a4f8b;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.banner-titulo p {
-    text-align: justify;
-    color: #38393a;
-    font-size: 18px;
-    line-height: 1.6;
-    margin: 10px 0 0 0;
-    max-width: 550px;
-}
-
-.banner-descricao {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    position: relative;
-    margin-top: 0px;
-}
-
-.banner-text {
-    flex: 1;
-    position: relative;
-    z-index: 10;
-}
-
-.lista-beneficios {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 50px;
-    position: relative;
-    z-index: 3;
-}
-
-.lista-beneficios li {
-    white-space: nowrap;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2d3748;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.check {
-    color: #3182ce;
-    font-weight: bold;
-    margin-right: 15px;
-    font-size: 1.4rem;
-}
-
-/* ÁREA MODIFICADA: Estilo da imagem centralizada */
-.welcome-image-area {
-    display: flex;
-    align-items: flex-end;
-    margin-left: -150px;
-    margin-bottom: -40px;
-    pointer-events: none;
-}
-
-.doctor-image {
-    width: 600px;
-    height: auto;
-    z-index: 1;
-    transform: scale(1.1);
-    transform-origin: bottom center;
-    position: relative;
-    bottom: 60px;
-    right: 60px;
-}
-
-/* --- Box de Login --- */
-.login-box {
-    flex-shrink: 1;
-    background-color: #fff;
-    width: 100%;
-    max-width: 400px;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    font-weight: 800;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
     text-align: center;
-    margin-top: 20px;
 }
 
-.login-box h2 {
-    color: #1a4f8b;
-    margin-bottom: 25px;
-    font-weight: 700;
-}
-
-.social-login {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+.contato-card .card-subtitle {
+    color: #718096;
+    font-size: 1rem;
     margin-bottom: 30px;
+    text-align: center;
 }
 
-.btn-social {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
+.contato-card .form-heading {
+    color: #2d3748;
+    font-weight: 600;
+    border-top: 1px solid #edf2f7;
+    padding-top: 25px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    margin: 10px 0;
 }
 
-.btn-google {
-    background-color: #ffffff;
-    border: 1px solid #db4a39;
-    border-radius: 50%;
-    color: #db4a39;
+.info-header {
+    color: #1a4f8b;
+    font-weight: 700;
+    font-size: 1.6rem;
+    border-bottom: 2px solid #eef2f7;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
 }
 
-.btn-google:hover{
-    background-color: #db4a39;
-    border: 1px solid #db4a39;
-    border-radius: 50%;
-    color: #ffffff;
+.info-body {
+    flex-grow: 1;
 }
 
-.input-group {
-    margin-bottom: 15px;
+.info-item {
+    margin-bottom: 25px;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    font-size: 15px;
+.info-item h5 {
+    color: #3182ce;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
 }
 
-.input-group input:focus {
-    outline: none;
+.info-item p {
+    color: #4a5568;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.info-footer {
+    margin-top: 30px;
+}
+
+/* Estilização dos Inputs */
+.custom-input {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 15px;
+    transition: all 0.3s;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.custom-input:focus {
+    background-color: #fff;
     border-color: #a3c4f3;
+    box-shadow: 0 0 0 4px rgba(49, 130, 206, 0.1);
+    outline: none;
 }
 
-.btn-login-main {
-    width: 100%;
-    padding: 15px;
-    background-color: #3182ce;
-    color: #fff;
+/* Botão de Enviar (Igual ao Login) */
+.btn-enviar-contato {
+    background-color: #64b4ed;
+    color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 16px;
+    padding: 15px;
+    border-radius: 12px;
     font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(91, 192, 222, 0.3);
-    transition: background 0.3s;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    max-width: 350px;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
 }
 
-.btn-login-main:hover {
-    background-color: #236a98;
+.btn-enviar-contato:hover {
+    background-color: #3182ce;
+    transform: translateY(-2px);
 }
 
-.login-footer {
-    margin-top: 25px;
-    font-size: 14px;
-    color: #666;
+/* Card Lateral de Info */
+.info-box {
+    background: #ffffff;
 }
 
-.login-footer a {
+.info-box h3 {
+    color: #1a4f8b;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: default;
+}
+
+.info-box h5 {
+    color: #3182ce;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    cursor: default;
+}
+
+/* Destaque WhatsApp */
+.whatsapp-box {
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.whatsapp-box p {
+    display: block;
+    font-weight: 600;
+    color: #128c7e;
+    margin-bottom: 5px;
+    cursor: default;
+}
+
+.whatsapp-link {
+    color: #25d366;
     text-decoration: none;
-    color: #666;
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0.5;
 }
 
-.login-footer a:hover {
-    text-decoration: underline;
-    color: #5bc0de;
+.whatsapp-link {
+    color: #25d366;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0.5;
 }
 
-.login-footer p {
-    margin-top: 15px;
+.whatsapp-link:hover {
+    opacity: 1;
 }
 
-.create-account {
-    color: #5bc0de !important;
-    font-weight: bold;
+.whatsapp-link img {
+    width: 20px;
 }
 
 /* Modal Ajuda */
@@ -462,23 +449,118 @@ body {
 }
 
 /* Estilização do Footer */
+
 .alento-footer {
     background-color: #2f3e4e;
     color: #ffffff;
-    padding-top: 10px;
+    padding: 40px 0 20px;
+    border-top: 5px solid #90b6d6;
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
     cursor: default;
     flex-shrink: 0;
     width: 100%;
 }
 
-/* Linha inferior */
-.alento-footer p {
-    text-align: center;
-    font-size: 13px;
+/* Área do Footer */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Estilização no Modo Noturno */
+/* Colunas do Footer */
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Logo */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo img {
+    width: 40px;
+}
+
+.footer-col h3 {
+    margin: 0;
+}
+
+.footer-col h4 {
+    margin-bottom: 10px;
+}
+
+/* Texto */
+.footer-col p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Lista dos Links */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 5px;
+}
+
+/* Links */
+.footer-col ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #d1d5db;
+    font-size: 14px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    transform: translateX(10px);
+}
+
+/* itens de contato */
+.footer-contato-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+/* ícones */
+.footer-contato-item img {
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+}
+
+/* texto */
+.footer-contato-item span {
+    font-size: 14px;
+    color: #d1d5db;
+}
+
+/* Linha inferior */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 13px;
+    max-width: 1200px;
+    margin: 30px auto 0;
+}
+
+
 /* Fundo da Página */
 body.dark-mode {
     background-color: #353535;
@@ -509,48 +591,62 @@ body.dark-mode .alento-logo h2 {
     color: white;
 }
 
-body.dark-mode .main-container{
-    background-color: #2d3748;
+/* Texto do Menu de Navegação */
+body.dark-mode .alento-nav .nav-link {
+    color: #e2e8f0;
 }
 
-body.dark-mode .banner-titulo h3 {
-    color: white;
+body.dark-mode .alento-nav .nav-link:hover {
+    border-right: 2px solid #3182ce;
+    color: #3182ce;
+    color: #3182ce;
 }
 
-body.dark-mode .banner-titulo p {
-    color: white;
-}
-
-body.dark-mode .lista-beneficios li{
-    color: white;
-}
-
-body.dark-mode .check{
-    color: white;
-}
-
-body.dark-mode .login-box {
-    background-color: #1a202c;
-}
-
-body.dark-mode .login-box h2{
-    color: white;
-}
-
-body.dark-mode .login-box .social-login .btn-google{
+/* Botão de Entrar */
+body.dark-mode #btn-entrar {
+    border: 1px solid #63b3ed;
+    color: #63b3ed;
     background-color: transparent;
 }
 
-body.dark-mode .login-box .social-login .btn-google:hover{
-    background-color: #db4a39;
-    color: #1a202c;
+body.dark-mode #btn-entrar:hover {
+    background-color: #63b3ed;
+    color: white;
 }
 
-body.dark-mode .btn-login-main:hover{
+body.dark-mode .contato-card{
+    background-color: #0f0f0f5e;
+}
+
+body.dark-mode .contato-card .card-title {
+    color: white;
+}
+
+body.dark-mode .contato-card .card-subtitle{
+    color: white;
+}
+
+body.dark-mode .contato-card .form-heading{
+    color: white;
+}
+
+body.dark-mode .btn-enviar-contato:hover{
     background-color: #132f44;
 }
 
-body.dark-mode .login-footer, body.dark-mode .login-footer a{
+body.dark-mode .info-card{
+    background-color: #2d3748;
+}
+
+body.dark-mode .info-header{
+    color: white;
+}
+
+body.dark-mode .info-body .info-item h5{
+    color: white;
+}
+
+body.dark-mode .info-body .info-item p{
     color: white;
 }
 
@@ -627,38 +723,24 @@ body.dark-mode .alento-footer {
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* Responsividade */
-@media (max-width: 991px) {
-    .banner-titulo {
+/* Para Telas menores que 576px */
+@media (max-width: 575px) {
+    .footer-logo{
+        display: flex;
+        justify-content: center;
+    }
+
+    .modal-box {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .footer-container {
+        flex-direction: column;
         text-align: center;
     }
 
-    .banner-titulo h3 {
-        font-size: 1.8rem;
-    }
-
-    .banner-titulo p {
-        margin: 10px auto;
-    }
-
-    .lista-beneficios {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    .main-content {
-        padding: 10px;
-    }
-}
-
-/* Ajustes do Header para Mobile */
-@media (max-width: 576px) {
-    .top-bar {
+    .footer-contato-item {
         justify-content: center;
-    }
-    .alento-logo h2 {
-        font-size: 18px;
     }
 }
