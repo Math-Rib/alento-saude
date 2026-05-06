@@ -387,10 +387,11 @@ main {
 
 /* Área do Banner Sobre Nós */
 .sobre-nos-imagem {
-    border: 1px solid rgba(93, 153, 198, 0.4);
+    border: 1px solid transparent;
     border-radius: 20px;
     position: relative;
     bottom: 50px;
+    margin-top: 35px;
 }
 
 /* Imagem do Banner Sobre Nós */
@@ -792,6 +793,10 @@ body.dark-mode .main-header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
+body.dark-mode .navbar-toggler-icon{
+    filter: brightness(0) invert(1);
+}
+
 /* Texto da Logo */
 body.dark-mode .alento-logo h2 {
     color: white;
@@ -1070,6 +1075,10 @@ body.dark-mode .alento-footer {
     .btn-agendar:hover {
         background-color: #72a1cc;
         transform: translateY(0px);
+    }
+
+    .sobre-nos-imagem{
+        margin-top: 35px;
     }
 }
 

@@ -4,77 +4,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alento Saúde - Home Paciente</title>
-    <link rel="stylesheet" href="/css/home_paciente.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/home_paciente.css">
+    <link rel="icon" type="image/x-icon" href="/img/logo_alternativa.png">
+    <title> Alento Saúde | Home Paciente </title>
 </head>
 
 <body>
 
     <header class="alento-header navbar navbar-expand-lg">
+        <!-- Barra Superior -->
         <div class="top-bar">
             <div class="top-bar-right">
-                <div id="toggle-dark-mode" class="toggle-dark-mode"></div>
-            </div>
-            <div class="top-bar-item nav-item">
-                <a class="nav-link" href="#">
-                    <img src="/img/icone_ajuda.png" alt="Ícone de Ajuda"> Ajuda
-                </a>
+                <div class="top-bar-item nav-item">
+                    <img id="img-modo-noturno" src="/img/icone_modo_noturno.png" alt="Ícone de Modo Noturno">
+                    <div id="toggle-dark-mode" class="toggle-dark-mode"></div>
+                </div>
+                <div class="top-bar-item nav-item">
+                    <button class="nav-link btn-ajuda"> <img class="img-item-default" src="/img/icone_ajuda.png"
+                            alt="Ícone de Ajuda">
+                        <img class="img-item-hover" src="/img/icone_ajuda_hover.png" alt="Ícone de Ajuda">
+                        <img class="img-item-dark-hover" src="/img/icone_ajuda_dark_hover.png" alt="Ícone de Ajuda">
+                        Ajuda
+                    </button>
+                </div>
             </div>
         </div>
-        </div>
-
+        <!-- Header Principal -->
         <div class="container-fluid main-header">
-            <a class="alento-logo" href="/">
-                <img src="/img/logo.png" alt="Ícone Padrão da Logo">
-                <h2>Alento Saúde</h2>
+
+            <!-- Ícone Menu Hamburguer -->
+            <button class="btn-hamburguer-custom order-0" id="btn-menu-mobile">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Logo -->
+            <a class="alento-logo d-flex align-items-center order-1" href="/paciente/home">
+                <img src="/img/logo_padrao.png" alt="Ícone Padrão da Logo">
+                <h2> Alento Saúde </h2>
             </a>
-            <button class="btn-profile" id="btn-abrir-perfil">Perfil</button>
 
-            <div id="overlay-perfil" class="overlay"></div>
+            <nav class="menu-central order-lg-2">
+                <a href="/paciente/home">
+                    <img class="img-menu-default" src="/img/icone_inicio.png">
+                    Início
+                </a>
+                <a href="/paciente/agendamento">
+                    <img class="img-menu-default" src="/img/icone_agendamento.png">
+                    Meus Agendamentos
+                </a>
+                <a href="/paciente/historico">
+                    <img src="/img/icone_historico.png">
+                    Histórico & Documentos
+                </a>
+            </nav>
 
-            <div id="sidebar-perfil" class="sidebar-perfil">
-                <div class="perfil-header">
-                    <img src="/img/foto-perfil.jpg" alt="Foto" class="foto-perfil">
-                    <h3>Gabriel<br><span>oliveira</span></h3>
+            <div class="user-dropdown d-flex align-items-center order-3">
+                <div class="user-profile">
+                    <img src="/img/icone_perfil.png" alt="Perfil" class="img-perfil-nav">
+                    <i class="fa fa-chevron-down arrow-icon"></i>
                 </div>
-
-                <ul class="perfil-menu">
-                    <li><i class="fa-solid fa-user"></i> Informações pessoais</li>
-                    <li><i class="fa-solid fa-lock"></i> Login e Privacidade</li>
-                    <li><i class="fa-solid fa-bell"></i> Notificações</li>
-                </ul>
-
-                <div class="perfil-footer">
-                    <button id="btn-sair"><i class="fa-solid fa-power-off"></i> Sair</button>
+                <div id="dropdownMenu" class="dropdown-content">
+                    <div class="dropdown-header">
+                        <h6>Olá, João Roberto da Silva!</h6>
+                    </div>
+                    <a href=""><i class="fa fa-user"></i> Meu Perfil</a>
+                    <hr>
+                    <a href="" class="logout-item">
+                        <i class="fa fa-sign-out-alt"></i> Sair
+                    </a>
                 </div>
             </div>
+        </div>
     </header>
 
     <main class="main-content">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#" class="nav-link">
-                            <img src="/img/casa.png" alt="Ícone de início" class="nav-icon"> Início
-                        </a>
-                    </li>
-                    <li>
-
-                        <a href="#" class="nav-link">
-                            <img src="/img/calendario.png" alt="Ícone de Serviços" class="nav-icon"> Serviços
-                        </a>
-                    </li>
-                    <li>
-
-                        <a href="#" class="nav-link">
-                            <img src="/img/serviços.png" alt="Ícone de Agendar" class="nav-icon"> Agendar
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
+        <!-- Menu Lateral -->
+        <nav class="sidebar">
+            <ul class="menu-items">
+                <li class="active">
+                    <a href="/paciente/home">
+                        <img src="/img/icone_inicio_ativo.png">
+                        Início
+                    </a>
+                </li>
+                <li>
+                    <a href="/paciente/agendamento">
+                        <img class="img-menu-default" src="/img/icone_agendamento.png">
+                        <img class="img-menu-hover" src="/img/icone_agendamento_ativo.png">
+                        Agendamento
+                    </a>
+                </li>
+                <li>
+                    <a href="/paciente/historico">
+                        <img class="img-menu-default" src="/img/icone_historico.png">
+                        <img class="img-menu-hover" src="/img/icone_historico_ativo.png">
+                        Histórico & Documentos
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
         <section class="conteudo">
             <h1 class="hero-title">Bem vindo, Kauan!</h1>
@@ -143,12 +174,46 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container-footer">
-            <p>&copy; 2026 Alento Saúde - Todos os direitos reservados.</p>
+    <!-- Modal Ajuda -->
+    <div id="modalAjuda" class="modal-container">
+        <div class="modal-box">
+            <span class="modal-close" id="closeAjuda">&times;</span>
+
+            <h2 class="modal-title">Como podemos te ajudar?</h2>
+
+            <div class="modal-info-list text-format">
+                <h3>FAQ</h3>
+
+                <p><strong>Vocês aceitam convênios?</strong><br>
+                    Trabalhamos apenas com consultas particulares, mas fornecemos nota fiscal completa para você
+                    solicitar o reembolso junto ao seu plano de saúde.</p>
+
+                <p><strong>Como faço para cancelar uma consulta?</strong><br>
+                    Os cancelamentos devem ser feitos diretamente via WhatsApp com pelo menos 24h de antecedência.</p>
+
+                <p><strong>Quais documentos preciso levar?</strong><br>
+                    Apenas um documento oficial com foto. Se possuir exames recentes de outras clínicas, recomendamos
+                    trazê-los.</p>
+
+                <hr class="modal-divider">
+
+                <h3>Canais de Contato</h3>
+                <h6>Para casos de urgência ou dúvidas rápidas: </h6>
+                <p><strong>WhatsApp: </strong> (21) 99999-9999 <br> Seg a Sex - 08h às 18h | Sab - 08h às 14h.</p>
+
+                <p><strong>Localização:</strong> Av. Rio Branco, 123 - Centro - Rio de Janeiro.</p>
+
+                <a class="modal-btn-action btn-whatsapp" href="https://wa.me" target="_blank">Falar com Atendente
+                    agora</a>
+            </div>
         </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="alento-footer">
+        <p>© 2026 Alento Saúde - Todos os direitos reservados.</p>
     </footer>
-    <script type="module" src="/js/pages/main.js"></script>
+    <script type="module" src="/js/main.js"></script>
 </body>
 
 </html>

@@ -1,25 +1,17 @@
-/* VARIAVEIS DE CORES*/
-:root {
-
-  --cor-primaria: #5D99C6;
-  --cor-secundaria: #8FB6D5;
-  --cor-fundo: #EBF2F7;
-  --cor-texto: #333;
-  --cor-cards: #FFFFFF;
-}
-
-/* RESET BÁSICO */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
+  background-color: #eef2f6;
+  color: #333;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
+  overflow: hidden;
 }
 
 /* Estilização do Header */
@@ -57,6 +49,20 @@ body {
   display: flex;
   flex-direction: row;
   gap: 5px;
+}
+
+.top-bar-item .btn-ajuda {
+  outline: none !important;
+  border: none !important;
+  background-color: transparent;
+  color: #718096;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s;
+  cursor: pointer;
 }
 
 .top-bar-item img {
@@ -289,99 +295,6 @@ body {
   height: 35px;
 }
 
-/* ==========================================================
-   MENU LATERAL (PERFIL DRAWER)
-   ========================================================== */
-
-/* Fundo escuro que cobre a tela */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 998;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.overlay.ativo {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Estrutura do Painel */
-.sidebar-perfil {
-  position: fixed;
-  top: 0;
-  right: -350px;
-  /* Escondido */
-  width: 300px;
-  height: 100vh;
-  background-color: #ffffff;
-  z-index: 999;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-  transition: right 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.sidebar-perfil.ativo {
-  right: 0;
-}
-
-/* Visível */
-
-/* Itens internos do Perfil */
-.perfil-header {
-  padding: 40px 20px;
-  text-align: center;
-  border-bottom: 1px solid #eee;
-}
-
-.perfil-header img {
-  width: 80px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-.perfil-menu {
-  list-style: none;
-  padding: 20px 0;
-  flex-grow: 1;
-}
-
-.perfil-menu li {
-  padding: 15px 25px;
-  cursor: pointer;
-  color: #718096;
-  font-weight: 500;
-}
-
-.perfil-menu li:hover {
-  background: #f0f4f8;
-  color: #3182ce;
-}
-
-.perfil-footer {
-  padding: 20px;
-  border-top: 1px solid #eee;
-}
-
-#btn-sair {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #888;
-  font-weight: bold;
-}
-
-#btn-sair:hover {
-  color: red;
-}
-
 /* Sidebar fixa */
 .sidebar {
   width: 260px;
@@ -453,271 +366,200 @@ body {
   display: inline-block;
 }
 
-.nav-link {
+/* --- ÁREA PRINCIPAL --- */
+.main-wrapper {
   display: flex;
-  /* Coloca ícone e texto lado a lado */
-  align-items: center;
-  /* Alinha verticalmente no meio */
-  gap: 8px;
-  /* Espaçamento entre o ícone e o texto */
-  text-decoration: none;
-  /* Remove sublinhado padrão */
-  color: #333;
-  /* Defina a cor desejada */
-  font-weight: 500;
-}
-
-.nav-icon {
-  width: 20px;
-  /* Ajuste o tamanho conforme necessário */
-  height: 20px;
-  object-fit: contain;
-  /* Garante que o ícone não fique distorcido */
-}
-
-
-
-/*PARTE PRINCIPAL*/
-main {
-  display: flex;
-  min-height: 100vh
-}
-
-.conteudo {
+  flex-direction: row;
   flex: 1;
-  padding: 40px;
-  background-color: #f0f4f8;
-  /* Cor de fundo suave */
+  overflow-y: hidden;
 }
 
-.conteudo-container-principal {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  /* 2 partes para os cards, 1 parte para avisos */
-  gap: 30px;
-  align-items: start;
-}
-
-.hero-title {
-  margin-bottom: 20px;
-}
-
-/* Ajuste dos Cards (Grid 2x2) */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  flex: 2;
-  /* Ocupa 2/3 da largura */
-}
-
-/* Estilo do card individual */
-.card {
-  display: flex;
-  /* ADICIONADO: Ativa o Flexbox no card */
-  justify-content: center;
-  /* ADICIONADO: Centraliza no eixo horizontal */
-  align-items: center;
-  /* ADICIONADO: Centraliza no eixo vertical */
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  /* AJUSTADO: Colocado aqui para a animação ir e voltar suavemente */
-}
-
-/* Comportamento específico do link DENTRO do card */
-.card .nav-link {
-  display: flex;
-  justify-content: center;
-  /* ADICIONADO: Junta o ícone e o texto no centro */
-  align-items: center;
-  gap: 10px;
-  /* Espaço entre ícone e texto */
-  width: 100%;
-  /* ADICIONADO: Deixa a área de clique do tamanho do card */
-  color: var(--cor-texto);
-  text-decoration: none;
-}
-
-/* Efeito Hover do Card */
-.card:hover {
-  background: var(--cor-primaria);
-  transform: translateY(-3px);
-  /* ADICIONADO: Dá um leve "pulinho" no card (opcional, fica muito bom) */
-}
-
-/* Muda a cor do TEXTO para branco quando passa o mouse no card */
-.card:hover .nav-link {
-  color: var(--cor-cards);
-}
-
-/* BÔNUS: Truque para deixar o ÍCONE PNG branco quando o fundo ficar azul */
-.card:hover .nav-icon {
-  filter: brightness(0) invert(1);
-}
-
-/* Área de Avisos */
-.secao-avisos {
+/* --- CONTEÚDO DA PÁGINA --- */
+.content {
+  padding: 30px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  overflow-y: auto;
 }
 
-.container-avisos {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  width: 100%;
-  /* Ocupa a largura da coluna de 1fr */
-}
-
-/* Ajuste fino da imagem */
-.img-direita {
-  width: 100px;
-  /* Tamanho controlado */
-  height: auto;
-  border-radius: 10px;
-  margin-left: 10px;
-}
-
-/* CALENDARIO*/
-.secao-agenda {
-  border-radius: 15px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: auto;
-  margin: 15px;
-}
-
-.titulo-secao {
-  background-color: #3182ce;
+h1 {
+  font-size: 22px;
   font-weight: bold;
-  padding: 10px;
-  margin-bottom: 15px;
-
+  margin-bottom: 20px;
+  color: #000;
 }
 
-.calendario-wrapper {
-  background: #FFFFFF;
-  width: 340px;
-  /* Largura controlada */
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  /* Sombra suave idêntica à imagem */
-}
-
-.calendario-header {
+/* --- FILTROS E BOTÃO --- */
+.top-controls {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   margin-bottom: 20px;
 }
 
-.calendario-header h3 {
-  margin: 0;
-  font-size: 1.1rem;
-  color: #333;
-  font-weight: 700;
-}
-
-.btn-nav {
-  background: #f0f4f8;
-  border: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  cursor: pointer;
-  color: #555;
+.filters-group {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
+  gap: 20px;
+  align-items: flex-end;
 }
 
-.btn-nav:hover {
-  background: var(--cor-secundaria);
-  color: white;
+.search-box {
+  position: relative;
 }
 
-.calendario-semana,
-.calendario-dias {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  gap: 8px;
-  /* Espaço entre os dias */
+.search-box input {
+  width: 280px;
+  padding: 10px 10px 10px 15px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  outline: none;
+  color: #4a5568;
 }
 
-.calendario-semana div {
-  font-size: 0.85rem;
-  color: #a0aec0;
-  /* Cinza claro da imagem */
-  font-weight: 600;
-  margin-bottom: 10px;
+.search-box i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #cbd5e0;
 }
 
-.dia {
-  width: 36px;
-  height: 36px;
+.filter-item {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 0.95rem;
-  font-weight: 500;
-  cursor: pointer;
-  margin: auto;
-  color: #333;
-  transition: 0.2s;
+  flex-direction: column;
+  gap: 5px;
 }
 
-/* Dias dos meses vizinhos (cinza claro) */
-.dia.mes-diferente {
-  color: #cbd5e1;
-}
-
-/* Efeito ao passar o mouse */
-.dia:hover:not(.mes-diferente) {
-  background-color: var(--cor-fundo);
-}
-
-/* O dia selecionado/ativo (O círculo forte) */
-.dia.ativo {
-  background-color: var(--cor-primaria);
-  color: white;
-  box-shadow: 0 2px 6px rgba(93, 153, 198, 0.4);
-}
-
-/* O dia com marcação secundária (O círculo claro) */
-.dia.consulta-marcada {
-  background-color: var(--cor-fundo);
-  color: var(--cor-primaria);
+.filter-item label {
+  font-size: 12px;
   font-weight: bold;
+  color: #000;
 }
 
-/* Estilização do Footer */
-.alento-footer {
-  background-color: #2f3e4e;
-  color: #ffffff;
-  padding-top: 10px;
-  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
-  cursor: default;
-  flex-shrink: 0;
+.select-box {
+  padding: 10px 15px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  width: 160px;
+  color: #a0aec0;
+  appearance: none;
+  background: #fff url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23cbd5e0%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E") no-repeat right 10px center;
+  background-size: 10px;
+}
+
+.btn-register {
+  background-color: #3470d0;
+  color: white;
+  border: none;
+  padding: 0 20px;
+  height: 40px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* --- TABELA --- */
+.table-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+table {
   width: 100%;
+  border-collapse: collapse;
+  text-align: left;
 }
 
-/* Linha inferior */
-.alento-footer p {
-  text-align: center;
+th {
+  padding: 15px 20px;
   font-size: 13px;
+  color: #000;
+  font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+td {
+  padding: 15px 20px;
+  font-size: 13px;
+  color: #333;
+  border-bottom: 1px solid #edf2f7;
+}
+
+/* --- STATUS (Bolinhas) --- */
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-green {
+  background-color: #38a169;
+}
+
+.dot-red {
+  background-color: #e53e3e;
+}
+
+/* --- BOTÕES DE AÇÃO NA TABELA --- */
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-action {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.btn-action:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.btn-baixar {
+  background-color: #38a169;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #e53e3e;
+  color: white;
+}
+
+/* --- PAGINAÇÃO --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+  color: #a0aec0;
+  font-size: 14px;
+}
+
+.pagination .active {
+  color: #000;
+  font-weight: bold;
 }
 
 /* Modal Saiba Mais */
@@ -887,6 +729,23 @@ main {
   padding-right: 10px;
 }
 
+/* Estilização do Footer */
+.alento-footer {
+  background-color: #2f3e4e;
+  color: #ffffff;
+  padding: 10px 0;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+/* Linha inferior */
+.alento-footer p {
+  text-align: center;
+  font-size: 13px;
+}
+
 /* Estilização da Página no Modo Noturno */
 /* Fundo da Página */
 body.dark-mode {
@@ -970,97 +829,6 @@ body.dark-mode .sidebar .menu-items li.active a {
   color: #63b3ed;
 }
 
-body.dark-mode .main-content .banner-paciente .header-main {
-  background-color: #353535;
-  color: white;
-}
-
-body.dark-mode .main-content .banner-paciente .header-main .main-titulo h1 {
-  color: #ffffff;
-}
-
-body.dark-mode .main-content .banner-paciente .header-main .main-titulo p {
-  color: #ffffff;
-}
-
-/* Fundo dos Cards e das Seções */
-body.dark-mode .card-ficha-paciente,
-body.dark-mode .card-historico-consultas,
-body.dark-mode .card-biblioteca-documentos {
-  background-color: #2b3d4f;
-  color: #f7fafc;
-  border: 1px solid #4a5568;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-body.dark-mode .ficha-paciente-titulo img,
-body.dark-mode .historico-header img,
-body.dark-mode .biblioteca-titulo-header img {
-  filter: brightness(0) invert(1);
-}
-
-body.dark-mode .banner-paciente .header-main {
-  background-color: #1a202c;
-}
-
-/* Títulos dentro dos cards */
-body.dark-mode h5,
-body.dark-mode h6,
-body.dark-mode .conteudo-titulo {
-  color: #ffffff;
-}
-
-body.dark-mode .conteudo-desc {
-  color: #ffffff;
-}
-
-/* Headers das Grids */
-body.dark-mode .grid-historico-header,
-body.dark-mode .grid-biblioteca-header {
-  background-color: #1a202c;
-  color: #edf2f7;
-  border-bottom: 2px solid #4a5568;
-}
-
-/* Linhas das Grids */
-body.dark-mode .historico-grid,
-body.dark-mode .biblioteca-grid {
-  border-bottom: 1px solid #4a5568;
-  background-color: #768196;
-}
-
-body.dark-mode .historico-grid:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  transition: background 0.2s;
-}
-
-body.dark-mode .historico-grid:hover,
-body.dark-mode .biblioteca-grid:hover {
-  background-color: #3e4a5e;
-}
-
-/* Fundo da Paginação */
-body.dark-mode .num-pag {
-  background-color: #1a202c;
-  color: #cbd5e0;
-  border: 1px solid #4a5568;
-}
-
-body.dark-mode .num-pag.active {
-  background-color: #778296;
-  color: white;
-  border-color: #63b3ed;
-}
-
-body.dark-mode .num-pag:hover {
-  background-color: #778296;
-}
-
-body.dark-mode .btn-seta {
-  background-color: #2d3748;
-  color: white;
-}
-
 /* Fundo Área do Modal Saiba Mais */
 body.dark-mode .modal-box {
   background-color: #1e293b;
@@ -1132,27 +900,4 @@ body.dark-mode .modal-btn-action:hover {
 body.dark-mode .alento-footer {
   background-color: #0b0f19;
   box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.6);
-}
-
-/* Transição das Cores */
-.main-header,
-.main-content,
-.top-bar,
-.card-ficha-paciente,
-.card-historico-consultas,
-.card-biblioteca-documentos,
-.main-content .banner-paciente .header-main,
-.main-content .banner-paciente .header-main .main-titulo h1,
-.main-content .banner-paciente .header-main .main-titulo p,
-h5,
-h6,
-.conteudo-titulo,
-.conteudo-desc,
-.grid-historico-header,
-.grid-biblioteca-header,
-.num-pag,
-.num-pag.active,
-.btn-seta,
-.alento-footer {
-  transition: all 0.3s ease, color 0.3s ease;
 }
