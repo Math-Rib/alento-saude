@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap e CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="/css/atendimento.css" rel="stylesheet">
+  <!-- Ícone do Navegador -->
+  <link rel="icon" type="image/x-icon" href="/img/logo_alternativa.png">
+  <title>Alento Saúde | Atendimento</title>
+</head>
+
+<body>
+
+  <header class="alento-header navbar navbar-expand-lg">
+    <!-- Barra Superior -->
+    <div class="top-bar">
+      <div class="top-bar-right">
+        <div class="top-bar-item nav-item">
+          <img id="img-modo-noturno" src="/img/icone_modo_noturno.png" alt="Ícone de Modo Noturno">
+          <div id="toggle-dark-mode" class="toggle-dark-mode"></div>
+        </div>
+        <div class="top-bar-item nav-item">
+          <button class="nav-link btn-ajuda"> <img class="img-item-default" src="/img/icone_ajuda.png"
+              alt="Ícone de Ajuda">
+            <img class="img-item-hover" src="/img/icone_ajuda_hover.png" alt="Ícone de Ajuda">
+            <img class="img-item-dark-hover" src="/img/icone_ajuda_dark_hover.png" alt="Ícone de Ajuda">
+            Ajuda
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Header Principal -->
+    <div class="container-fluid main-header">
+
+      <!-- Ícone Menu Hamburguer -->
+      <button class="btn-hamburguer-custom order-0" id="btn-menu-mobile">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <!-- Logo -->
+      <a class="alento-logo d-flex align-items-center order-1" href="/paciente/home">
+        <img src="/img/logo_padrao.png" alt="Ícone Padrão da Logo">
+        <h2> Alento Saúde </h2>
+      </a>
+
+      <nav class="menu-central order-lg-2">
+        <a href="/paciente/home">
+          <img class="img-menu-default" src="/img/icone_inicio.png">
+          Início
+        </a>
+        <a href="/paciente/agendamento">
+          <img class="img-menu-default" src="/img/icone_agendamento.png">
+          Meus Agendamentos
+        </a>
+        <a href="/paciente/historico">
+          <img src="/img/icone_historico.png">
+          Histórico & Documentos
+        </a>
+      </nav>
+
+      <div class="user-dropdown d-flex align-items-center order-3">
+        <div class="user-profile">
+          <img src="/img/icone_perfil.png" alt="Perfil" class="img-perfil-nav">
+          <i class="fa fa-chevron-down arrow-icon"></i>
+        </div>
+        <div id="dropdownMenu" class="dropdown-content">
+          <div class="dropdown-header">
+            <h6>Olá, João Roberto da Silva!</h6>
+          </div>
+          <a href=""><i class="fa fa-user"></i> Meu Perfil</a>
+          <hr>
+          <a href="" class="logout-item">
+            <i class="fa fa-sign-out-alt"></i> Sair
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-wrapper">
+    <!-- Menu Lateral -->
+    <nav class="sidebar">
+      <ul class="menu-items">
+        <li class="active">
+          <a href="/paciente/home">
+            <img src="/img/icone_inicio_ativo.png">
+            Início
+          </a>
+        </li>
+        <li>
+          <a href="/paciente/agendamento">
+            <img class="img-menu-default" src="/img/icone_agendamento.png">
+            <img class="img-menu-hover" src="/img/icone_agendamento_ativo.png">
+            Agendamento
+          </a>
+        </li>
+        <li>
+          <a href="/paciente/historico">
+            <img class="img-menu-default" src="/img/icone_historico.png">
+            <img class="img-menu-hover" src="/img/icone_historico_ativo.png">
+            Histórico & Documentos
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+
+      <!-- LINHA DO TÍTULO -->
+      <div class="page-title-row">
+        <h2>PACIENTES</h2>
+      </div>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <div class="content-grid">
+
+        <!-- LISTA DE PACIENTES -->
+        <div class="patients-list">
+          <div class="patient">Carlos A.</div>
+          <div class="patient">Flavia F.</div>
+          <div class="patient active">André Pereira</div>
+          <div class="patient">Olívia Silva</div>
+          <div class="patient">Paulo R.</div>
+          <div class="patient">mais...</div>
+        </div>
+
+        <!-- DETALHES -->
+        <div class="details">
+          <div class="card">
+            <strong>Nome:</strong> André Pereira <br>
+            <strong>Idade:</strong> 27 anos <br>
+            <strong>Status:</strong> esperando atendimento <br>
+            <strong>Hábitos:</strong> Sedentário, fumante ocasional
+          </div>
+
+          <div class="card">
+            <h4>Motivo da consulta</h4>
+            <p>Desconforto persistente no peito ao esforço...</p>
+          </div>
+
+          <div class="card">
+            <h4>Sintomas</h4>
+            <p>Suor frio e leve náusea.</p>
+          </div>
+        </div>
+
+        <!-- AÇÕES -->
+        <div class="actions">
+          <div class="card big">
+            📄 Histórico de diagnósticos
+          </div>
+
+          <h3>Gerar documentos</h3>
+
+          <div class="actions-grid">
+            <button>Pedido de exame</button>
+            <button>Atestado</button>
+            <button>Laudo</button>
+            <button>Receita</button>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="alento-footer">
+    <p>© 2026 Alento Saúde - Todos os direitos reservados.</p>
+  </footer>
+  <script type="module" src="/js/main.js"></script>F
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>

@@ -7,7 +7,7 @@ export function initDarkMode() {
 
     /* Caminho dos Icones */ 
     const darkIcon = "/img/icone_modo_noturno.png";
-    const lightIcon = "/img/icone_modo_claro.png"
+    const lightIcon = "/img/icone_modo_claro.png";
 
     /* Carrega a preferência salva no LocalStorage*/
     const isDark = localStorage.getItem('dark-mode') === "true";

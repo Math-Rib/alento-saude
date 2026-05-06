@@ -1,0 +1,884 @@
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 30px 50px;
+}
+
+/* Estilização do Header */
+.alento-header {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    position: sticky !important;
+    top: 0;
+    width: 100%;
+    z-index: 1050;
+}
+
+/* Barra Superior */
+.top-bar {
+    background-color: #e6edf2;
+    padding: 6px 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: end;
+    gap: 5px;
+}
+
+.top-bar-item {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.top-bar-item .btn-ajuda {
+    outline: none !important;
+    border: none !important;
+    background-color: transparent;
+    color: #718096;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.top-bar-item img {
+    width: 20px;
+    height: 20px;
+}
+
+.top-bar-item button {
+    color: #718096;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.top-bar-item button:hover {
+    color: #000000;
+}
+
+/* Troca dos Ícones do Botão Ajuda */
+.top-bar-item button .img-item-hover,
+.top-bar-item .img-item-dark-hover {
+    display: none;
+}
+
+.top-bar-item button:hover .img-item-default {
+    display: none;
+}
+
+.top-bar-item button:hover .img-item-hover {
+    display: inline-block;
+}
+
+/* Estilização do Botão Modo Noturno */
+.toggle-dark-mode {
+    margin-top: 2px;
+    width: 45px;
+    height: 17px;
+    background-color: #CCCCCC;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-dark-mode::before {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: transform 0.3s;
+}
+
+/* Header Principal */
+.main-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+    min-height: 70px;
+    padding: 0 20px;
+}
+
+.header-left,
+.header-right {
+    flex: 1;
+}
+
+.header-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-hamburguer-custom {
+    border: none;
+    color: #2b3d4f;
+    padding: 5px 10px;
+    display: none;
+}
+
+.header-right {
+    justify-content: flex-end;
+    display: flex;
+}
+
+.header-center button {
+    display: none;
+}
+
+
+.alento-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.alento-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.alento-logo h2 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Botão de Perfil */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 4px 10px 4px 10px;
+    background-color: transparent;
+    border: 1.5px solid #197bb0;
+    border-radius: 50px;
+}
+
+.user-profile:hover {
+    background-color: #197bb0;
+}
+
+.img-perfil-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    object-fit: cover;
+}
+
+.user-profile .arrow-icon {
+    color: #197bb0;
+}
+
+.user-profile:hover .arrow-icon {
+    color: white;
+}
+
+/* Menu Dropdown */
+.dropdown-header {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.dropdown-header h6 {
+    color: #2c3e50;
+    cursor: default;
+    font-weight: bold;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 110%;
+    background-color: #fff;
+    min-width: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    color: #333;
+    margin: 10px;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-content .logout-item {
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.dropdown-content.ativo {
+    display: block;
+}
+
+.btn-hamburguer-custom {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #2b3d4f;
+}
+
+.menu-central {
+    display: none;
+    gap: 20px;
+}
+
+.menu-central a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.menu-central a img {
+    width: 35px;
+    height: 35px;
+}
+
+/* LISTA DE PACIENTES */
+.patients-list {
+    background: #dbeaf3;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.patient {
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.patient:hover {
+    background: #f1f5f9;
+}
+
+.patient.active {
+    font-weight: bold;
+    background: #ffffff;
+    border: 2px solid #5da3cc;
+}
+
+/* DETALHES */
+.details .card {
+    background: #e5e7eb;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow);
+}
+
+/* AÇÕES */
+.actions .big {
+    text-align: center;
+    padding: 30px;
+    background: #e2e8f0;
+    border-radius: 15px;
+}
+
+.actions h3 {
+    margin: 15px 0;
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.actions-grid button {
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    background: #cbd5e1;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* CENTRALIZA TUDO */
+}
+
+.actions h3 {
+    text-align: center;
+}
+
+.actions-grid button:hover {
+    background: #b6c2cf;
+
+}
+
+:root {
+    --blue-primary: #5da3cc;
+    --blue-light-bg: #f0f7fb;
+    --blue-calendar: #008aff;
+    --gray-sidebar: #6d767e;
+    --text-dark: #2c3e50;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilização do Modo Noturno */
+.input-group-darkmode {
+    color: white;
+}
+
+.checkbox-group-darkmode {
+    color: white;
+}
+
+.login-link-darkmode {
+    color: white;
+}
+
+.hero- {
+    color: white;
+}
+
+.toggle-dark-mode {
+    margin-top: 2px;
+    width: 45px;
+    height: 17px;
+    background-color: #CCCCCC;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-dark-mode::before {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: transform 0.3s;
+}
+
+
+/* --- ÁREA PRINCIPAL --- */
+.main-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    overflow-y: hidden;
+}
+
+/* --- CONTEÚDO DA PÁGINA --- */
+.content-grid {
+    padding: 30px;
+    flex: 1;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 220px 1fr 300px;
+    gap: 20px;
+}
+
+/* Sidebar fixa */
+.sidebar {
+  width: 260px;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding: 20px;
+  position: sticky;
+  top: 100px;
+  height: calc(100vh - 130px);
+  overflow-y: auto;
+  z-index: 900;
+}
+
+.sidebar .logo {
+  margin-bottom: 40px;
+}
+
+.menu-items {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.menu-items li {
+  margin-bottom: 15px;
+}
+
+.menu-items a {
+  text-decoration: none;
+  color: #c7c4bd;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.menu-items a img {
+  height: 25px;
+  width: 25px;
+}
+
+/* Estilo do item ativo*/
+.menu-items li.active a {
+  background-color: #e0f2f1;
+  color: #236a99;
+  font-weight: bold;
+}
+
+.menu-items a:hover {
+  background-color: #f5f5f5;
+  color: #2196f3;
+}
+
+.menu-items a .img-menu-hover {
+  display: none;
+}
+
+.menu-items a:hover .img-menu-default {
+  display: none;
+}
+
+.menu-items a:hover .img-menu-hover {
+  display: inline-block;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 30px;
+    text-decoration: none;
+    color: var(--gray-sidebar);
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+.nav-item.active {
+    background: var(--blue-light-bg);
+    color: var(--text-dark);
+    font-weight: 600;
+    border-right: 4px solid var(--blue-primary);
+}
+
+.nav-item:hover:not(.active) {
+    background: #fcfcfc;
+    color: var(--blue-primary);
+}
+
+.page-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 15px 25px;
+    border: 1px solid var(--blue-primary);
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.user-info-detail {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-info-detail img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid var(--blue-primary);
+}
+
+
+/* Estilização do Footer */
+.alento-footer {
+    background-color: #2f3e4e;
+    color: #ffffff;
+    padding-top: 10px;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+/* Linha inferior */
+.alento-footer p {
+    text-align: center;
+    font-size: 13px;
+}
+
+/* --- Utils --- */
+hr {
+    border: 0;
+    border-top: 1px solid #f1f5f9;
+    margin: 15px 0;
+}
+
+/* Fundo da Página */
+body.dark-mode {
+    background-color: #353535;
+    color: white;
+}
+
+/* Botão do Modo Noturno */
+body.dark-mode .toggle-dark-mode {
+    background-color: #2196F3;
+}
+
+body.dark-mode .form-side {
+    background-color: #2d3748;
+
+}
+
+body.dark-mode .form-side h2 {
+    color: white;
+}
+
+body.dark-mode .toggle-dark-mode::before {
+    transform: translateX(25px);
+}
+
+body.dark-mode .top-bar {
+    background-color: #2d3748;
+}
+
+/* Fundo do Header Principal */
+body.dark-mode .main-header {
+    background-color: #1a202c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Texto da Logo */
+body.dark-mode .alento-logo h2 {
+    color: white;
+}
+
+body.dark-mode .form-side h3 {
+    color: white;
+}
+
+/* Texto do Menu de Navegação */
+body.dark-mode .alento-nav .nav-link {
+    color: #e2e8f0;
+}
+
+body.dark-mode .alento-nav .nav-link:hover {
+    border-right: 2px solid #3182ce;
+    color: #3182ce;
+    color: #3182ce;
+}
+
+/* Botão de Entrar */
+body.dark-mode #btn-entrar {
+    border: 1px solid #63b3ed;
+    color: #63b3ed;
+    background-color: transparent;
+}
+
+body.dark-mode #btn-entrar:hover {
+    background-color: #63b3ed;
+    color: white;
+}
+
+/* Fundo do Banner */
+body.dark-mode .banner {
+    background-color: #2d3748;
+}
+
+/* Título do Banner */
+body.dark-mode .banner-text h1 {
+    color: #f7fafc;
+}
+
+/* Subtítulo do Banner */
+body.dark-mode .banner-text p {
+    color: #cbd5e0;
+}
+
+/* Botão Agendar */
+body.dark-mode .btn-agendar {
+    background-color: #4a90e2;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .btn-agendar:hover {
+    background-color: #357abd;
+}
+
+/* Imagem do Banner */
+body.dark-mode .banner-imagem img {
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+}
+
+/* Fundo da Seção Especialidades */
+body.dark-mode .servicos-section {
+    background-color: #363636;
+}
+
+/* Título da Seção Especialidades (h2) */
+body.dark-mode .servicos-title {
+    color: white;
+}
+
+/* Fundo dos Cards */
+body.dark-mode .servico-card {
+    background-color: #2d3748;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* do Título dos Cards */
+body.dark-mode .servico-card .card-title {
+    color: #f7fafc;
+}
+
+/* Fundo da Descrição dos Cards */
+body.dark-mode .servico-card .card-text {
+    color: #cbd5e0;
+}
+
+/* Fundo da Seção Sobre Nós */
+body.dark-mode .sobre-nos-intro {
+    background-color: #2d3748;
+}
+
+/* Título da Seção Sobre Nós */
+body.dark-mode .sobre-nos-title {
+    color: #f7fafc;
+}
+
+/* Subtítlo da Seção Sobre Nós */
+body.dark-mode .sobre-nos-subtitle {
+    color: #f7fafc;
+}
+
+/* Descrição da Seção Sobre Nós */
+body.dark-mode .sobre-nos-text p {
+    color: #cbd5e0;
+}
+
+/* Botão Saiba Mais da Seção Sobre Nós */
+body.dark-mode .btn-saiba-mais {
+    background-color: #4a90e2;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .btn-saiba-mais:hover {
+    background-color: #357abd;
+    color: white;
+}
+
+/* Fundo da Seção dos Pilares */
+body.dark-mode .pilares-section {
+    background-color: #363636;
+}
+
+/* Subtítulo da Seção dos Pilares */
+body.dark-mode .pilares-subtitle {
+    color: #f7fafc;
+}
+
+/* Fundo dos Cards da Seção dos Pilares */
+body.dark-mode .pilares-card {
+    background-color: #2d3748;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Título dos Cards da Seção Pilares */
+body.dark-mode .pilares-card .card-title {
+    color: #f7fafc;
+}
+
+/* Descrição dos Cards da Seção Pilares */
+body.dark-mode .pilares-card .card-text {
+    color: #cbd5e0;
+}
+
+/* Fundo Área do Modal Saiba Mais */
+body.dark-mode .modal-box {
+    background-color: #1e293b;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Descrição dos Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-description {
+    color: #cbd5e1;
+}
+
+/* Botão de Fechar o Modal Saiba Mais */
+body.dark-mode .modal-close {
+    color: #94a3b8;
+}
+
+body.dark-mode .modal-close:hover {
+    color: #ef4444;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}
+
+/* Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-item {
+    background-color: #334155;
+    border-color: #475569;
+}
+
+/* Título dos Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-item-title {
+    color: #f1f5f9;
+}
+
+/* Descrição dos Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-item-text {
+    color: #94a3b8;
+}
+
+/* Título dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format h3 {
+    color: #f1f5f9;
+}
+
+/* Subtítulo dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format h6 {
+    color: #f1f5f9;
+}
+
+/* Descrição dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format p {
+    color: #cbd5e1;
+}
+
+/* Descrição em Negrito dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format strong {
+    color: #ffffff;
+}
+
+/* Linha de Divisão do Modal Ajuda */
+body.dark-mode .modal-divider {
+    border-color: #334155;
+}
+
+/* Footer */
+body.dark-mode .alento-footer {
+    background-color: #0b0f19;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Transição das Cores */
+.main-header,
+.nav-link,
+#btn-entrar,
+.banner,
+.banner-text h1,
+.banner-text p,
+.btn-agendar,
+.servicos-section,
+.servicos-title,
+.servico-card,
+.servico-card .card-title,
+.servico-card .card-text,
+.sobre-nos-intro,
+.sobre-nos-title,
+.sobre-nos-subtitle,
+.sobre-nos-text p,
+.btn-saiba-mais,
+.pilares-section,
+.pilares-subtitle,
+.pilares-card,
+.pilares-card .card-title,
+.pilares-card .card-text,
+.alento-footer {
+    transition: all 0.3s ease, color 0.3s ease;
+}

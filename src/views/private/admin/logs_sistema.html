@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap e CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="/css/logs_sistema.css" rel="stylesheet">
+  <!-- Ícone do Navegador -->
+  <link rel="icon" type="image/x-icon" href="/img/logo_alternativa.png">
+  <title>Alento Saúde | Logs de Sistema</title>
+</head>
+
+<body>
+
+  <header class="alento-header navbar navbar-expand-lg">
+    <!-- Barra Superior -->
+    <div class="top-bar">
+      <div class="top-bar-right">
+        <div class="top-bar-item nav-item">
+          <img id="img-modo-noturno" src="/img/icone_modo_noturno.png" alt="Ícone de Modo Noturno">
+          <div id="toggle-dark-mode" class="toggle-dark-mode"></div>
+        </div>
+        <div class="top-bar-item nav-item">
+          <button class="nav-link btn-ajuda"> <img class="img-item-default" src="/img/icone_ajuda.png"
+              alt="Ícone de Ajuda">
+            <img class="img-item-hover" src="/img/icone_ajuda_hover.png" alt="Ícone de Ajuda">
+            <img class="img-item-dark-hover" src="/img/icone_ajuda_dark_hover.png" alt="Ícone de Ajuda">
+            Ajuda
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Header Principal -->
+    <div class="container-fluid main-header">
+
+      <!-- Ícone Menu Hamburguer -->
+      <button class="btn-hamburguer-custom order-0" id="btn-menu-mobile">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <!-- Logo -->
+      <a class="alento-logo d-flex align-items-center order-1" href="/paciente/home">
+        <img src="/img/logo_padrao.png" alt="Ícone Padrão da Logo">
+        <h2> Alento Saúde </h2>
+      </a>
+
+      <nav class="menu-central order-lg-2">
+        <a href="/paciente/home">
+          <img class="img-menu-default" src="/img/icone_inicio.png">
+          Início
+        </a>
+        <a href="/paciente/agendamento">
+          <img class="img-menu-default" src="/img/icone_agendamento.png">
+          Meus Agendamentos
+        </a>
+        <a href="/paciente/historico">
+          <img src="/img/icone_historico.png">
+          Histórico & Documentos
+        </a>
+      </nav>
+
+      <div class="user-dropdown d-flex align-items-center order-3">
+        <div class="user-profile">
+          <img src="/img/icone_perfil.png" alt="Perfil" class="img-perfil-nav">
+          <i class="fa fa-chevron-down arrow-icon"></i>
+        </div>
+        <div id="dropdownMenu" class="dropdown-content">
+          <div class="dropdown-header">
+            <h6>Olá, João Roberto da Silva!</h6>
+          </div>
+          <a href=""><i class="fa fa-user"></i> Meu Perfil</a>
+          <hr>
+          <a href="" class="logout-item">
+            <i class="fa fa-sign-out-alt"></i> Sair
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-wrapper">
+    <!-- Menu Lateral -->
+
+    <nav class="sidebar">
+      <ul class="menu-items">
+        <li>
+          <a href="/admin/home">
+            <img class="img-menu-default" src="/img/icone_inicio.png">
+            <img class="img-menu-hover" src="/img/icone_inicio_ativo.png">
+            Início
+          </a>
+        </li>
+        <li>
+          <a href="/admin/gestao_de_usuarios">
+            <img class="img-menu-default" src="/img/icone_gestao_de_usuarios.png">
+            <img class="img-menu-hover" src="/img/icone_gestao_de_usuarios_ativo.png">
+            Gestão de Usuários
+          </a>
+        </li>
+        <li>
+          <a href="/admin/gestao_de_especialidades">
+            <img class="img-menu-default" src="/img/icone_gestao_de_especialidades.png">
+            <img class="img-menu-hover" src="/img/icone_gestao_de_especialidades_ativo.png">
+            Gestão de Especialidades
+          </a>
+        </li>
+        <li class="active">
+          <a href="/admin/logs_sistema">
+            <img src="/img/icone_logs_sistema_ativo.png">
+            Logs de Sistema
+          </a>
+        </li>
+        <li>
+          <a href="/admin/backup_banco">
+            <img class="img-menu-default" src="/img/icone_backup_banco.png">
+            <img class="img-menu-hover" src="/img/icone_backup_banco_ativo.png">
+            Backup do Banco
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="content">
+
+      <div class="logs-container">
+
+        <h2 class="logs-title">Logs de Sistema</h2>
+
+        <!-- FILTROS -->
+        <div class="filters">
+
+          <input type="text" placeholder="Pesquise por Usuário, Evento..." class="search">
+
+          <select>
+            <option>Data de Alteração</option>
+          </select>
+
+          <select>
+            <option>Hora da Alteração</option>
+          </select>
+
+          <select>
+            <option>Entidade Afetada</option>
+          </select>
+
+          <button class="btn-relatorio">Gerar Relatório</button>
+
+        </div>
+
+        <!-- TABELA -->
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Usuário Responsável</th>
+                <th>Evento</th>
+                <th>Descrição</th>
+                <th>Entidade Afetada</th>
+                <th>ID</th>
+                <th>Hora</th>
+                <th>Data</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Evelyn Braga</td>
+                <td>UPDATE</td>
+                <td>Campo: CRM e especialidades.</td>
+                <td>Detalhes_Medico</td>
+                <td>1</td>
+                <td>15:00:00</td>
+                <td>30/03/2026</td>
+                <td><button class="btn-view">📄</button></td>
+              </tr>
+
+              <tr>
+                <td>Reinaldo Oliveira</td>
+                <td>UPDATE</td>
+                <td>Campo: CRM e especialidades.</td>
+                <td>Detalhes_Medico</td>
+                <td>2</td>
+                <td>17:59:15</td>
+                <td>31/03/2026</td>
+                <td><button class="btn-view">📄</button></td>
+              </tr>
+
+              <tr>
+                <td>Caio Pereira</td>
+                <td>UPDATE</td>
+                <td>Campo: CRM e especialidades.</td>
+                <td>Detalhes_Medico</td>
+                <td>3</td>
+                <td>18:51:12</td>
+                <td>31/03/2026</td>
+                <td><button class="btn-view">📄</button></td>
+              </tr>
+
+              <tr>
+                <td>Marcos Campos</td>
+                <td>UPDATE</td>
+                <td>Campo: CRM e especialidades.</td>
+                <td>Detalhes_Medico</td>
+                <td>4</td>
+                <td>19:45:38</td>
+                <td>31/03/2026</td>
+                <td><button class="btn-view">📄</button></td>
+              </tr>
+
+              <tr>
+                <td>André Souza</td>
+                <td>DELETE</td>
+                <td>Campo: CRM e especialidades.</td>
+                <td>Detalhes_Medico</td>
+                <td>5</td>
+                <td>19:58:53</td>
+                <td>31/03/2026</td>
+                <td><button class="btn-view">📄</button></td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <div class="pagination">
+            &lt; 1 2 3 &gt;
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Ajuda -->
+  <div id="modalAjuda" class="modal-container">
+    <div class="modal-box">
+      <span class="modal-close" id="closeAjuda">&times;</span>
+
+      <h2 class="modal-title">Como podemos te ajudar?</h2>
+
+      <div class="modal-info-list text-format">
+        <h3>FAQ</h3>
+
+        <p><strong>Vocês aceitam convênios?</strong><br>
+          Trabalhamos apenas com consultas particulares, mas fornecemos nota fiscal completa para você
+          solicitar o reembolso junto ao seu plano de saúde.</p>
+
+        <p><strong>Como faço para cancelar uma consulta?</strong><br>
+          Os cancelamentos devem ser feitos diretamente via WhatsApp com pelo menos 24h de antecedência.</p>
+
+        <p><strong>Quais documentos preciso levar?</strong><br>
+          Apenas um documento oficial com foto. Se possuir exames recentes de outras clínicas, recomendamos
+          trazê-los.</p>
+
+        <hr class="modal-divider">
+
+        <h3>Canais de Contato</h3>
+        <h6>Para casos de urgência ou dúvidas rápidas: </h6>
+        <p><strong>WhatsApp: </strong> (21) 99999-9999 <br> Seg a Sex - 08h às 18h | Sab - 08h às 14h.</p>
+
+        <p><strong>Localização:</strong> Av. Rio Branco, 123 - Centro - Rio de Janeiro.</p>
+
+        <a class="modal-btn-action btn-whatsapp" href="https://wa.me" target="_blank">Falar com Atendente
+          agora</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="alento-footer">
+    <p>© 2026 Alento Saúde - Todos os direitos reservados.</p>
+  </footer>
+  <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>
