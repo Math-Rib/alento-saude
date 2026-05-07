@@ -11,6 +11,13 @@ body {
   margin: 0;
 }
 
+main {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  min-height: calc(100vh - 100px);
+}
+
 /* Estilização do Header */
 .alento-header {
   background-color: white;
@@ -291,19 +298,22 @@ main {
 }
 
 /* Sidebar fixa */
-.sidebar {
+.sidebar-wrapper {
   width: 260px;
   background-color: #ffffff;
   border-right: 1px solid #e0e0e0;
-  display: flex;
-  flex-direction: column;
   flex-shrink: 0;
+}
+
+.sidebar {
+  width: 100%;
   padding: 20px;
   position: sticky;
   top: 100px;
   height: calc(100vh - 130px);
   overflow-y: auto;
-  z-index: 900;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar .logo {
@@ -778,6 +788,24 @@ main {
   padding-left: 15px;
 }
 
+/* Estilização do Footer */ 
+.alento-footer {
+  background-color: #2f3e4e;
+  /* position: fixed; */
+  color: #ffffff;
+  padding-top: 10px;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+/* Linha inferior */
+.alento-footer p {
+  text-align: center;
+  font-size: 13px;
+}
+
 /* Estilização da Página no Modo Noturno */
 /* Fundo da Página */
 body.dark-mode {
@@ -841,6 +869,18 @@ body.dark-mode .main-header .user-dropdown .user-profile:hover .arrow-icon {
 
 body.dark-mode .main-header .user-dropdown .dropdown-content h6 {
   color: #2c3e50;
+}
+
+body.dark-mode .btn-hamburguer-custom{
+  color: white;
+}
+
+body.dark-mode .menu-central{
+  background-color: #2D3747;
+}
+
+body.dark-mode .menu-central a{
+  color: white;
 }
 
 /* Fundo do Menu Lateral */
@@ -1017,6 +1057,10 @@ body.dark-mode .alento-footer {
 @media (max-width: 880px) {
   #btn-menu-mobile {
     display: block;
+  }
+
+  .sidebar-wrapper{
+    display: none !important;
   }
 
   .sidebar {

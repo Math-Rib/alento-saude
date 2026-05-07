@@ -1255,6 +1255,18 @@ body.dark-mode .main-header .user-dropdown .dropdown-content h6 {
     color: #2c3e50;
 }
 
+body.dark-mode .btn-hamburguer-custom{
+  color: white;
+}
+
+body.dark-mode .menu-central{
+  background-color: #2D3747;
+}
+
+body.dark-mode .menu-central a{
+  color: white;
+}
+
 /* Fundo do Menu Lateral */
 body.dark-mode .sidebar {
     background-color: #2d3747;
