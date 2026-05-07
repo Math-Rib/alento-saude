@@ -1,0 +1,1083 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Estilização do Header */
+.alento-header {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  position: sticky !important;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+}
+
+/* Barra Superior */
+.top-bar {
+  background-color: #e6edf2;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: end;
+  gap: 5px;
+}
+
+.top-bar-item {
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.top-bar-item img {
+  width: 20px;
+  height: 20px;
+}
+
+.top-bar-item button {
+  color: #718096;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.top-bar-item button:hover {
+  color: #000000;
+}
+
+/* Troca dos Ícones do Botão Ajuda */
+.top-bar-item button .img-item-hover,
+.top-bar-item .img-item-dark-hover {
+  display: none;
+}
+
+.top-bar-item button:hover .img-item-default {
+  display: none;
+}
+
+.top-bar-item button:hover .img-item-hover {
+  display: inline-block;
+}
+
+/* Estilização do Botão Modo Noturno */
+.toggle-dark-mode {
+  margin-top: 2px;
+  width: 45px;
+  height: 17px;
+  background-color: #CCCCCC;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-dark-mode::before {
+  content: '';
+  width: 11px;
+  height: 11px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: transform 0.3s;
+}
+
+/* Header Principal */
+.main-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+  min-height: 70px;
+  padding: 0 20px;
+}
+
+.header-left,
+.header-right {
+  flex: 1;
+}
+
+.header-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-hamburguer-custom {
+  border: none;
+  color: #2b3d4f;
+  padding: 5px 10px;
+  display: none;
+}
+
+.header-right {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.header-center button {
+  display: none;
+}
+
+.alento-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.alento-logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.alento-logo h2 {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Botão de Perfil */
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 10px 4px 10px;
+  background-color: transparent;
+  border: 1.5px solid #197bb0;
+  border-radius: 50px;
+}
+
+.user-profile:hover {
+  background-color: #197bb0;
+}
+
+.img-perfil-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  object-fit: cover;
+}
+
+.user-profile .arrow-icon {
+  color: #197bb0;
+}
+
+.user-profile:hover .arrow-icon {
+  color: white;
+}
+
+/* Menu Dropdown */
+.dropdown-header {
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.dropdown-header h6 {
+  color: #2c3e50;
+  cursor: default;
+  font-weight: bold;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background-color: #fff;
+  min-width: 200px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  color: #333;
+  margin: 10px;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-content .logout-item {
+  color: #e74c3c;
+  margin-bottom: 20px;
+}
+
+.dropdown-content.ativo {
+  display: block;
+}
+
+.btn-hamburguer-custom {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #2b3d4f;
+}
+
+.menu-central {
+  display: none;
+  gap: 20px;
+}
+
+.menu-central a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.menu-central a img {
+  width: 35px;
+  height: 35px;
+}
+
+/* Estilização do Corpo da Página */
+/* Layout Principal Estendível */
+main {
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 auto;
+  margin: 0;
+  align-items: stretch;
+  gap: 0;
+  min-height: 100vh;
+  background-color: #ebf0f2;
+}
+
+/* Sidebar fixa */
+.sidebar {
+  width: 260px;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding: 20px;
+  position: sticky;
+  top: 100px;
+  height: calc(100vh - 130px);
+  overflow-y: auto;
+  z-index: 900;
+}
+
+.sidebar .logo {
+  margin-bottom: 40px;
+}
+
+.menu-items {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.menu-items li {
+  margin-bottom: 15px;
+}
+
+.menu-items a {
+  text-decoration: none;
+  color: #c7c4bd;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.menu-items a img {
+  height: 25px;
+  width: 25px;
+}
+
+/* Estilo do item ativo*/
+.menu-items li.active a {
+  background-color: #e0f2f1;
+  color: #236a99;
+  font-weight: bold;
+}
+
+.menu-items a:hover {
+  background-color: #f5f5f5;
+  color: #2196f3;
+}
+
+.menu-items a .img-menu-hover {
+  display: none;
+}
+
+.menu-items a:hover .img-menu-default {
+  display: none;
+}
+
+.menu-items a:hover .img-menu-hover {
+  display: inline-block;
+}
+
+/* Seção Banner do Administrador */
+.header-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 0px;
+  border-bottom: none;
+  width: 100%;
+}
+
+/* Banner Área do Administador*/
+.status-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-radius: 12px;
+  color: #ffffff;
+  background: linear-gradient(90deg, #447c9d 0%, #529294 50%, #6ab28d 100%);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.content-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-titulo {
+  margin: 0 0 5px 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.status-linha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.icone-check {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.status-texto {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.backup-data {
+  display: block;
+  margin-top: 4px;
+  margin-left: 26px;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.status-img {
+  height: 50px;
+  width: auto;
+  display: block;
+  opacity: 0.9;
+}
+
+/* Seção Visão Geral */
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.cards-visao {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.card-item {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  flex: 1;
+  min-width: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.imagem-area {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.icone-card {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: flex;
+  align-self: center;
+}
+
+.bg-azul {
+  background-color: #7fc2fc;
+}
+
+.bg-verde {
+  background-color: #c0fddc;
+}
+
+.bg-laranja {
+  background-color: #ffcfa8;
+}
+
+.bg-roxo {
+  background-color: #d9a6f7;
+}
+
+.bg-ciano {
+  background-color: #adfde2;
+}
+
+.card-desc h4 {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #1f1f1f;
+  font-weight: 700;
+}
+
+.card-desc p {
+  margin: 5px 0 0 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #000;
+}
+
+/* Seção do Painel Administrativo */
+.dashboard-detalhes {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  margin-top: 25px;
+  padding: 0 20px;
+  align-self: start;
+}
+
+.titulo-sessao {
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  height: 30px;
+  margin: 0 0 20px 0;
+}
+
+.coluna-graficos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.linha-graficos-topo,
+.linha-detalhes-inferior {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card-grafico,
+.card-detalhes {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.linha-graficos-topo .card-grafico {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card-grafico {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+}
+
+.card-grafico img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.card-detalhes {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  cursor: default;
+}
+
+.card-detalhes h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.tabela-clinica {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.tabela-clinica th {
+  text-align: left;
+  color: #888;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tabela-clinica td {
+  padding: 10px 0;
+  border-bottom: 1px solid #f9f9f9;
+}
+
+.status-tag {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+
+.status-tag.espera {
+  background: #ffeaa7;
+  color: #d63031;
+}
+
+.status-tag.ok {
+  background: #dff9fb;
+  color: #0984e3;
+}
+
+.lista-ranking-medicos {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-ranking-medicos li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f9f9f9;
+}
+
+.medico-info strong {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.medico-info span {
+  font-size: 0.7rem;
+  color: #888;
+}
+
+.contagem {
+  font-weight: bold;
+  color: #457b9d;
+}
+
+.coluna-informacao {
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+}
+
+.card-lateral-informativo {
+  background-color: #ffffff;
+  border-radius: 12px;
+  margin: 20px 0 0 0;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.info-section {
+  margin-bottom: 20px;
+}
+
+.info-section:last-child {
+  margin-bottom: 0;
+}
+
+.info-section h3 {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 5px;
+}
+
+.lista-equipe {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-equipe li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.status-online {
+  width: 10px;
+  height: 10px;
+  background: #27ae60;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(39, 174, 96, 0.4);
+}
+
+.status-offline {
+  width: 10px;
+  height: 10px;
+  background: #dcdde1;
+  border-radius: 50%;
+}
+
+.lista-equipe strong {
+  display: block;
+  font-size: 0.85rem;
+  color: #2f3640;
+}
+
+.lista-equipe small {
+  display: block;
+  font-size: 0.75rem;
+  color: #7f8c8d;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid #f1f2f6;
+  margin-left: 5px;
+}
+
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.timeline-item .dot {
+  position: absolute;
+  left: -26px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  background: #457b9d;
+  border-radius: 50%;
+}
+
+.timeline-item p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #57606f;
+  line-height: 1.4;
+}
+
+.botoes-relatorio {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-relatorio {
+  background: #457b9d;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.btn-relatorio:hover {
+  background: #345d77;
+  padding-left: 15px;
+}
+
+/* Estilização da Página no Modo Noturno */
+/* Fundo da Página */
+body.dark-mode {
+  background-color: #353535;
+  color: white;
+}
+
+body.dark-mode .main-content {
+  background-color: #353535;
+  color: white;
+}
+
+/* Botão do Modo Noturno */
+body.dark-mode .toggle-dark-mode {
+  background-color: #2196F3;
+}
+
+body.dark-mode .toggle-dark-mode::before {
+  transform: translateX(25px);
+}
+
+/* Fundo da Barra Superior */
+body.dark-mode .top-bar {
+  background-color: #2d3748;
+}
+
+body.dark-mode .top-bar-item button:hover .img-item-hover {
+  display: none;
+}
+
+body.dark-mode .top-bar-item button:hover .img-item-dark-hover {
+  display: inline-block;
+}
+
+body.dark-mode .top-bar-item button:hover {
+  color: #ffffff;
+}
+
+/* Fundo do Header Principal */
+body.dark-mode .main-header {
+  background-color: #1a202c;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Texto da Logo */
+body.dark-mode .alento-logo h2 {
+  color: white;
+}
+
+body.dark-mode .main-header .user-dropdown .user-profile {
+  border: 1.5px solid #2d3747;
+}
+
+body.dark-mode .main-header .user-dropdown .user-profile .arrow-icon {
+  color: #2d3747;
+}
+
+body.dark-mode .main-header .user-dropdown .user-profile:hover .arrow-icon {
+  color: #ffffff;
+}
+
+body.dark-mode .main-header .user-dropdown .dropdown-content h6 {
+  color: #2c3e50;
+}
+
+/* Fundo do Menu Lateral */
+body.dark-mode .sidebar {
+  background-color: #2d3747;
+  border-right: 1px solid #4a5568;
+}
+
+body.dark-mode .sidebar .menu-items li a {
+  color: #cbd5e0;
+}
+
+body.dark-mode .sidebar .menu-items li a:hover {
+  color: #2196f3;
+}
+
+body.dark-mode .sidebar .menu-items li.active {
+  background-color: #2d3748;
+}
+
+body.dark-mode .sidebar .menu-items li.active a {
+  color: #63b3ed;
+}
+
+body.dark-mode .section-title {
+  color: white;
+}
+
+body.dark-mode .card-item {
+  background-color: #2B3D4F;
+  color: white;
+  border: 1px solid #0B0F19;
+}
+
+body.dark-mode .card-item .card-desc h4 {
+  color: white;
+}
+
+body.dark-mode .card-item .card-desc p {
+  color: white;
+  font-weight: 400;
+}
+
+body.dark-mode .coluna-graficos .titulo-sessao {
+  color: white;
+}
+
+body.dark-mode .coluna-informacao .titulo-sessao {
+  color: white;
+}
+
+body.dark-mode .card-grafico {
+  background-color: #3E4A5E;
+}
+
+body.dark-mode .card-lateral-informativo {
+  background-color: #3E4A5E;
+}
+
+body.dark-mode .card-lateral-informativo h3 {
+  color: white;
+}
+
+body.dark-mode .card-lateral-informativo .lista-equipe strong {
+  color: #0a1629;
+}
+
+body.dark-mode .card-lateral-informativo .lista-equipe small {
+  color: white;
+}
+
+body.dark-mode .card-lateral-informativo .info-section .timeline .timeline-item p {
+  color: white;
+}
+
+body.dark-mode .linha-detalhes-inferior .card-detalhes {
+  background-color: #3E4A5E;
+}
+
+body.dark-mode .linha-detalhes-inferior .card-detalhes h3 {
+  color: white;
+}
+
+/* Fundo Área do Modal Saiba Mais */
+body.dark-mode .modal-box {
+  background-color: #1e293b;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Descrição dos Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-description {
+  color: #cbd5e1;
+}
+
+/* Botão de Fechar o Modal Saiba Mais */
+body.dark-mode .modal-close {
+  color: #94a3b8;
+}
+
+body.dark-mode .modal-close:hover {
+  color: #ef4444;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+
+/* Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-item {
+  background-color: #334155;
+  border-color: #475569;
+}
+
+/* Título dos Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-item-title {
+  color: #f1f5f9;
+}
+
+/* Descrição dos Tópicos do Modal Saiba Mais */
+body.dark-mode .modal-item-text {
+  color: #94a3b8;
+}
+
+/* Título dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format h3 {
+  color: #f1f5f9;
+}
+
+/* Subtítulo dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format h6 {
+  color: #f1f5f9;
+}
+
+/* Descrição dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format p {
+  color: #cbd5e1;
+}
+
+/* Descrição em Negrito dos Tópicos do Modal Ajuda */
+body.dark-mode .text-format strong {
+  color: #ffffff;
+}
+
+/* Linha de Divisão do Modal Ajuda */
+body.dark-mode .modal-divider {
+  border-color: #334155;
+}
+
+body.dark-mode .modal-btn-action:hover {
+  background-color: #132f44;
+}
+
+/* Footer */
+body.dark-mode .alento-footer {
+  background-color: #0b0f19;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsividade */
+/* Para Telas menores que 992px */
+@media (min-width: 992px) {
+  #btn-menu-mobile {
+    display: none;
+  }
+
+}
+
+@media (max-width: 991px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* Para Telas menores que 880px */
+@media (max-width: 880px) {
+  #btn-menu-mobile {
+    display: block;
+  }
+
+  .sidebar {
+    display: none !important;
+  }
+
+  .dashboard-detalhes {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+
+  .linha-graficos-topo,
+  .linha-detalhes-inferior {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-grafico,
+  .card-detalhes,
+  .card-lateral-informativo {
+    width: 100%;
+  }
+
+  .card-detalhes {
+    overflow-x: auto;
+  }
+
+  .menu-central {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    padding: 10px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  .menu-central.show {
+    display: flex;
+  }
+
+  .menu-central a {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+/* Para Telas menores que 440px */
+@media (max-width: 440px) {
+  .alento-logo h2 {
+    font-size: 16px !important;
+  }
+
+  .alento-logo img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
