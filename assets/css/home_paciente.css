@@ -984,6 +984,18 @@ body.dark-mode .banner-paciente .header-main {
   background-color: #1a202c;
 }
 
+body.dark-mode .btn-hamburguer-custom {
+  color: white;
+}
+
+body.dark-mode .menu-central {
+  background-color: #2D3747;
+}
+
+body.dark-mode .menu-central a {
+  color: white;
+}
+
 /* Títulos dentro dos cards */
 body.dark-mode h5,
 body.dark-mode h6,
@@ -1136,4 +1148,120 @@ h6,
 .btn-seta,
 .alento-footer {
   transition: all 0.3s ease, color 0.3s ease;
+}
+
+/* Para Telas maiores que 1050px */
+@media (max-width: 1050px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .menu-hamburger {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .nav-mobile {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+  }
+
+  .nav-mobile.active {
+    display: block;
+  }
+}
+
+/* Para Telas menores que 1050px */
+@media (max-width: 1050px) {
+  .main-header {
+    justify-content: space-between !important;
+  }
+
+  .btn-hamburguer-custom {
+    display: block;
+    order: 0;
+    flex: 1;
+    text-align: left;
+  }
+
+  .alento-logo {
+    order: 1;
+    flex: 2;
+    justify-content: center;
+  }
+
+  .logo-texto {
+    display: block;
+  }
+
+  .user-dropdown {
+    order: 2;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .menu-central {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    padding: 10px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  .menu-central.show {
+    display: flex;
+  }
+
+  .menu-central a {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+/* Para Telas menores que 768px */
+@media (max-width: 768px) {
+  .header-main {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+}
+
+/* Para Telas menores que 440px */
+@media (max-width: 440px) {
+  .alento-logo h2 {
+    font-size: 16px !important;
+  }
+
+  .alento-logo img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .modal-close {
+    top: 30px !important;
+    right: 15px !important;
+  }
 }

@@ -662,3 +662,22 @@ body.dark-mode .alento-footer {
         font-size: 18px;
     }
 }
+
+/* Para Telas menores que 440px */
+@media (max-width: 440px) {
+  .alento-logo h2 {
+    font-size: 16px !important;
+  }
+
+  .alento-logo img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .modal-close {
+    top: 30px !important;
+    right: 15px !important;
+  }
+}

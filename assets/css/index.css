@@ -793,7 +793,7 @@ body.dark-mode .main-header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
-body.dark-mode .navbar-toggler-icon{
+body.dark-mode .navbar-toggler-icon {
     filter: brightness(0) invert(1);
 }
 
@@ -1003,7 +1003,7 @@ body.dark-mode .modal-divider {
     border-color: #334155;
 }
 
-body.dark-mode .modal-btn-action:hover{
+body.dark-mode .modal-btn-action:hover {
     background-color: #132f44;
 }
 
@@ -1041,7 +1041,7 @@ body.dark-mode .alento-footer {
 }
 
 /* Para Telas menores que 1198px */
-@media (max-width: 1198px){
+@media (max-width: 1198px) {
     .banner-imagem img {
         display: none;
     }
@@ -1077,7 +1077,7 @@ body.dark-mode .alento-footer {
         transform: translateY(0px);
     }
 
-    .sobre-nos-imagem{
+    .sobre-nos-imagem {
         margin-top: 35px;
     }
 }
@@ -1093,7 +1093,7 @@ body.dark-mode .alento-footer {
     .sobre-nos-imagem {
         position: static;
         display: block;
-        bottom: auto;   
+        bottom: auto;
     }
 
     .sobre-nos-text {
@@ -1167,7 +1167,7 @@ body.dark-mode .alento-footer {
         padding: 5px 10px;
     }
 
-    #btn-entrar:hover{
+    #btn-entrar:hover {
         background-color: transparent;
         color: #3182ce;
     }
@@ -1249,28 +1249,28 @@ body.dark-mode .alento-footer {
 /* Para Telas menores que 576px */
 @media (max-width: 575px) {
 
-    body, 
-    main.container-fluid, 
+    body,
+    main.container-fluid,
     .main-content {
         padding-left: 0;
         padding-right: 0;
         overflow-x: hidden;
     }
 
-    .banner, 
-    .sobre-nos-section, 
-    .sobre-nos-intro, 
-    .pilares-section, 
+    .banner,
+    .sobre-nos-section,
+    .sobre-nos-intro,
+    .pilares-section,
     .alento-footer {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
     }
 
-    .banner-text, 
-    .servicos-title, 
-    .sobre-nos-text p, 
-    .sobre-nos-title, 
+    .banner-text,
+    .servicos-title,
+    .sobre-nos-text p,
+    .sobre-nos-title,
     .sobre-nos-subtitle,
     .pilares-subtitle {
         padding-left: 20px;
@@ -1278,7 +1278,7 @@ body.dark-mode .alento-footer {
         box-sizing: border-box;
     }
 
-    .sobre-nos-section, 
+    .sobre-nos-section,
     .sobre-nos-intro {
         width: 100%;
         margin-left: 0;
@@ -1293,7 +1293,7 @@ body.dark-mode .alento-footer {
         font-size: 20px;
     }
 
-    #btn-entrar:hover{
+    #btn-entrar:hover {
         background-color: transparent;
         color: #3182ce;
     }
@@ -1303,7 +1303,7 @@ body.dark-mode .alento-footer {
         margin: 0 10px;
     } */
 
-    .sobre-nos-text p{
+    .sobre-nos-text p {
         text-align: left;
         margin: 0 40px;
     }
@@ -1317,9 +1317,9 @@ body.dark-mode .alento-footer {
 
     .pilares-card {
         flex: 1 1 100%;
-        width: 100%; 
+        width: 100%;
         max-width: 350px;
-        margin: 0 auto;  
+        margin: 0 auto;
     }
 
     .pilares-subtitle {
@@ -1329,7 +1329,7 @@ body.dark-mode .alento-footer {
         font-size: 20px;
     }
 
-    .footer-logo{
+    .footer-logo {
         display: flex;
         justify-content: center;
     }
@@ -1346,5 +1346,24 @@ body.dark-mode .alento-footer {
 
     .footer-contato-item {
         justify-content: center;
+    }
+}
+
+/* Para Telas menores que 440px */
+@media (max-width: 440px) {
+    .alento-logo h2 {
+        font-size: 16px !important;
+    }
+
+    .alento-logo img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .modal-close {
+        top: 30px !important;
+        right: 15px !important;
     }
 }

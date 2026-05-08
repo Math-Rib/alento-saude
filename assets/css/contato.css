@@ -614,7 +614,11 @@ body.dark-mode #btn-entrar:hover {
     color: white;
 }
 
-body.dark-mode .contato-card{
+body.dark-mode .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode .contato-card {
     background-color: #0f0f0f5e;
 }
 
@@ -622,31 +626,31 @@ body.dark-mode .contato-card .card-title {
     color: white;
 }
 
-body.dark-mode .contato-card .card-subtitle{
+body.dark-mode .contato-card .card-subtitle {
     color: white;
 }
 
-body.dark-mode .contato-card .form-heading{
+body.dark-mode .contato-card .form-heading {
     color: white;
 }
 
-body.dark-mode .btn-enviar-contato:hover{
+body.dark-mode .btn-enviar-contato:hover {
     background-color: #132f44;
 }
 
-body.dark-mode .info-card{
+body.dark-mode .info-card {
     background-color: #2d3748;
 }
 
-body.dark-mode .info-header{
+body.dark-mode .info-header {
     color: white;
 }
 
-body.dark-mode .info-body .info-item h5{
+body.dark-mode .info-body .info-item h5 {
     color: white;
 }
 
-body.dark-mode .info-body .info-item p{
+body.dark-mode .info-body .info-item p {
     color: white;
 }
 
@@ -713,7 +717,7 @@ body.dark-mode .modal-divider {
     border-color: #334155;
 }
 
-body.dark-mode .modal-btn-action:hover{
+body.dark-mode .modal-btn-action:hover {
     background-color: #132f44;
 }
 
@@ -723,9 +727,39 @@ body.dark-mode .alento-footer {
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.6);
 }
 
+/* Para Telas menores que 991px */
+@media (max-width: 991px) {
+
+    .navbar-toggler,
+    .navbar-toggler:focus,
+    .navbar-toggler:active,
+    .navbar-toggler-icon:focus {
+        outline: none !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background-color: white;
+        z-index: 1000;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+
+    body.dark-mode .navbar-collapse {
+        background-color: #1a202c;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+    }
+}
+
 /* Para Telas menores que 576px */
 @media (max-width: 575px) {
-    .footer-logo{
+    .footer-logo {
         display: flex;
         justify-content: center;
     }
@@ -742,5 +776,24 @@ body.dark-mode .alento-footer {
 
     .footer-contato-item {
         justify-content: center;
+    }
+}
+
+/* Para Telas menores que 440px */
+@media (max-width: 440px) {
+    .alento-logo h2 {
+        font-size: 16px !important;
+    }
+
+    .alento-logo img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .modal-close {
+        top: 30px !important;
+        right: 15px !important;
     }
 }

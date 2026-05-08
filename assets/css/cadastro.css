@@ -13,7 +13,7 @@
 }
 
 body {
-    background-color: var(--gray-bg);
+    background-color: #ebf0f2;
     color: var(--text-dark);
 }
 
@@ -147,12 +147,27 @@ body {
 }
 
 /* Main Content */
+.auth-card {
+    display: flex;
+    width: 100%;
+    background-color: #fbf7fcb0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 40px auto;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
 .container {
     display: flex;
     max-width: 1100px;
-    margin: 40px auto;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    /* 
     gap: 40px;
-    padding: 0 20px;
+    padding: 0 20px; */
 }
 
 .container h3 {
@@ -161,17 +176,44 @@ body {
 
 .hero-side {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.hero-content h1 {
+    color: #2c3e50;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 0 0 15px 30px;
     text-align: center;
-
 }
 
-.hero-side img {
+.hero-content p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: justify;
+    margin: 0 0 15px 25px;
+}
+
+.hero-content-img img {
     width: 100%;
-    max-width: 450px;
-    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px 0;
+    display: block;
+    justify-self: center;
 }
 
-/* Form Card */
+body.dark-mode .hero-content h1,
+body.dark-mode .features-list li {
+    color: white;
+}
+
+body.dark-mode .hero-content p {
+    color: #cbd5e0;
+}
+
 .form-side {
     flex: 1;
     background: white;
@@ -416,8 +458,12 @@ body.dark-mode .toggle-dark-mode {
     background-color: #2196F3;
 }
 
-body.dark-mode .form-side {
+body.dark-mode .auth-card{
     background-color: #2d3748;
+}
+
+body.dark-mode .form-side {
+    background-color: #1A202C;
 
 }
 
@@ -649,7 +695,7 @@ body.dark-mode .modal-divider {
     border-color: #334155;
 }
 
-body.dark-mode .modal-btn-action:hover{
+body.dark-mode .modal-btn-action:hover {
     background-color: #132f44;
 }
 
@@ -694,5 +740,24 @@ body.dark-mode .alento-footer {
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Para Telas menores que 440px */
+@media (max-width: 440px) {
+    .alento-logo h2 {
+        font-size: 16px !important;
+    }
+
+    .alento-logo img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .modal-close {
+        top: 30px !important;
+        right: 15px !important;
     }
 }

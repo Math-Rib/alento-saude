@@ -9,8 +9,6 @@ export function initHistoricoPaciente() {
         userProfile.addEventListener('click', (event) => {
             event.stopPropagation();
             dropdownMenu.classList.toggle("ativo");
-
-            // Fecha o menu mobile se ele estiver aberto
             if (menuCentral) menuCentral.classList.remove('show');
         });
     }
@@ -19,7 +17,6 @@ export function initHistoricoPaciente() {
         btnHamburguer.addEventListener('click', (event) => {
             event.stopPropagation();
             menuCentral.classList.toggle('show');
-            // Fecha o dropdown de perfil se abrir o mobile
             if (dropdownMenu) dropdownMenu.classList.remove('ativo');
         });
     }

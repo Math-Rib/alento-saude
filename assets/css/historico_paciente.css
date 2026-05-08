@@ -23,7 +23,7 @@ body {
     height: auto;
 }
 
-main{
+main {
     display: flex;
     flex-direction: row;
     flex: 1 0 auto;
@@ -321,8 +321,8 @@ main {
     flex-shrink: 0;
     padding: 20px;
     position: sticky !important;
-    top: 120px;
-    height: calc(100vh - 120px);
+    top: 100px;
+    height: calc(100vh - 130px);
     overflow-y: auto;
     z-index: 900;
     flex-shrink: 0;
@@ -1255,16 +1255,16 @@ body.dark-mode .main-header .user-dropdown .dropdown-content h6 {
     color: #2c3e50;
 }
 
-body.dark-mode .btn-hamburguer-custom{
-  color: white;
+body.dark-mode .btn-hamburguer-custom {
+    color: white;
 }
 
-body.dark-mode .menu-central{
-  background-color: #2D3747;
+body.dark-mode .menu-central {
+    background-color: #2D3747;
 }
 
-body.dark-mode .menu-central a{
-  color: white;
+body.dark-mode .menu-central a {
+    color: white;
 }
 
 /* Fundo do Menu Lateral */
@@ -1792,4 +1792,23 @@ h6,
         display: block;
     }
 
+}
+
+/* Para Telas menores que 440px */
+@media (max-width: 440px) {
+    .alento-logo h2 {
+        font-size: 16px !important;
+    }
+
+    .alento-logo img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .modal-close {
+        top: 30px !important;
+        right: 15px !important;
+    }
 }
