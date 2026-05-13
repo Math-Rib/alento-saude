@@ -75,9 +75,15 @@ app.get('/admin/home', (req, res) =>{
 });
 
 /*  Configura a rota da página gestão de usuário do admin ao acessar o localhost */
-app.get('/admin/gestao_de_usuarios', (req, res) =>{
+app.get('/admin/gestao_usuarios', (req, res) =>{
     /* Envia para o servidor o arquivo gestao_de_usuarios.html*/
     res.sendFile(path.join(__dirname, 'src', 'views', 'private', 'admin', 'gestao_usuario.html')); 
+});
+
+/*  Configura a rota da página gestão de especialidades do admin ao acessar o localhost */
+app.get('/admin/gestao_especialidades', (req, res) =>{
+    /* Envia para o servidor o arquivo gestao_especialidades.html*/
+    res.sendFile(path.join(__dirname, 'src', 'views', 'private', 'admin', 'gestao_especialidades.html')); 
 });
 
 /*  Configura a rota da página logs de sistema do admin ao acessar o localhost */

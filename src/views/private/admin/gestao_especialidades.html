@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -7,10 +7,11 @@
     <!-- Bootstrap e CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/gestao_usuario.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="/css/gestao_especialidades.css" rel="stylesheet">
+    <!-- Ícone do Navegador -->
     <link rel="icon" type="image/x-icon" href="/img/logo_alternativa.png">
-    <title>Alento Saúde | Gestão de Usuários</title>
+    <title>Alento Saúde | Logs de Sistema</title>
 </head>
 
 <body>
@@ -88,8 +89,8 @@
             </div>
         </div>
     </header>
-    <div class="main-wrapper">
 
+    <div class="main-wrapper">
         <!-- Menu Lateral -->
         <nav class="sidebar">
             <ul class="menu-items">
@@ -100,16 +101,16 @@
                         Início
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="/admin/gestao_usuarios">
-                        <img src="/img/icone_gestao_de_usuarios_ativo.png">
+                        <img class="img-menu-default" src="/img/icone_gestao_de_usuarios.png">
+                        <img class="img-menu-hover" src="/img/icone_gestao_de_usuarios_ativo.png">
                         Gestão de Usuários
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="/admin/gestao_especialidades">
-                        <img class="img-menu-default" src="/img/icone_gestao_de_especialidades.png">
-                        <img class="img-menu-hover" src="/img/icone_gestao_de_especialidades_ativo.png">
+                        <img src="/img/icone_gestao_de_especialidades_ativo.png">
                         Gestão de Especialidades
                     </a>
                 </li>
@@ -137,17 +138,17 @@
                     <h1>Gestão de Usuários</h1>
                     <div class="filters-group">
                         <div class="search-box">
-                            <input type="text" placeholder="Pesquise por Nome, Email, CPF...">
+                            <input type="text" placeholder="Pesquise por Título ou Descrição">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <div class="filter-item">
-                            <label>Data de Cadastro:</label>
+                            <label>Valor Mínimo</label>
                             <select class="select-box">
                                 <option>Selecione</option>
                             </select>
                         </div>
                         <div class="filter-item">
-                            <label>Perfil:</label>
+                            <label>Valor Máximo:</label>
                             <select class="select-box">
                                 <option>Selecione</option>
                             </select>
@@ -160,31 +161,29 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-register">Cadastrar Usuário</button>
+                <button class="btn-register">Cadastrar Especialidade</button>
             </div>
 
             <div class="table-card">
                 <table>
                     <thead>
                         <tr>
-                            <th>Nome Completo</th>
-                            <th>Email</th>
-                            <th>CPF</th>
-                            <th>Telefone</th>
-                            <th>Data de Cadastro</th>
-                            <th>Perfil</th>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Descrição</th>
+                            <th>Tempo Médio da Consulta</th>
+                            <th>Valor da Consulta</th>
                             <th>Status</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Administrador</td>
+                            <td>1</td>
+                            <td>Clínica Médica</td>
+                            <td>Atendimento integral e preventivo para cuidar da sua saúde.</td>
+                            <td>15 min</td>
+                            <td>R$ 80,00</td>
                             <td>
                                 <div class="status">
                                     <div class="dot dot-green"></div>Ativo
@@ -192,19 +191,17 @@
                             </td>
                             <td>
                                 <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
                                     <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
                                     <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Médico</td>
+                            <td>2</td>
+                            <td>Cardiologia</td>
+                            <td>Atendimento especializado para a saúde do coração e prevenção de doenças cardiovasculares.</td>
+                            <td>35 min</td>
+                            <td>R$ 300,00</td>
                             <td>
                                 <div class="status">
                                     <div class="dot dot-green"></div>Ativo
@@ -212,19 +209,17 @@
                             </td>
                             <td>
                                 <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
                                     <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
                                     <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Médico</td>
+                            <td>3</td>
+                            <td>Pediatria</td>
+                            <td>Atendimento dedicado à saúde, bem-estar e desenvolvimento integral das crianças.</td>
+                            <td>35 min</td>
+                            <td>R$ 250,00</td>
                             <td>
                                 <div class="status">
                                     <div class="dot dot-green"></div>Ativo
@@ -232,39 +227,17 @@
                             </td>
                             <td>
                                 <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
                                     <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
                                     <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Paciente</td>
-                            <td>
-                                <div class="status">
-                                    <div class="dot dot-red"></div>Inativo
-                                </div>
-                            </td>
-                            <td>
-                                <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
-                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Paciente</td>
+                            <td>4</td>
+                            <td>Neurologia</td>
+                            <td>Tratamentos avançados para a saúde do cérebro, focando na saúde cognitiva e motora.</td>
+                            <td>40 min</td>
+                            <td>R$ 400,00</td>
                             <td>
                                 <div class="status">
                                     <div class="dot dot-green"></div>Ativo
@@ -272,19 +245,17 @@
                             </td>
                             <td>
                                 <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
                                     <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
                                     <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Paciente</td>
+                            <td>5</td>
+                            <td>Ortopedia</td>
+                            <td>Tratamentos especializados para saúde muscular e óssea.</td>
+                            <td>20 min</td>
+                            <td>R$ 150,00</td>
                             <td>
                                 <div class="status">
                                     <div class="dot dot-green"></div>Ativo
@@ -292,47 +263,42 @@
                             </td>
                             <td>
                                 <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
                                     <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
                                     <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Médico</td>
+                            <td>6</td>
+                            <td>Dermatologia</td>
+                            <td>Diagnóstico e tratamentode doenças de pele, cabelo e unhas.</td>
+                            <td>30 min</td>
+                            <td>R$ 300,00</td>
                             <td>
                                 <div class="status">
-                                    <div class="dot dot-red"></div>Inativo
+                                    <div class="dot dot-green"></div>Ativo
                                 </div>
                             </td>
                             <td>
                                 <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
                                     <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
                                     <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Paciente</td>
+                            <td>7</td>
+                            <td>Ginecologia</td>
+                            <td>Cuidado completo e acolhedor para a saúde da mulher.</td>
+                            <td>40 min</td>
+                            <td>R$ 280,00</td>
                             <td>
                                 <div class="status">
-                                    <div class="dot dot-red"></div>Inativo
+                                    <div class="dot dot-green"></div>Ativo
                                 </div>
                             </td>
                             <td>
                                 <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
                                     <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
                                     <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>
@@ -391,7 +357,6 @@
     <footer class="alento-footer">
         <p>© 2026 Alento Saúde - Todos os direitos reservados.</p>
     </footer>
-    
     <script type="module" src="/js/main.js"></script>
 </body>
 

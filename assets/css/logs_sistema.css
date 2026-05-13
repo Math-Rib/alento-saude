@@ -1,3 +1,13 @@
+:root {
+    --blue-primary: #5da3cc;
+    --blue-light-bg: #f0f7fb;
+    --blue-calendar: #008aff;
+    --gray-sidebar: #6d767e;
+    --text-dark: #2c3e50;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -642,16 +652,6 @@ tbody tr:hover {
     font-size: 13px;
 }
 
-:root {
-    --blue-primary: #5da3cc;
-    --blue-light-bg: #f0f7fb;
-    --blue-calendar: #008aff;
-    --gray-sidebar: #6d767e;
-    --text-dark: #2c3e50;
-    --border-color: #e2e8f0;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
 /* Fundo da Página */
 body.dark-mode {
     background-color: #353535;
@@ -832,22 +832,23 @@ body.dark-mode .pilares-card .card-title {
 body.dark-mode .pilares-card .card-text {
     color: #cbd5e0;
 }
+
 body.dark-mode .btn-hamburguer-custom {
-  color: white;
+    color: white;
 }
 
 body.dark-mode .menu-central {
-  background-color: #2D3747;
+    background-color: #2D3747;
 }
 
 body.dark-mode .menu-central a {
-  color: white;
+    color: white;
 }
 
 /* Fundo do Menu Lateral */
 body.dark-mode .sidebar-wrapper {
-  background-color: #2d3747;
-  border-right: 1px solid #4a5568;
+    background-color: #2d3747;
+    border-right: 1px solid #4a5568;
 }
 
 body.dark-mode .sidebar {
