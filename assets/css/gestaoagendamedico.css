@@ -1,0 +1,514 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:#fff;
+    color:#111;
+    transition:0.3s;
+}
+
+/* DARK MODE */
+
+body.dark{
+    background:#111827;
+    color:white;
+}
+
+body.dark .main-header{
+    background:#1f2937;
+}
+
+body.dark .top-bar{
+    background:#111827;
+}
+
+body.dark .alento-logo h2{
+    color:white;
+}
+
+body.dark .alento-nav a{
+    color:white;
+}
+
+body.dark .card{
+    background:#374151;
+}
+
+body.dark .dia h3{
+    background:#1f2937;
+}
+
+body.dark select,
+body.dark input{
+    background:#1f2937;
+    color:white;
+    border:1px solid #374151;
+}
+
+body.dark .formulario{
+    background:#1f2937;
+}
+
+body.dark .toggle-dark-mode{
+    background:#2563eb;
+}
+
+body.dark .toggle-dark-mode::before{
+    transform:translateX(23px);
+}
+
+body.dark .cards{
+    background:#111827;
+}
+
+body.dark .cards::before{
+    background-image:
+    linear-gradient(
+        to bottom,
+        transparent 79px,
+        #374151 80px
+    );
+}
+
+/* HEADER */
+
+.alento-header{
+    background:white;
+    display:flex;
+    flex-direction:column;
+}
+
+/* TOP BAR */
+
+.top-bar{
+    background:#e6edf2;
+
+    padding:8px 30px;
+
+    display:flex;
+    justify-content:flex-end;
+
+    border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+.top-bar-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.top-bar-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.top-bar-item img{
+    width:20px;
+    height:20px;
+}
+
+/* AJUDA */
+
+.btn-ajuda{
+    border:none;
+    background:none;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    color:#718096;
+
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+/* TOGGLE */
+
+.toggle-dark-mode{
+    width:45px;
+    height:20px;
+
+    background:#ccc;
+
+    border-radius:30px;
+
+    position:relative;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.toggle-dark-mode::before{
+    content:"";
+
+    width:14px;
+    height:14px;
+
+    background:white;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    top:3px;
+    left:4px;
+
+    transition:0.3s;
+}
+
+/* HEADER PRINCIPAL */
+
+.main-header{
+    height:80px;
+
+    background:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 40px;
+
+    border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+/* LOGO */
+
+.alento-logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    text-decoration:none;
+}
+
+.alento-logo img{
+    width:50px;
+    height:50px;
+}
+
+.alento-logo h2{
+    color:black;
+    font-size:22px;
+}
+
+/* MENU */
+
+.alento-nav{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.alento-nav a{
+    text-decoration:none;
+    color:black;
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.alento-nav a:hover{
+    color:#3182ce;
+}
+
+/* BOTÃO ENTRAR */
+
+#btn-entrar{
+    border:1px solid #3182ce;
+
+    padding:10px 18px;
+
+    border-radius:20px;
+
+    color:#3182ce;
+}
+
+/* CONTAINER */
+
+.container{
+    padding:40px;
+}
+
+/* TÍTULO */
+
+.titulo-area{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.titulo-area h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+/* BOTÕES */
+
+.novo-btn,
+.salvar-btn{
+    background:#2563eb;
+    color:white;
+
+    border:none;
+
+    padding:14px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+/* FILTROS */
+
+.filtros{
+    display:flex;
+    gap:20px;
+
+    margin-top:40px;
+}
+
+.filtros select{
+    width:250px;
+    height:50px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    padding:10px;
+}
+
+/* FORMULÁRIO */
+
+.formulario{
+    margin-top:40px;
+
+    background:#f9fafb;
+
+    padding:25px;
+
+    border-radius:15px;
+}
+
+.hidden{
+    display:none;
+}
+
+.formulario h2{
+    margin-bottom:20px;
+}
+
+.form-grid{
+    display:flex;
+    gap:15px;
+
+    margin-bottom:20px;
+}
+
+.form-grid input,
+.form-grid select{
+    flex:1;
+
+    height:50px;
+
+    padding:10px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+}
+
+/* AGENDA */
+
+.agenda{
+    margin-top:60px;
+}
+
+.agenda-topo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:40px;
+}
+
+.calendario-controles{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.calendario-controles button{
+    width:40px;
+    height:40px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+    color:white;
+
+    cursor:pointer;
+}
+
+/* GRID */
+
+.agenda-grid{
+    display:flex;
+    gap:15px;
+}
+
+/* HORÁRIOS */
+
+.horarios{
+    width:90px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.hora{
+    height:80px;
+
+    display:flex;
+    justify-content:center;
+
+    font-weight:bold;
+
+    color:#6b7280;
+
+    padding-top:10px;
+}
+
+/* SEMANA */
+
+.semana{
+    flex:1;
+
+    display:flex;
+
+    gap:15px;
+}
+
+/* DIA */
+
+.dia{
+    flex:1;
+}
+
+.dia h3{
+    background:#f3f4f6;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    margin-bottom:15px;
+}
+
+/* ÁREA DOS CARDS */
+
+.cards{
+    position:relative;
+
+    min-height:900px;
+
+    border-radius:12px;
+
+    background:#f9fafb;
+
+    padding:10px;
+}
+
+/* LINHAS */
+
+.cards::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+    linear-gradient(
+        to bottom,
+        transparent 79px,
+        #e5e7eb 80px
+    );
+
+    background-size:100% 80px;
+
+    pointer-events:none;
+}
+
+/* CARD */
+
+.card{
+    position:relative;
+
+    z-index:2;
+
+    background:#eef4ff;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    margin-bottom:10px;
+}
+
+.card strong{
+    display:block;
+    margin-bottom:8px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+    .main-header{
+        flex-direction:column;
+
+        height:auto;
+
+        padding:20px;
+
+        gap:20px;
+    }
+
+    .alento-nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .titulo-area,
+    .filtros,
+    .form-grid,
+    .agenda-grid,
+    .semana{
+        flex-direction:column;
+    }
+
+    .horarios{
+        width:100%;
+
+        flex-direction:row;
+
+        overflow:auto;
+    }
+
+}
