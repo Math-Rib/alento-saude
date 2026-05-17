@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/home_paciente.css">
+    <link rel="stylesheet" href="css/home_paciente.css">
     <link rel="icon" type="image/x-icon" href="/img/logo_alternativa.png">
     <title> Alento Saúde | Home Paciente </title>
 </head>
@@ -19,14 +19,14 @@
         <div class="top-bar">
             <div class="top-bar-right">
                 <div class="top-bar-item">
-                    <img id="img-modo-noturno" src="/img/icone_modo_noturno.png" alt="Ícone de Modo Noturno">
+                    <img id="img-modo-noturno" src="/assets/img/icone_modo_noturno.png" alt="icone de Modo Noturno">
                     <div id="toggle-dark-mode" class="toggle-dark-mode"></div>
                 </div>
                 <div class="top-bar-item">
                     <button class="nav-link btn-ajuda"> <img class="img-item-default" src="/img/icone_ajuda.png"
-                            alt="Ícone de Ajuda">
-                        <img class="img-item-hover" src="/img/icone_ajuda_hover.png" alt="Ícone de Ajuda">
-                        <img class="img-item-dark-hover" src="/img/icone_ajuda_dark_hover.png" alt="Ícone de Ajuda">
+                            alt="icone de Ajuda">
+                        <img class="img-item-hover" src="/assets/img/icone_ajuda.png" alt="icone de Ajuda">
+                        <img class="img-item-dark-hover" src="/assets/img/icone_ajuda_dark_hover.png" alt="icone de Ajuda">
                         Ajuda
                     </button>
                 </div>
@@ -78,142 +78,395 @@
                 </div>
             </div>
         </div>
-    </header>
 
-    <main class="main-content">
-        <!-- Menu Lateral -->
-        <nav class="sidebar">
-            <ul class="menu-items">
-                <li class="active">
-                    <a href="/paciente/home">
-                        <img src="/img/icone_inicio_ativo.png">
-                        Início
-                    </a>
-                </li>
-                <li>
-                    <a href="/paciente/agendamento">
-                        <img class="img-menu-default" src="/img/icone_agendamento.png">
-                        <img class="img-menu-hover" src="/img/icone_agendamento_ativo.png">
-                        Agendamento
-                    </a>
-                </li>
-                <li>
-                    <a href="/paciente/historico">
-                        <img class="img-menu-default" src="/img/icone_historico.png">
-                        <img class="img-menu-hover" src="/img/icone_historico_ativo.png">
-                        Histórico & Documentos
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <!-- Modal perfil -->
+        <div class="modal-perfil-container" id="modalPerfil">
 
-        <section class="conteudo">
-            <h1 class="hero-title">Bem vindo, Kauan!</h1>
+    <div class="modal-perfil-box">
 
-            <div class="conteudo-container-principal">
-                <div class="cards-grid">
-                    <div class="card">
-                        <a href="#" class="nav-link">
-                            <img src="/img/celular.png" alt="Ícone de início" class="nav-icon"> Agendar teleconsulta
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="#" class="nav-link">
-                            <img src="/img/estetoscopio.png" alt="Ícone de início" class="nav-icon"> Agendar consulta
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="#" class="nav-link">
-                            <img src="/img/agenda (2).png" alt="Ícone de início" class="nav-icon"> Meus agendamentos
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="#" class="nav-link">
-                            <img src="/img/lugar-colocar.png" alt="Ícone de início" class="nav-icon"> Nossa unidade
-                        </a>
-                    </div>
-                </div>
+        <span class="modal-perfil-close" id="fecharPerfilModal">
+            &times;
+        </span>
 
-                <article class="secao-avisos">
-                    <h2 class="title-avisos">Avisos</h2>
-                    <div class="container-avisos">
-                        <div class="text-avisos">
-                            <p>Kauan, nesta área você poderá ver avisos importantes</p>
-                        </div>
-                        <img src="/img/img-dr-avisos.png" class="img-direita" alt="Persona-avisos">
-                    </div>
-                </article>
+        <h2 class="modal-perfil-title">
+            Meu Perfil
+        </h2>
+
+        <!-- FOTO -->
+        <div class="perfil-foto-area">
+
+            <div class="perfil-foto-wrapper">
+                <img src="/img/icone_perfil.png" alt="Foto Perfil">
+
+                <button class="btn-camera">
+                    <i class="fa fa-camera"></i>
+                </button>
             </div>
 
-            <article class="secao-agenda">
-                <div class="titulo-secao">
-                    <p>Cronograma de agendamentos</p>
-                </div>
-                <div class="calendario-wrapper">
-                    <div class="calendario-header">
-                        <button id="mes-anterior" class="btn-nav"><i class="fa-solid fa-chevron-left"></i></button>
-                        <h3 id="mes-ano">Agosto 2023</h3>
-                        <button id="mes-proximo" class="btn-nav"><i class="fa-solid fa-chevron-right"></i></button>
-                    </div>
-
-                    <div class="calendario-semana">
-                        <div>Seg</div>
-                        <div>Ter</div>
-                        <div>Qua</div>
-                        <div>Qui</div>
-                        <div>Sex</div>
-                        <div>Sáb</div>
-                        <div>Dom</div>
-                    </div>
-
-                    <div class="calendario-dias" id="dias-calendario">
-                    </div>
-                </div>
-                </div>
-            </article>
-        </section>
-    </main>
-
-    <!-- Modal Ajuda -->
-    <div id="modalAjuda" class="modal-container">
-        <div class="modal-box">
-            <span class="modal-close" id="closeAjuda">&times;</span>
-
-            <h2 class="modal-title">Como podemos te ajudar?</h2>
-
-            <div class="modal-info-list text-format">
-                <h3>FAQ</h3>
-
-                <p><strong>Vocês aceitam convênios?</strong><br>
-                    Trabalhamos apenas com consultas particulares, mas fornecemos nota fiscal completa para você
-                    solicitar o reembolso junto ao seu plano de saúde.</p>
-
-                <p><strong>Como faço para cancelar uma consulta?</strong><br>
-                    Os cancelamentos devem ser feitos diretamente via WhatsApp com pelo menos 24h de antecedência.</p>
-
-                <p><strong>Quais documentos preciso levar?</strong><br>
-                    Apenas um documento oficial com foto. Se possuir exames recentes de outras clínicas, recomendamos
-                    trazê-los.</p>
-
-                <hr class="modal-divider">
-
-                <h3>Canais de Contato</h3>
-                <h6>Para casos de urgência ou dúvidas rápidas: </h6>
-                <p><strong>WhatsApp: </strong> (21) 99999-9999 <br> Seg a Sex - 08h às 18h | Sab - 08h às 14h.</p>
-
-                <p><strong>Localização:</strong> Av. Rio Branco, 123 - Centro - Rio de Janeiro.</p>
-
-                <a class="modal-btn-action btn-whatsapp" href="https://wa.me" target="_blank">Falar com Atendente
-                    agora</a>
-            </div>
         </div>
+
+        <!-- FORM -->
+
+        <div class="perfil-form">
+
+            <div class="input-group-perfil">
+                <label>Nome Completo</label>
+                <input type="text" value="João Roberto da Silva" disabled>
+            </div>
+
+            <div class="input-group-perfil">
+                <label>E-mail</label>
+                <input type="email" value="joaoroberto@email.com" disabled>
+            </div>
+
+            <div class="input-group-perfil">
+                <label>Idade</label>
+                <input type="text" value="32 anos" disabled>
+            </div>
+
+            <div class="row-perfil">
+
+                <div class="input-group-perfil">
+                    <label>CPF</label>
+                    <input type="text" value="123.456.789-00" disabled>
+                </div>
+
+                <div class="input-group-perfil">
+                    <label>Telefone</label>
+                    <input type="text" value="(21) 99999-9999" disabled>
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr class="perfil-divider">
+
+        <!-- BOTÕES -->
+
+        <button class="btn-editar" id="btnEditarPerfil">
+            <i class="fa fa-pen"></i>
+            Editar Perfil
+        </button>
+
+        <button class="btn-config">
+            <i class="fa fa-cog"></i>
+            Configurações
+        </button>
+
+        <button class="btn-excluir">
+            <i class="fa fa-trash"></i>
+            Excluir Conta
+        </button>
+
     </div>
+
+</div>
+
+    </header>
+     <main>
+
+  <!-- Menu Lateral -->
+  <nav class="sidebar">
+    <ul class="menu-items">
+      <li>
+        <a href="/paciente/home">
+          <img class="img-menu-default" src="/assets/img/icone_inicio.png">
+          <img class="img-menu-hover" src="/assets/img/icone_inicio_ativo.png">
+          Início
+        </a>
+      </li>
+
+      <li>
+        <a href="/paciente/agendamento">
+          <img class="img-menu-default" src="/img/icone_agendamento.png">
+          <img class="img-menu-hover" src="/img/icone_agendamento_ativo.png">
+          Agendamento
+        </a>
+      </li>
+
+      <li class="active">
+        <a href="/paciente/historico">
+          <img src="/img/icone_historico_ativo.png">
+          Histórico & Documentos
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="main-content">
+
+    <!-- Card Bem-vindo -->
+    <div class="as-hero">
+      <div class="as-hero-left">
+        <h1>Bem-vindo, Kauan! 👋</h1>
+        <p>Segunda-feira, 11 de maio de 2026 — como você está se sentindo hoje?</p>
+      </div>
+
+      <div class="as-hero-next">
+        <div class="as-hero-next-icon">
+          <i class="ti ti-stethoscope" aria-hidden="true"></i>
+        </div>
+
+        <div class="as-hero-next-text">
+          <p>Próxima consulta</p>
+          <p>Dr. Carlos · 19/05 às 14h</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards de Notificação -->
+    <div class="as-metrics">
+      <div class="as-metric-card">
+        <div class="as-metric-icon">
+          <i class="ti ti-calendar-check" aria-hidden="true"></i>
+        </div>
+
+        <div class="as-metric-info">
+          <p>Agendamentos</p>
+          <p>3 ativos</p>
+        </div>
+      </div>
+
+      <div class="as-metric-card">
+        <div class="as-metric-icon">
+          <i class="ti ti-file-description" aria-hidden="true"></i>
+        </div>
+
+        <div class="as-metric-info">
+          <p>Documentos</p>
+          <p>12 exames</p>
+        </div>
+      </div>
+
+      <div class="as-metric-card">
+        <div class="as-metric-icon">
+          <i class="ti ti-pill" aria-hidden="true"></i>
+        </div>
+
+        <div class="as-metric-info">
+          <p>Prescrições</p>
+          <p>2 ativas</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cronograma -->
+    <div class="as-cronograma">
+      <div class="as-cron-header">
+        <span>Cronograma de agendamentos</span>
+        <a>Ver todos →</a>
+      </div>
+
+      <div class="as-cron-item">
+        <div class="as-cron-date">
+          <p>19</p>
+          <p>Mai</p>
+        </div>
+
+        <div class="as-cron-divider"></div>
+
+        <div class="as-cron-info">
+          <p>Cardiologia · Dr. Carlos Lima</p>
+          <p>
+            <i class="ti ti-clock" style="font-size:12px" aria-hidden="true"></i>
+            14h00
+          </p>
+        </div>
+
+        <span class="as-cron-tag presencial">Presencial</span>
+      </div>
+
+      <div class="as-cron-item">
+        <div class="as-cron-date">
+          <p>26</p>
+          <p>Mai</p>
+        </div>
+
+        <div class="as-cron-divider"></div>
+
+        <div class="as-cron-info">
+          <p>Clínica Geral · Dra. Ana Souza</p>
+          <p>
+            <i class="ti ti-clock" style="font-size:12px" aria-hidden="true"></i>
+            09h30
+          </p>
+        </div>
+
+        <span class="as-cron-tag online">Online</span>
+      </div>
+
+      <div class="as-cron-item">
+        <div class="as-cron-date">
+          <p>03</p>
+          <p>Jun</p>
+        </div>
+
+        <div class="as-cron-divider"></div>
+
+        <div class="as-cron-info">
+          <p>Exame de sangue</p>
+          <p>
+            <i class="ti ti-clock" style="font-size:12px" aria-hidden="true"></i>
+            07h00 — em jejum
+          </p>
+        </div>
+
+        <span class="as-cron-tag presencial">Presencial</span>
+      </div>
+    </div>
+
+    <!-- Aviso e Calendário -->
+    <div class="as-sidebar-right">
+
+      <!-- Aviso -->
+      <div class="as-aviso-card">
+        <div class="as-aviso-header">
+          <h2 class="as-aviso-title">
+            <i class="fa fa-comment-dots"></i>
+            Mensagens
+          </h2>
+        </div>
+
+        <div class="as-aviso-body">
+          <div class="as-aviso-img-placeholder">
+            <i class="ti ti-stethoscope" aria-hidden="true"></i>
+          </div>
+
+          <p>Kauan, seu exame de rotina está disponível para visualização. Acesse seus documentos!</p>
+        </div>
+
+        <button class="as-aviso-cta">Ver resultado do exame</button>
+      </div>
+
+      <!-- Calendário -->
+      <div class="as-mini-cal">
+
+      <div class="as-mini-cal-header">
+        <div class="as-cal-nav">
+          <button aria-label="Mês anterior">
+            <i class="ti ti-chevron-left" aria-hidden="true">&lt;</i>
+          </button>
+
+          <span>Maio 2026</span>
+
+          <button aria-label="Próximo mês">
+            <i class="ti ti-chevron-right" aria-hidden="true">&gt;</i>
+          </button>
+        </div>
+      </div>
+
+
+        <div class="as-cal-grid">
+          <div class="as-cal-day-name">DOM</div>
+          <div class="as-cal-day-name">SEG</div>
+          <div class="as-cal-day-name">TER</div>
+          <div class="as-cal-day-name">QUA</div>
+          <div class="as-cal-day-name">QUI</div>
+          <div class="as-cal-day-name">SEX</div>
+          <div class="as-cal-day-name">SAB</div>
+
+          <div class="as-cal-day empty">·</div>
+          <div class="as-cal-day empty">·</div>
+          <div class="as-cal-day empty">·</div>
+          <div class="as-cal-day empty">·</div>
+
+          <div class="as-cal-day">1</div>
+          <div class="as-cal-day">2</div>
+          <div class="as-cal-day">3</div>
+          <div class="as-cal-day">4</div>
+          <div class="as-cal-day">5</div>
+          <div class="as-cal-day">6</div>
+          <div class="as-cal-day">7</div>
+          <div class="as-cal-day">8</div>
+          <div class="as-cal-day">9</div>
+          <div class="as-cal-day">10</div>
+          <div class="as-cal-day today">11</div>
+          <div class="as-cal-day">12</div>
+          <div class="as-cal-day">13</div>
+          <div class="as-cal-day">14</div>
+          <div class="as-cal-day">15</div>
+          <div class="as-cal-day">16</div>
+          <div class="as-cal-day">17</div>
+          <div class="as-cal-day">18</div>
+          <div class="as-cal-day has-appt">19</div>
+          <div class="as-cal-day">20</div>
+          <div class="as-cal-day">21</div>
+          <div class="as-cal-day">22</div>
+          <div class="as-cal-day">23</div>
+          <div class="as-cal-day">24</div>
+          <div class="as-cal-day">25</div>
+          <div class="as-cal-day has-appt">26</div>
+          <div class="as-cal-day">27</div>
+          <div class="as-cal-day">28</div>
+          <div class="as-cal-day">29</div>
+          <div class="as-cal-day">30</div>
+          <div class="as-cal-day">31</div>
+          <div class="as-cal-day empty">·</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  </div>
+</main>
+
+<!-- Modal Ajuda -->
+<div id="modalAjuda" class="modal-container">
+  <div class="modal-box">
+    <span class="modal-close" id="closeAjuda">&times;</span>
+
+    <h2 class="modal-title">Como podemos te ajudar?</h2>
+
+    <div class="modal-info-list text-format">
+      <h3>FAQ</h3>
+
+      <p>
+        <strong>Vocês aceitam convênios?</strong><br>
+        Trabalhamos apenas com consultas particulares, mas fornecemos nota fiscal completa para você
+        solicitar o reembolso junto ao seu plano de saúde.
+      </p>
+
+      <p>
+        <strong>Como faço para cancelar uma consulta?</strong><br>
+        Os cancelamentos devem ser feitos diretamente via WhatsApp com pelo menos 24h de antecedência.
+      </p>
+
+      <p>
+        <strong>Quais documentos preciso levar?</strong><br>
+        Apenas um documento oficial com foto. Se possuir exames recentes de outras clínicas, recomendamos
+        trazê-los.
+      </p>
+
+      <hr class="modal-divider">
+
+      <h3>Canais de Contato</h3>
+
+      <h6>Para casos de urgência ou dúvidas rápidas:</h6>
+
+      <p>
+        <strong>WhatsApp:</strong> (21) 99999-9999 <br>
+        Seg a Sex - 08h às 18h | Sab - 08h às 14h.
+      </p>
+
+      <p>
+        <strong>Localização:</strong> Av. Rio Branco, 123 - Centro - Rio de Janeiro.
+      </p>
+
+      <a class="modal-btn-action btn-whatsapp" href="https://wa.me" target="_blank">
+        Falar com Atendente agora
+      </a>
+    </div>
+  </div>
+</div>
+
 
     <!-- Footer -->
     <footer class="alento-footer">
         <p>© 2026 Alento Saúde - Todos os direitos reservados.</p>
     </footer>
-    <script type="module" src="/js/main.js"></script>
+    <script src="/js/home_paciente.js"></script>
 </body>
 
 </html>
