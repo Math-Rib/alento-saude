@@ -283,7 +283,7 @@ body {
   position: fixed;
   z-index: 10000;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(5px);
 }
 
@@ -294,7 +294,7 @@ body {
   border-radius: 30px;
   padding: 40px;
   position: relative;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
   animation: aparecer .3s ease;
 }
 
@@ -1391,6 +1391,15 @@ body.dark-mode {
 
   background-color: #0f172a;
   color: #f1f5f9;
+}
+
+/* Botão do Modo Noturno */
+body.dark-mode .toggle-dark-mode {
+  background-color: #2196F3;
+}
+
+body.dark-mode .toggle-dark-mode::before {
+  transform: translateX(25px);
 }
 
 body.dark-mode .alento-header,
