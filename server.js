@@ -7,6 +7,7 @@ const porta = 3000; // Criando a porta de acesso ao servidor
 app.use(express.static(path.join(__dirname, 'assets'))); 
 /* Configura o express para ler as paginas*/
 app.use(express.static(path.join(__dirname, 'src'))); 
+app.use(express.urlencoded({ extended: true }));
 
 /* Configura a rota principal ao acessar o localhost */
 app.get('/', (req, res) => {
