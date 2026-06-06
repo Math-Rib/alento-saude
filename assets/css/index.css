@@ -62,6 +62,29 @@ body {
     text-decoration: none;
 }
 
+.top-bar-item .btn-ajuda {
+    background: none;
+    border: none;
+}
+
+.top-bar-item button:hover {
+    color: #000000;
+}
+
+/* Troca dos Ícones do Botão Ajuda */
+.top-bar-item button .img-item-hover,
+.top-bar-item .img-item-dark-hover {
+    display: none;
+}
+
+.top-bar-item button:hover .img-item-default {
+    display: none;
+}
+
+.top-bar-item button:hover .img-item-hover {
+    display: inline-block;
+}
+
 /* Estilização do Botão Modo Noturno */
 .toggle-dark-mode {
     margin-top: 2px;
@@ -785,6 +808,18 @@ body.dark-mode .toggle-dark-mode::before {
 
 body.dark-mode .top-bar {
     background-color: #2d3748;
+}
+
+body.dark-mode .top-bar-item button:hover .img-item-hover {
+    display: none;
+}
+
+body.dark-mode .top-bar-item button:hover .img-item-dark-hover {
+    display: inline-block;
+}
+
+body.dark-mode .top-bar-item button:hover {
+    color: #ffffff;
 }
 
 /* Fundo do Header Principal */

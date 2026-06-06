@@ -948,6 +948,46 @@ body.dark-mode .alento-footer {
 }
 
 /* Responsividade */
+/* Para Telas menores que 1050px */
+@media (max-width: 1050px) {
+    .sidebar {
+        display: none;
+    }
+
+    .sidebar-wrapper {
+        display: none;
+    }
+
+    #btn-menu-mobile {
+        display: block !important;
+    }
+
+    .menu-central {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #fff;
+    padding: 15px 0;
+    z-index: 999999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+    gap: 10px;
+  }
+
+  .menu-central.show {
+    display: flex !important;
+  }
+
+  .menu-central a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #CDCAC4;
+  }
+
+}
 
 /* Responsividade da Gestão de Usuários */
 @media (max-width: 768px) {

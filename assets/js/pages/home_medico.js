@@ -2,7 +2,7 @@ export function initHomeMedico() {
 
     const userProfile = document.querySelector(".user-profile");
     const calendarGrid = document.getElementById("calendar-grid");
-    
+
     if (!userProfile && !calendarGrid) return;
 
     const dropdownMenu = document.getElementById("dropdownMenu");
@@ -267,6 +267,27 @@ export function initHomeMedico() {
         document.querySelector(".sidebar")?.classList.remove("aberta", "open");
         document.getElementById("sidebar-overlay")?.classList.remove("ativo", "open");
         document.getElementById("btn-menu-mobile")?.setAttribute("aria-expanded", "false");
+    });
+
+    // Lógica do Menu Hambúrguer Mobile
+    const btnHamburguer = document.getElementById('btn-menu-mobile');
+    const menuCentral = document.querySelector('.menu-central');
+
+    if (btnHamburguer && menuCentral) {
+        btnHamburguer.addEventListener('click', (event) => {
+            event.stopPropagation();
+            menuCentral.classList.toggle('show');
+            if (dropdownMenu) dropdownMenu.classList.remove('ativo');
+        });
+    }
+
+    // Fecha o menu ao clicar fora
+    window.addEventListener('click', (event) => {
+        if (menuCentral && btnHamburguer) {
+            if (!menuCentral.contains(event.target) && !event.target.closest('#btn-menu-mobile')) {
+                menuCentral.classList.remove('show');
+            }
+        }
     });
 
     // Iniciar componentes internos

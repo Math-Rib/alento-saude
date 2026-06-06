@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.1",
+    "body-parser": "^2.2.2",
+    "cookie-parser": "^1.4.7",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "exprss": "^0.0.1-security"

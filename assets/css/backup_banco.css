@@ -934,6 +934,31 @@ body.dark-mode .alento-footer {
     display: block !important;
   }
 
+  .menu-central {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #fff;
+    padding: 15px 0;
+    z-index: 999999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+    gap: 10px;
+  }
+
+  .menu-central.show {
+    display: flex !important;
+  }
+
+  .menu-central a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #CDCAC4;
+  }
+
 }
 
 /* Para Telas menores que 992px */

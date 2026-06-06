@@ -225,6 +225,27 @@ export function initHomePaciente() {
     document.querySelector(".sidebar-overlay")?.classList.remove("ativo");
   });
 
+  // Lógica do Menu Hambúrguer Mobile
+  const btnHamburguer = document.getElementById('btn-menu-mobile');
+  const menuCentral = document.querySelector('.menu-central');
+
+  if (btnHamburguer && menuCentral) {
+    btnHamburguer.addEventListener('click', (event) => {
+      event.stopPropagation();
+      menuCentral.classList.toggle('show');
+      if (dropdownMenu) dropdownMenu.classList.remove('ativo');
+    });
+  }
+
+  // Fecha o menu ao clicar fora
+  window.addEventListener('click', (event) => {
+    if (menuCentral && btnHamburguer) {
+      if (!menuCentral.contains(event.target) && !event.target.closest('#btn-menu-mobile')) {
+        menuCentral.classList.remove('show');
+      }
+    }
+  });
+
   // ── Init ──────────────────────────────────────────────────────
 
   initMiniCal();
