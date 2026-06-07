@@ -1,4 +1,3 @@
-// src/models/authModel.js
 const supabase = require('../../config/supabase');
 
 const AuthModel = {
@@ -32,20 +31,25 @@ const AuthModel = {
         // Consulta a função do usuário
         const { data: vinculoFuncao, error: roleError } = await supabase
             .from('funcao_usuario')
-            .select(`
-            id_funcao,
-            funcoes (
-            nome
-            )
-        `)
+            .select(`id_funcao`)
             .eq('id_usuario', usuario.id_usuario)
-            .single(); // Garante que venha apenas uma função no objeto
+            .maybeSingle(); // Garante que venha apenas uma função no objeto
 
-        if (roleError || !vinculoFuncao || !vinculoFuncao.funcoes) {
+        if (roleError || !vinculoFuncao) {
             throw new Error('Usuário autenticado, mas nenhuma função correspondente foi encontrada vinculada a ele.');
         }
 
-        const roleNome = vinculoFuncao.funcoes.nome.toLowerCase();
+        const { data: funcaoData, error: funcaoError } = await supabase
+            .from('funcoes')
+            .select('nome')
+            .eq('id_funcao', vinculoFuncao.id_funcao)
+            .maybeSingle();
+
+        if (funcaoError || !funcaoData) {
+            throw new Error(`Função com id_funcao ${vinculoFuncao.id_funcao} não cadastrada na tabela funcoes.`);
+        }
+
+        const roleNome = funcaoData.nome.toLowerCase();
 
         // retorna os dados da sessão
         return {

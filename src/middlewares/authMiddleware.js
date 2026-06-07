@@ -19,26 +19,36 @@ const checkAuth = async (req, res, next) => {
 
         if (userError || !usuario) throw new Error('Usuário não encontrado no banco de dados.');
 
-        // Busca a função do usuário no banco
+        // CORREÇÃO PASSO 1: Busca apenas o ID da função na tabela funcao_usuario
         const { data: vinculoFuncao, error: roleError } = await supabase
             .from('funcao_usuario')
-            .select(`
-            funcoes (
-            nome
-            )
-        `)
+            .select('id_funcao')
             .eq('id_usuario', usuario.id_usuario)
-            .single();
+            .maybeSingle();
 
-        if (roleError || !vinculoFuncao || !vinculoFuncao.funcoes) throw new Error('Nenhuma função vinculada ao usuário no banco de dados.');
+        if (roleError || !vinculoFuncao) throw new Error('Nenhuma função vinculada ao usuário no banco de dados.');
 
-        const roleNome = vinculoFuncao.funcoes.nome.toLowerCase();
+        // CORREÇÃO PASSO 2: Busca o nome da função diretamente na tabela funcoes
+        const { data: funcaoData, error: funcaoError } = await supabase
+            .from('funcoes')
+            .select('nome')
+            .eq('id_funcao', vinculoFuncao.id_funcao)
+            .maybeSingle();
+
+        if (funcaoError || !funcaoData) throw new Error('Função correspondente não cadastrada na tabela funcoes.');
+
+        // CORREÇÃO PASSO 3: Remove os acentos e padroniza para minúsculo
+        const roleNome = funcaoData.nome
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '');
 
         req.user = {
             ...user,
             id_publico: usuario.id_usuario,
             role: roleNome
         }; // Guarda o usuário na requisição
+        
         next();
     } catch (error) {
         console.error('Erro no Middleware checkAuth:', error.message);
@@ -61,7 +71,7 @@ const isMedico = (req, res, next) => {
 
 // Middleware para validar se é ADMINISTRADOR
 const isAdmin = (req, res, next) => {
-  if (req.user && req.user.role === 'admin') return next();
+  if (req.user && (req.user.role === 'admin' || req.user.role === 'administrador')) return next();
   return res.status(403).send('Acesso negado: Área restrita ao Administrador.');
 };
 

@@ -1,4 +1,3 @@
-// src/controllers/authController.js
 const AuthModel = require('../models/authModel');
 
 const authController = {
