@@ -57,7 +57,62 @@ const AuthModel = {
             user: authData.user,
             role: roleNome
         };
+    },
+
+    // Cadastrando usuários como pacientes pelo formulário de cadastro público
+    registro: async (nomeCompleto, cpf, email, senha, dataNascimento, idFuncaoPadrao = 3) => {
+        const emailLimpo = email ? email.trim() : '';
+        const senhaTexto = String(senha);
+
+        // Cadastrando as credenciais no cofre do Supabase Auth (Gera criptografia automática da senha)
+        const { data: authData, error: authError } = await supabase.auth.signUp({
+            email: emailLimpo,
+            password: senhaTexto,
+            options: {
+                data: { display_name: nomeCompleto } // Salva o nome nos metadados da sessão
+            }
+        });
+
+        if (authError) throw authError;
+        if (!authData.user) throw new Error("Erro desconhecido ao gerar o registro de autenticação.");
+
+        // Inserindo os dados adicionais na sua tabela pública 'usuarios'
+        const { data: novoUsuario, error: userError } = await supabase
+            .from('usuarios')
+            .insert([{ 
+                nome_completo: nomeCompleto, 
+                cpf: cpf,
+                email: emailLimpo,
+                senha_hash: senhaTexto,
+                data_nascimento: dataNascimento,
+                status_conta: 'Ativa'
+            }])
+            .select('id_usuario')
+            .single();
+
+        if (userError) {
+            // Se falhar a tabela pública, remove do Auth para evitar dados que não serão usados
+            try {
+                await supabase.auth.admin.deleteUser(authData.user.id);
+            } catch (err) {
+                console.error("Não foi possível limpar o usuário do Auth:", err.message);
+            }
+            throw userError;
+        }
+
+        // Vincula o novo usuário à função de paciente na tabela 'func_usuario'
+        const { error: roleError } = await supabase
+            .from('funcao_usuario')
+            .insert([{
+                id_usuario: novoUsuario.id_usuario,
+                id_funcao: idFuncaoPadrao 
+            }]);
+
+        if (roleError) throw roleError;
+
+        return authData.user;
     }
+
 };
 
 module.exports = AuthModel;

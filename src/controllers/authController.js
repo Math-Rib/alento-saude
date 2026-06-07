@@ -2,6 +2,7 @@ const AuthModel = require('../models/authModel');
 const supabase = require('../../config/supabase');
 
 const authController = {
+  // Processando o formulário de login
   handleLogin: async (req, res) => {
     const { email, senha_hash } = req.body;
 
@@ -36,6 +37,37 @@ const authController = {
 
     } catch (error) {
       return res.status(401).send(`Erro na autenticação: ${error.message}`);
+    }
+  },
+
+  // Processando o formulário de cadastro
+  handleCadastro: async (req, res) => {
+    // guarda os dados dos inputs do seu cadastro.html
+    const { nome_completo, cpf, email, senha, data_nascimento } = req.body;
+
+    try {
+      // CONVERSÃO DE DATA: Transforma "DD/MM/AAAA" em "AAAA-MM-DD"
+      let dataFormatada = null;
+
+      if (data_nascimento && data_nascimento.includes('/')) {
+
+        const [dia, mes, ano] = data_nascimento.split('/');
+        dataFormatada = `${ano}-${mes}-${dia}`;
+
+      } else {
+
+        dataFormatada = data_nascimento;
+
+      }
+      // Cadastrando usário no banco de dados
+      await AuthModel.registro(nome_completo, cpf, email, senha, dataFormatada, 3);
+
+      // Caso o cadastro for concluído com sucesso, ele redireciona para o login
+      return res.redirect('/login?sucesso=true');
+
+    } catch (error) {
+      console.error("Erro capturado no Controller:", error.message);
+      return res.status(400).send(`Erro ao realizar o cadastro: ${error.message}`);
     }
   },
 

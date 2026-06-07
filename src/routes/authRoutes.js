@@ -34,6 +34,9 @@ router.get('/cadastro', (req, res) => {
 
 // Ações de formulário (POST) gerenciadas pelo Controller
 router.post('/login', authController.handleLogin);
+router.post('/cadastro', authController.handleCadastro);
+
+// Ações de formulário (GET) gerenciadas pelo Controller
 router.get('/logout', authController.handleLogout);
 
 // Rotas Privadas do Paciente
