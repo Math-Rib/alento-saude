@@ -228,12 +228,21 @@ export function initHomePaciente() {
   // Lógica do Menu Hambúrguer Mobile
   const btnHamburguer = document.getElementById('btn-menu-mobile');
   const menuCentral = document.querySelector('.menu-central');
+  const btnLogout = document.getElementById('btn-logout');
 
   if (btnHamburguer && menuCentral) {
     btnHamburguer.addEventListener('click', (event) => {
       event.stopPropagation();
       menuCentral.classList.toggle('show');
       if (dropdownMenu) dropdownMenu.classList.remove('ativo');
+    });
+  }
+
+  // Lógica do Botão de Sair (Logout)
+  if (btnLogout) {
+    btnLogout.addEventListener('click', (event) => {
+      sessionStorage.clear();
+      localStorage.clear();
     });
   }
 

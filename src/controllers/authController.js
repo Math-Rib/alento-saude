@@ -1,4 +1,5 @@
 const AuthModel = require('../models/authModel');
+const supabase = require('../../config/supabase');
 
 const authController = {
   handleLogin: async (req, res) => {
@@ -38,9 +39,17 @@ const authController = {
     }
   },
 
-  handleLogout: (req, res) => {
-    res.clearCookie('alento_token');
-    res.redirect('/login');
+  handleLogout: async (req, res) => {
+    try {
+      // Encerra a sessão ativa no servidor do Supabase
+      await supabase.auth.signOut();
+    } catch (error) {
+      console.error('Erro ao encerrar sessão no Supabase:', error.message);
+    } finally {
+      // Garante que o cookie local seja limpo e o usuário seja expulso mesmo se o banco falhar
+      res.clearCookie('alento_token');
+      return res.redirect('/');
+    }
   }
 };
 
