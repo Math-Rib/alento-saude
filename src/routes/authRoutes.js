@@ -111,4 +111,12 @@ router.get('/admin/backup_banco', checkAuth, isAdmin, (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'views', 'private', 'admin', 'backup_banco.html')); 
 });
 
+router.get('/api/teste', (req, res) => {
+    res.json({ ok: true, mensagem: 'backend funcionando' });
+});
+
+router.get('/api/medico/perfil-teste', (req, res) => {
+    res.json({ ok: true, user: req.user });
+})
+
 module.exports = router;

@@ -1,8 +1,6 @@
 export function initHomePaciente() {
   // ── Seletores ─────────────────────────────────────────────────
 
-  const body = document.body;
-  const darkModeButton = document.getElementById("toggle-dark-mode");
   const userProfile = document.querySelector(".user-profile");
   const dropdownMenu = document.getElementById("dropdownMenu");
 
@@ -18,7 +16,7 @@ export function initHomePaciente() {
 
   function toggleProfileDropdown(event) {
     event.stopPropagation();
-    dropdownMenu.classList.toggle("ativo");
+    dropdownMenu?.classList.toggle("ativo");
   }
 
   function closeProfileDropdown(event) {
@@ -30,7 +28,7 @@ export function initHomePaciente() {
   // ── Modal de ajuda ────────────────────────────────────────────
 
   function openHelpModal() {
-    modalAjuda.style.display = "flex";
+    if (modalAjuda) modalAjuda.style.display = "flex";
   }
 
   function closeHelpModal() {
@@ -48,7 +46,7 @@ export function initHomePaciente() {
   }
 
   function initPerfilEditar() {
-    if (!btnEditarPerfil) return;
+    if (!btnEditarPerfil || !modalPerfil) return;
 
     btnEditarPerfil.addEventListener("click", () => {
       const inputs = modalPerfil.querySelectorAll("input");
@@ -58,16 +56,17 @@ export function initHomePaciente() {
         inputs.forEach(i => i.setAttribute("disabled", ""));
         btnEditarPerfil.innerHTML = '<i class="fa fa-pen"></i> Editar Perfil';
         btnEditarPerfil.dataset.editing = "false";
-      } else {
-        // Habilita tudo exceto CPF
-        inputs.forEach(i => {
-          if (!i.value.match(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)) {
-            i.removeAttribute("disabled");
-          }
-        });
-        btnEditarPerfil.innerHTML = '<i class="fa fa-check"></i> Salvar';
-        btnEditarPerfil.dataset.editing = "true";
+        return;
       }
+
+      // Habilita tudo, EXCETO se for o campo de CPF
+      inputs.forEach(i => {
+        if (i.id !== "perfilCpf" && i.dataset.locked !== "true") {
+          i.removeAttribute("disabled");
+        }
+      });
+      btnEditarPerfil.innerHTML = '<i class="fa fa-check"></i> Salvar';
+      btnEditarPerfil.dataset.editing = "true";
     });
   }
 
@@ -79,7 +78,7 @@ export function initHomePaciente() {
     "Setembro", "Outubro", "Novembro", "Dezembro"
   ];
 
-  // Dias com consulta — ajuste conforme os dados reais do usuário
+  // Dias com consulta (Mantenha estático por enquanto ou mude conforme a API)
   const appointmentDays = { 19: true, 26: true };
 
   let currentCalDate = new Date();
@@ -98,12 +97,10 @@ export function initHomePaciente() {
 
     calLabel.textContent = `${months[month]} ${year}`;
 
-    // Preserva os cabeçalhos
     const dayNames = [...calGrid.querySelectorAll(".as-cal-day-name")];
     calGrid.innerHTML = "";
     dayNames.forEach(el => calGrid.appendChild(el));
 
-    // Células do mês anterior
     for (let i = firstDay - 1; i >= 0; i--) {
       const el = document.createElement("div");
       el.className = "as-cal-day empty";
@@ -111,7 +108,6 @@ export function initHomePaciente() {
       calGrid.appendChild(el);
     }
 
-    // Dias do mês atual
     for (let d = 1; d <= daysInMonth; d++) {
       const el = document.createElement("div");
       const classes = ["as-cal-day"];
@@ -136,7 +132,6 @@ export function initHomePaciente() {
       calGrid.appendChild(el);
     }
 
-    // Células restantes
     const totalCells = firstDay + daysInMonth;
     const remaining = Math.ceil(totalCells / 7) * 7 - totalCells;
     for (let d = 1; d <= remaining; d++) {
@@ -154,68 +149,86 @@ export function initHomePaciente() {
     const [prevBtn, nextBtn] = navBtns;
 
     prevBtn.addEventListener("click", () => {
-      currentCalDate = new Date(
-        currentCalDate.getFullYear(),
-        currentCalDate.getMonth() - 1,
-        1
-      );
+      currentCalDate = new Date(currentCalDate.getFullYear(), currentCalDate.getMonth() - 1, 1);
       renderMiniCal(currentCalDate);
     });
 
     nextBtn.addEventListener("click", () => {
-      currentCalDate = new Date(
-        currentCalDate.getFullYear(),
-        currentCalDate.getMonth() + 1,
-        1
-      );
+      currentCalDate = new Date(currentCalDate.getFullYear(), currentCalDate.getMonth() + 1, 1);
       renderMiniCal(currentCalDate);
     });
 
     renderMiniCal(currentCalDate);
   }
 
-  // ── Menu mobile ───────────────────────────────────────────────
-  // IMPORTANTE: o CSS usa .sidebar.aberta e .sidebar-overlay.ativo
+  // ── Menu mobile consolidado ───────────────────────────────────
 
   function initMobileMenu() {
     const btnMobile = document.getElementById("btn-menu-mobile");
     const sidebar = document.querySelector(".sidebar");
-    if (!btnMobile || !sidebar) return;
+    const menuCentral = document.querySelector('.menu-central');
+    if (!btnMobile) return;
 
-    // Cria overlay se não existir no HTML
     let overlay = document.querySelector(".sidebar-overlay");
-    if (!overlay) {
+    if (!overlay && sidebar) {
       overlay = document.createElement("div");
       overlay.className = "sidebar-overlay";
       document.body.appendChild(overlay);
     }
 
-    btnMobile.addEventListener("click", () => {
-      sidebar.classList.add("aberta");
-      overlay.classList.add("ativo");
+    btnMobile.addEventListener("click", (event) => {
+      event.stopPropagation();
+      dropdownMenu?.classList.remove("ativo");
+      
+      if (sidebar && overlay) {
+        sidebar.classList.toggle("aberta");
+        overlay.classList.toggle("ativo");
+      }
+      if (menuCentral) {
+        menuCentral.classList.toggle('show');
+      }
     });
 
-    overlay.addEventListener("click", () => {
-      sidebar.classList.remove("aberta");
-      overlay.classList.remove("ativo");
+    overlay?.addEventListener("click", () => {
+      sidebar?.classList.remove("aberta");
+      overlay?.classList.remove("ativo");
+    });
+
+    // Fecha se clicar fora do menu central
+    window.addEventListener('click', (event) => {
+      if (menuCentral && !menuCentral.contains(event.target) && !event.target.closest('#btn-menu-mobile')) {
+        menuCentral.classList.remove('show');
+      }
     });
   }
 
-  // ── Link "Meu Perfil" no dropdown abre o modal ────────────────
+  // ── APLICAÇÃO DOS LISTENERS GLOBAIS (O QUE ESTAVA FALTANDO!) ──
 
-  function initDropdownPerfil() {
-    const linkPerfil = document.querySelector(".dropdown-content a:first-of-type");
-    if (!linkPerfil || !modalPerfil) return;
-
-    linkPerfil.addEventListener("click", e => {
-      e.preventDefault();
-      dropdownMenu.classList.remove("ativo");
-      openPerfilModal();
-    });
+  if (userProfile && dropdownMenu) {
+    userProfile.addEventListener("click", toggleProfileDropdown);
+    document.addEventListener("click", closeProfileDropdown);
   }
 
-  // ── Escape fecha tudo ─────────────────────────────────────────
+  helpButton?.addEventListener("click", openHelpModal);
+  closeAjuda?.addEventListener("click", closeHelpModal);
+  modalAjuda?.addEventListener("click", event => {
+    if (event.target === modalAjuda) closeHelpModal();
+  });
 
+  fecharPerfil?.addEventListener("click", closePerfilModal);
+  modalPerfil?.addEventListener("click", event => {
+    if (event.target === modalPerfil) closePerfilModal();
+  });
+
+  // Link "Meu Perfil" no dropdown abre o modal
+  const linkPerfil = document.querySelector("#dropdownMenu a:not(.logout-item)");
+  linkPerfil?.addEventListener("click", e => {
+    e.preventDefault();
+    dropdownMenu?.classList.remove("ativo");
+    openPerfilModal();
+  });
+
+  // Escape fecha tudo
   document.addEventListener("keydown", e => {
     if (e.key !== "Escape") return;
     dropdownMenu?.classList.remove("ativo");
@@ -223,43 +236,55 @@ export function initHomePaciente() {
     closePerfilModal();
     document.querySelector(".sidebar")?.classList.remove("aberta");
     document.querySelector(".sidebar-overlay")?.classList.remove("ativo");
+    document.querySelector('.menu-central')?.classList.remove('show');
   });
 
-  // Lógica do Menu Hambúrguer Mobile
-  const btnHamburguer = document.getElementById('btn-menu-mobile');
-  const menuCentral = document.querySelector('.menu-central');
+  // Lógica do Botão de Sair (Logout) com Redirecionamento
   const btnLogout = document.getElementById('btn-logout');
-
-  if (btnHamburguer && menuCentral) {
-    btnHamburguer.addEventListener('click', (event) => {
-      event.stopPropagation();
-      menuCentral.classList.toggle('show');
-      if (dropdownMenu) dropdownMenu.classList.remove('ativo');
-    });
-  }
-
-  // Lógica do Botão de Sair (Logout)
   if (btnLogout) {
-    btnLogout.addEventListener('click', (event) => {
+    btnLogout.addEventListener('click', () => {
       sessionStorage.clear();
       localStorage.clear();
+      window.location.href = '/'; // Redireciona o paciente deslogado para a home/login
     });
   }
 
-  // Fecha o menu ao clicar fora
-  window.addEventListener('click', (event) => {
-    if (menuCentral && btnHamburguer) {
-      if (!menuCentral.contains(event.target) && !event.target.closest('#btn-menu-mobile')) {
-        menuCentral.classList.remove('show');
+  // ── NOVA FUNÇÃO: Integração com a sua API de Paciente ──────────
+
+  async function carregarDadosDoPaciente() {
+    try {
+      const resposta = await fetch('/api/paciente/perfil');
+      if (!resposta.ok) return;
+
+      const resultado = await resposta.json();
+
+      if (resultado.sucesso) {
+        const dadosUsuario = resultado.dados.usuario;
+
+        // Atualiza o nome do paciente na tela principal (mude a classe se for diferente)
+        const spanNome = document.querySelector('.patient-name') || document.querySelector('.user-name');
+        if (spanNome) spanNome.innerText = dadosUsuario.nome_completo;
+
+        // Preenche os campos do formulário do modal
+        const inputNome = document.getElementById('perfilNome');
+        const inputEmail = document.getElementById('perfilEmail');
+        const inputCpf = document.getElementById('perfilCpf'); // Garanta que o input de CPF do HTML tenha id="perfilCpf"
+
+        if (inputNome) inputNome.value = dadosUsuario.nome_completo;
+        if (inputEmail) inputEmail.value = dadosUsuario.email;
+        if (inputCpf) inputCpf.value = dadosUsuario.cpf;
+      } else {
+        console.error("Erro do backend:", resultado.mensagem);
       }
+    } catch (erro) {
+      console.error("Erro ao carregar dados do paciente:", erro);
     }
-  });
+  }
 
-  // ── Init ──────────────────────────────────────────────────────
+  // ── Inicializadores ───────────────────────────────────────────
 
+  carregarDadosDoPaciente();
   initMiniCal();
   initMobileMenu();
   initPerfilEditar();
-  initDropdownPerfil();
-
 }

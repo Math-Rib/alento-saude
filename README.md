@@ -46,7 +46,7 @@ npm install express
 ### 2. Instale o pacote @supabase/supabase-js:
 npm i @supabase/supabase-js
 ou
-npm install @supabase/supabase-js
+npm install  @supabase/supabase-js
 
 ### 3. Instale o pacote dotenv:
 npm i dotenv

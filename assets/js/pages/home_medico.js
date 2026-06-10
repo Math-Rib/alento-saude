@@ -245,10 +245,9 @@ export function initHomeMedico() {
         if (event.target === modalAjuda) closeHelpModal();
     });
 
-    // AQUI ESTÁ A CORREÇÃO DO PERFIL!
     const btnAbrirPerfil = document.querySelector("#dropdownMenu a:not(.logout-item)");
     btnAbrirPerfil?.addEventListener("click", event => {
-        event.preventDefault(); // Impede que a página recarregue
+        event.preventDefault();
         dropdownMenu?.classList.remove("ativo");
         openPerfilModal();
     });
@@ -299,8 +298,46 @@ export function initHomeMedico() {
         }
     });
 
-    // Iniciar componentes internos
+    // NOVA FUNÇÃO: Carrega as informações dinâmicas do médico logado
+    async function carregarDadosDoMedico() {
+        try {
+            const resposta = await fetch('/api/medico/perfil');
+            
+            // Segurança: Se a rota falhar (ex: não logado), não tenta ler o JSON para não quebrar a página
+            if (!resposta.ok) {
+                console.error("Erro na requisição. Usuário pode estar deslogado.");
+                return;
+            }
+
+            const resultado = await resposta.json();
+
+            if (resultado.sucesso) {
+                const dadosUsuario = resultado.dados.usuario;
+                
+                // Atualiza o nome do médico na barra lateral/topo
+                const spanNome = document.querySelector('.doctor-name');
+                if (spanNome) spanNome.innerText = dadosUsuario.nome_completo;
+                
+                // Preenche os campos do formulário no modal de perfil usando os IDs criados
+                const inputNome = document.getElementById('perfilNome');
+                const inputEmail = document.getElementById('perfilEmail');
+                const inputCpf = document.getElementById('perfilCpf');
+
+                if (inputNome) inputNome.value = dadosUsuario.nome_completo;
+                if (inputEmail) inputEmail.value = dadosUsuario.email;
+                if (inputCpf) inputCpf.value = dadosUsuario.cpf;
+            } else {
+                console.error("Erro do backend:", resultado.mensagem);
+            }
+        } catch (erro) {
+            console.error("Erro na comunicação com a API:", erro);
+        }
+    }
+
+    // DISPARO SEGURO DE TODOS OS COMPONENTES INTERNOS
+    carregarDadosDoMedico();
     initAgendaCalendar();
     initMobileMenu();
     initPerfilEditar();
-}
+
+} 
