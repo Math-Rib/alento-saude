@@ -5,25 +5,12 @@ export function initHomeMedico() {
 
     if (!userProfile && !calendarGrid) return;
 
-    const dropdownMenu = document.getElementById("dropdownMenu");
     const helpButton = document.querySelector(".btn-ajuda");
     const modalAjuda = document.getElementById("modalAjuda");
     const closeAjuda = document.getElementById("closeAjuda");
     const modalPerfil = document.getElementById("modalPerfil");
     const fecharPerfil = document.getElementById("fecharPerfilModal");
     const btnEditarPerfil = document.getElementById("btnEditarPerfil");
-
-    // Dropdown de perfil
-    function toggleProfileDropdown(event) {
-        event.stopPropagation();
-        dropdownMenu?.classList.toggle("ativo");
-    }
-
-    function closeProfileDropdown(event) {
-        if (!event.target.closest(".user-dropdown")) {
-            dropdownMenu?.classList.remove("ativo");
-        }
-    }
 
     // Modal de ajuda
     function openHelpModal() {
@@ -182,62 +169,62 @@ export function initHomeMedico() {
         renderAgendaCalendar(currentAgendaDate);
     }
 
-    // Menu mobile
-    function initMobileMenu() {
-        const btnMobile = document.getElementById("btn-menu-mobile");
-        const sidebar = document.querySelector(".sidebar");
-        if (!btnMobile || !sidebar) return;
+    // // Menu mobile
+    // function initMobileMenu() {
+    //     const btnMobile = document.getElementById("btn-menu-mobile");
+    //     const sidebar = document.querySelector(".sidebar");
+    //     if (!btnMobile || !sidebar) return;
 
-        let overlay = document.getElementById("sidebar-overlay");
-        if (!overlay) {
-            overlay = document.createElement("div");
-            overlay.id = "sidebar-overlay";
-            overlay.className = "sidebar-overlay";
-            document.body.appendChild(overlay);
-        }
+    //     let overlay = document.getElementById("sidebar-overlay");
+    //     if (!overlay) {
+    //         overlay = document.createElement("div");
+    //         overlay.id = "sidebar-overlay";
+    //         overlay.className = "sidebar-overlay";
+    //         document.body.appendChild(overlay);
+    //     }
 
-        function openSidebar() {
-            sidebar.classList.add("aberta", "open");
-            overlay.classList.add("ativo", "open");
-            btnMobile.setAttribute("aria-expanded", "true");
-        }
+    //     function openSidebar() {
+    //         sidebar.classList.add("aberta", "open");
+    //         overlay.classList.add("ativo", "open");
+    //         btnMobile.setAttribute("aria-expanded", "true");
+    //     }
 
-        function closeSidebar() {
-            sidebar.classList.remove("aberta", "open");
-            overlay.classList.remove("ativo", "open");
-            btnMobile.setAttribute("aria-expanded", "false");
-        }
+    //     function closeSidebar() {
+    //         sidebar.classList.remove("aberta", "open");
+    //         overlay.classList.remove("ativo", "open");
+    //         btnMobile.setAttribute("aria-expanded", "false");
+    //     }
 
-        function toggleSidebar() {
-            const isOpen = sidebar.classList.contains("aberta") || sidebar.classList.contains("open");
-            if (isOpen) {
-                closeSidebar();
-            } else {
-                openSidebar();
-            }
-        }
+    //     function toggleSidebar() {
+    //         const isOpen = sidebar.classList.contains("aberta") || sidebar.classList.contains("open");
+    //         if (isOpen) {
+    //             closeSidebar();
+    //         } else {
+    //             openSidebar();
+    //         }
+    //     }
 
-        btnMobile.setAttribute("aria-controls", "sidebar");
-        btnMobile.setAttribute("aria-expanded", "false");
-        btnMobile.addEventListener("click", toggleSidebar);
-        overlay.addEventListener("click", closeSidebar);
+    //     btnMobile.setAttribute("aria-controls", "sidebar");
+    //     btnMobile.setAttribute("aria-expanded", "false");
+    //     btnMobile.addEventListener("click", toggleSidebar);
+    //     overlay.addEventListener("click", closeSidebar);
 
-        sidebar.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", closeSidebar);
-        });
+    //     sidebar.querySelectorAll("a").forEach(link => {
+    //         link.addEventListener("click", closeSidebar);
+    //     });
 
-        window.addEventListener("resize", () => {
-            if (window.innerWidth > 768) {
-                closeSidebar();
-            }
-        });
-    }
+    //     window.addEventListener("resize", () => {
+    //         if (window.innerWidth > 768) {
+    //             closeSidebar();
+    //         }
+    //     });
+    // }
 
-    // Aplicar Event Listeners Globais
-    if (userProfile && dropdownMenu) {
-        userProfile.addEventListener("click", toggleProfileDropdown);
-        document.addEventListener("click", closeProfileDropdown);
-    }
+    // // Aplicar Event Listeners Globais
+    // if (userProfile && dropdownMenu) {
+    //     userProfile.addEventListener("click", toggleProfileDropdown);
+    //     document.addEventListener("click", closeProfileDropdown);
+    // }
 
     helpButton?.addEventListener("click", openHelpModal);
     closeAjuda?.addEventListener("click", closeHelpModal);
@@ -266,36 +253,6 @@ export function initHomeMedico() {
         document.querySelector(".sidebar")?.classList.remove("aberta", "open");
         document.getElementById("sidebar-overlay")?.classList.remove("ativo", "open");
         document.getElementById("btn-menu-mobile")?.setAttribute("aria-expanded", "false");
-    });
-
-    // Lógica do Menu Hambúrguer Mobile
-    const btnHamburguer = document.getElementById('btn-menu-mobile');
-    const menuCentral = document.querySelector('.menu-central');
-    const btnLogout = document.getElementById('btn-logout');
-
-    if (btnHamburguer && menuCentral) {
-        btnHamburguer.addEventListener('click', (event) => {
-            event.stopPropagation();
-            menuCentral.classList.toggle('show');
-            if (dropdownMenu) dropdownMenu.classList.remove('ativo');
-        });
-    }
-
-    // Lógica do Botão de Sair (Logout)
-    if (btnLogout) {
-        btnLogout.addEventListener('click', (event) => {
-            sessionStorage.clear();
-            localStorage.clear();
-        });
-    }
-
-    // Fecha o menu ao clicar fora
-    window.addEventListener('click', (event) => {
-        if (menuCentral && btnHamburguer) {
-            if (!menuCentral.contains(event.target) && !event.target.closest('#btn-menu-mobile')) {
-                menuCentral.classList.remove('show');
-            }
-        }
     });
 
     // NOVA FUNÇÃO: Carrega as informações dinâmicas do médico logado
@@ -337,7 +294,7 @@ export function initHomeMedico() {
     // DISPARO SEGURO DE TODOS OS COMPONENTES INTERNOS
     carregarDadosDoMedico();
     initAgendaCalendar();
-    initMobileMenu();
+    
     initPerfilEditar();
 
 } 

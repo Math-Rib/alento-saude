@@ -4,6 +4,7 @@ const path = require('path');
 
 // Importar o Controller de Autenticação e os Middlewares de proteção
 const authController = require('../controllers/authController');
+const especialidadeController = require('../controllers/especialidadeController');
 const { checkAuth, isPaciente, isMedico, isAdmin } = require('../middlewares/authMiddleware');
 
 // Rotas Públicas
@@ -111,6 +112,13 @@ router.get('/admin/backup_banco', checkAuth, isAdmin, (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'views', 'private', 'admin', 'backup_banco.html')); 
 });
 
+/* Rotas das APIs */
+
+// POST
+/* Rota de cadastro de Especialidades */
+router.post('/cadastroEspecialidades', checkAuth, isAdmin, especialidadeController.handleCadastro);
+
+// GET
 router.get('/api/teste', (req, res) => {
     res.json({ ok: true, mensagem: 'backend funcionando' });
 });
@@ -118,5 +126,15 @@ router.get('/api/teste', (req, res) => {
 router.get('/api/medico/perfil-teste', (req, res) => {
     res.json({ ok: true, user: req.user });
 })
+
+/* Rota de Busca de Especialidades */
+router.get('/api/especialidades', checkAuth, especialidadeController.listarAPI);
+
+// PUT
+/* Rota de edição de Especialidades */
+router.post('/editarEspecialidade', checkAuth, isAdmin, especialidadeController.handleEditar);
+
+// DELETE
+router.post('/excluirEspecialidade', checkAuth, isAdmin, especialidadeController.handleExcluir);
 
 module.exports = router;

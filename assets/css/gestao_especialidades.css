@@ -389,8 +389,18 @@ h1 {
     align-items: flex-end;
 }
 
+.filtros-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
 .search-box {
     position: relative;
+    flex: 2;
+    min-width: 300px;
 }
 
 .search-box input {
@@ -408,6 +418,35 @@ h1 {
     top: 50%;
     transform: translateY(-50%);
     color: #cbd5e0;
+}
+
+/* Adicione ou modifique para incluir a classe .input-padrao */
+.search-box input,
+.input-padrao {
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+    color: #333;
+    transition: all 0.3s;
+    background-color: #ffffff;
+}
+
+.search-box input:focus,
+.input-padrao:focus {
+    border-color: #007bff;
+    /* Ou a cor do seu tema */
+}
+
+/* Garante que o label e o input fiquem organizados dentro do filter-item */
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 150px;
 }
 
 .filter-item {
@@ -453,12 +492,21 @@ h1 {
     overflow: hidden;
     border: 1px solid #e0e0e0;
     cursor: default;
+    width: 100%;
+    overflow-x: auto;
+    /* Permite scroll horizontal se as colunas apertarem */
+    overflow-y: visible;
+    /* Impede que as linhas de baixo sumam ou fiquem cortadas */
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 50px;
+    flex-shrink: 0;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
+    min-width: 850px;
 }
 
 th {
@@ -536,10 +584,12 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 20px 0;
     gap: 10px;
     color: #a0aec0;
     font-size: 14px;
+    margin-top: auto;
+    flex-shrink: 0;
 }
 
 .pagination .active {
@@ -547,6 +597,45 @@ td {
     font-weight: bold;
 }
 
+#paginacaoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+    padding: 10px;
+}
+
+.btn-paginacao {
+    background-color: #ffffff;
+    border: 1px solid #d1d9e0;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #4a5568;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-paginacao:hover:not(:disabled) {
+    background-color: #f7fafc;
+    border-color: #cbd5e0;
+}
+
+.btn-paginacao:disabled {
+    background-color: #edf2f7;
+    color: #a0aec0;
+    cursor: not-allowed;
+}
+
+.info-paginacao {
+    font-size: 14px;
+    font-weight: 600;
+    color: #718096;
+}
 
 /* Modal Saiba Mais */
 .modal-container {
@@ -715,6 +804,196 @@ td {
     padding-right: 10px;
 }
 
+/* Modal de Cadastro de Especialidades */
+/* Overlay que cobre a tela inteira */
+.esp-modal-overlay {
+    display: none;
+    /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99999;
+    /* Garante que fica acima de tudo */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+}
+
+/* Classe ativada pelo JS para exibir o modal */
+.esp-modal-overlay.esp-modal-active {
+    display: flex;
+}
+
+/* A caixa branca do formulário */
+.esp-modal-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    animation: espFadeIn 0.3s ease-in-out;
+}
+
+@keyframes espFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título */
+.esp-modal-title {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #3470d0;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Botão Fechar (X) */
+.esp-modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #888888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.esp-modal-close-btn:hover {
+    color: #333333;
+}
+
+/* Grupos do Formulário */
+.esp-form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.esp-form-group label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #444444;
+    font-size: 14px;
+}
+
+/* Inputs, Textarea e Select */
+.esp-form-input,
+.esp-form-select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #333333;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.esp-form-input:focus,
+.esp-form-select:focus {
+    border-color: #3470d0;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 112, 208, 0.15);
+}
+
+.esp-textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* Linha com dois campos (Tempo e Valor) */
+.esp-form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.esp-col-6 {
+    flex: 1;
+}
+
+/* Ações/Botões do Rodapé */
+.esp-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.esp-btn-primary,
+.esp-btn-secondary {
+    padding: 11px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.esp-btn-primary {
+    background-color: #3470d0;
+    color: #ffffff;
+}
+
+.esp-btn-primary:hover {
+    background-color: #285aab;
+}
+
+.esp-btn-secondary {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.esp-btn-secondary:hover {
+    background-color: #e5e7eb;
+}
+
+.esp-btn-primary:active,
+.esp-btn-secondary:active {
+    transform: scale(0.98);
+}
+
+.esp-btn-danger {
+    background-color: #e53e3e;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.esp-btn-danger:hover {
+    background-color: #c53030;
+}
+
+.esp-btn-secondary {
+    background-color: #4a5568;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
 /* Estilização do Footer */
 .alento-footer {
     background-color: #2f3e4e;
@@ -832,6 +1111,91 @@ body.dark-mode .sidebar .menu-items li.active a {
     color: #63b3ed;
 }
 
+/* Fundo do conteúdo principal */
+body.dark-mode main.content {
+    background-color: #242424;
+    color: #ffffff;
+}
+
+/* Título principal */
+body.dark-mode main.content h1 {
+    color: #ffffff;
+}
+
+/* Ajustes dos Filtros (Labels e Inputs) */
+body.dark-mode .filter-item label {
+    color: #e2e8f0;
+}
+
+body.dark-mode .input-padrao, 
+body.dark-mode .search-box input {
+    background-color: #1E293B;
+    border-color: #444;
+    color: #ecf0f1;
+}
+
+body.dark-mode .filter-item label {
+    color: #bdc3c7;
+}
+
+/* Foco visual no modo noturno */
+body.dark-mode .input-padrao:focus {
+    border-color: #3498db;
+}
+
+body.dark-mode .search-box input,
+body.dark-mode .select-box {
+    background-color: #1e293b;
+    border-color: #475569;
+    color: #ffffff;
+}
+
+/* Ajuste do ícone de lupa e da seta do select no dark mode */
+body.dark-mode .search-box i {
+    color: #94a3b8;
+}
+
+body.dark-mode .select-box {
+    /* Troca a cor da seta interna do select para se adequar ao fundo escuro */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* Card e Tabela */
+body.dark-mode .table-card {
+    background-color: #1e293b;
+    border-color: #475569;
+}
+
+body.dark-mode th {
+    color: #ffffff;
+    border-bottom: 1px solid #475569;
+}
+
+body.dark-mode td {
+    color: #cbd5e1;
+    border-bottom: 1px solid #334155;
+}
+
+/* Paginação */
+body.dark-mode .pagination {
+    color: #64748b;
+}
+
+body.dark-mode .pagination .active {
+    color: #ffffff;
+}
+
+body.dark-mode .btn-paginacao {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+}
+
+body.dark-mode .btn-paginacao:disabled {
+    background-color: #1a202c;
+    color: #4a5568;
+}
+
 /* Fundo Área do Modal Saiba Mais */
 body.dark-mode .modal-box {
     background-color: #1e293b;
@@ -899,6 +1263,99 @@ body.dark-mode .modal-btn-action:hover {
     background-color: #132f44;
 }
 
+body.dark-mode .modal-input-field {
+    background-color: #334155;
+    border-color: #475569;
+    color: #ffffff;
+}
+
+body.dark-mode .modal-form-group label {
+    color: #ffffff;
+}
+
+/* Modal de Cadastro de Especialidade */
+body.dark-mode .esp-modal-overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+}
+
+/* A caixa interna do formulário */
+body.dark-mode .esp-modal-box {
+    background-color: #1e293b;
+    /* Tom cinza-escuro/grafite */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #334155;
+}
+
+/* Título principal do Modal */
+body.dark-mode .esp-modal-title {
+    color: #38bdf8;
+    /* Azul claro com excelente contraste no escuro */
+}
+
+/* Botão de Fechar (X) */
+body.dark-mode .esp-modal-close-btn {
+    color: #94a3b8;
+}
+
+body.dark-mode .esp-modal-close-btn:hover {
+    color: #ffffff;
+}
+
+/* Labels do formulário */
+body.dark-mode .esp-form-group label {
+    color: #cbd5e1;
+}
+
+/* Inputs, Textarea e Select no modo noturno */
+body.dark-mode .esp-form-input,
+body.dark-mode .esp-form-select {
+    background-color: #0f172a;
+    /* Fundo mais escuro para os campos */
+    border-color: #475569;
+    color: #ffffff;
+}
+
+/* Placeholder (texto de dica interno) */
+body.dark-mode .esp-form-input::placeholder,
+body.dark-mode .esp-textarea::placeholder {
+    color: #475569;
+}
+
+/* Foco nos inputs ao clicar */
+body.dark-mode .esp-form-input:focus,
+body.dark-mode .esp-form-select:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+/* Ajuste das opções internas do elemento Select */
+body.dark-mode .esp-form-select option {
+    background-color: #0f172a;
+    color: #ffffff;
+}
+
+/* Botão Cancelar (Secundário) */
+body.dark-mode .esp-btn-secondary {
+    background-color: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-mode .esp-btn-secondary:hover {
+    background-color: #475569;
+}
+
+/* Botão Cadastrar (Primário) */
+body.dark-mode .esp-btn-primary {
+    background-color: #38bdf8;
+    color: #0f172a;
+    /* Texto escuro sobre botão claro para melhor legibilidade */
+}
+
+body.dark-mode .esp-btn-primary:hover {
+    background-color: #0ea5e9;
+}
+
 /* Footer */
 body.dark-mode .alento-footer {
     background-color: #0b0f19;
@@ -906,6 +1363,108 @@ body.dark-mode .alento-footer {
 }
 
 /* Responsividade */
+
+/* Para Telas menores que 1368px */
+@media (max-width: 1368px) {
+    .content {
+        padding: 20px;
+    }
+
+    /* Força o topo da página a se comportar como uma coluna única */
+    .top-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    /* O container que engloba o h1 e o grupo de filtros ocupa 100% */
+    .top-controls>div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Empilha verticalmente a pesquisa e os filtros (Mínimo, Máximo, Status) */
+    .filters-group {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 12px;
+    }
+
+    /* Faz com que absolutamente todos os elementos de input passem a ter largura total */
+    .search-box,
+    .search-box input,
+    .filter-item,
+    .select-box {
+        width: 100% !important;
+    }
+
+    /* Botão cadastrar empilha perfeitamente abaixo de todos os filtros anteriores */
+    .btn-register {
+        width: 100%;
+        text-align: center;
+        height: 42px;
+        margin-top: 5px;
+        /* Separação sutil em relação ao último filtro (Status) */
+    }
+}
+
+/* Para Telas menores que 1617px */
+@media (max-width: 1617px) {
+
+    /* Altera o comportamento do container principal para gerenciar o espaço vertical */
+    .content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        /* Ativa a rolagem vertical de toda a tag main se o conteúdo estourar */
+        height: calc(100vh - 100px);
+        /* Desconta a altura do cabeçalho para caber na tela */
+    }
+
+    /* Força o topo da página a se comportar como uma coluna única */
+    .top-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    /* O container que engloba o h1 e o grupo de filtros ocupa 100% */
+    .top-controls>div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Empilha verticalmente a pesquisa e todos os filtros */
+    .filters-group {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 12px;
+    }
+
+    /* Força todos os elementos de input e selects a terem largura total */
+    .search-box,
+    .search-box input,
+    .filter-item,
+    .select-box {
+        width: 100% !important;
+    }
+
+    /* Botão cadastrar empilha perfeitamente abaixo de todos os filtros anteriores */
+    .btn-register {
+        width: 100%;
+        text-align: center;
+        height: 42px;
+        margin-top: 5px;
+    }
+}
+
 /* Para Telas menores que 1050px */
 @media (max-width: 1050px) {
     .sidebar {
@@ -921,29 +1480,29 @@ body.dark-mode .alento-footer {
     }
 
     .menu-central {
-    display: none;
-    position: fixed;
-    top: 100px;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    background: #fff;
-    padding: 15px 0;
-    z-index: 999999;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
-    gap: 10px;
-  }
+        display: none;
+        position: fixed;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: #fff;
+        padding: 15px 0;
+        z-index: 999999;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+        gap: 10px;
+    }
 
-  .menu-central.show {
-    display: flex !important;
-  }
+    .menu-central.show {
+        display: flex !important;
+    }
 
-  .menu-central a {
-    display: block;
-    padding: 12px 20px;
-    text-decoration: none;
-    color: #CDCAC4;
-  }
+    .menu-central a {
+        display: block;
+        padding: 12px 20px;
+        text-decoration: none;
+        color: #CDCAC4;
+    }
 
 }
 
@@ -952,7 +1511,6 @@ body.dark-mode .alento-footer {
     #btn-menu-mobile {
         display: none;
     }
-
 }
 
 @media (max-width: 991px) {

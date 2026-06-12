@@ -163,52 +163,6 @@ export function initHomePaciente() {
 
   // ── Menu mobile consolidado ───────────────────────────────────
 
-  function initMobileMenu() {
-    const btnMobile = document.getElementById("btn-menu-mobile");
-    const sidebar = document.querySelector(".sidebar");
-    const menuCentral = document.querySelector('.menu-central');
-    if (!btnMobile) return;
-
-    let overlay = document.querySelector(".sidebar-overlay");
-    if (!overlay && sidebar) {
-      overlay = document.createElement("div");
-      overlay.className = "sidebar-overlay";
-      document.body.appendChild(overlay);
-    }
-
-    btnMobile.addEventListener("click", (event) => {
-      event.stopPropagation();
-      dropdownMenu?.classList.remove("ativo");
-      
-      if (sidebar && overlay) {
-        sidebar.classList.toggle("aberta");
-        overlay.classList.toggle("ativo");
-      }
-      if (menuCentral) {
-        menuCentral.classList.toggle('show');
-      }
-    });
-
-    overlay?.addEventListener("click", () => {
-      sidebar?.classList.remove("aberta");
-      overlay?.classList.remove("ativo");
-    });
-
-    // Fecha se clicar fora do menu central
-    window.addEventListener('click', (event) => {
-      if (menuCentral && !menuCentral.contains(event.target) && !event.target.closest('#btn-menu-mobile')) {
-        menuCentral.classList.remove('show');
-      }
-    });
-  }
-
-  // ── APLICAÇÃO DOS LISTENERS GLOBAIS (O QUE ESTAVA FALTANDO!) ──
-
-  if (userProfile && dropdownMenu) {
-    userProfile.addEventListener("click", toggleProfileDropdown);
-    document.addEventListener("click", closeProfileDropdown);
-  }
-
   helpButton?.addEventListener("click", openHelpModal);
   closeAjuda?.addEventListener("click", closeHelpModal);
   modalAjuda?.addEventListener("click", event => {
@@ -285,6 +239,5 @@ export function initHomePaciente() {
 
   carregarDadosDoPaciente();
   initMiniCal();
-  initMobileMenu();
   initPerfilEditar();
 }

@@ -1,37 +1,4 @@
 export function initHistoricoPaciente() {
-    const userProfile = document.querySelector('.user-profile');
-    const dropdownMenu = document.getElementById("dropdownMenu");
-
-    const btnHamburguer = document.getElementById('btn-menu-mobile');
-    const menuCentral = document.querySelector('.menu-central');
-
-    if (userProfile && dropdownMenu) {
-        userProfile.addEventListener('click', (event) => {
-            event.stopPropagation();
-            dropdownMenu.classList.toggle("ativo");
-            if (menuCentral) menuCentral.classList.remove('show');
-        });
-    }
-
-    if (btnHamburguer && menuCentral) {
-        btnHamburguer.addEventListener('click', (event) => {
-            event.stopPropagation();
-            menuCentral.classList.toggle('show');
-            if (dropdownMenu) dropdownMenu.classList.remove('ativo');
-        });
-    }
-
-    window.addEventListener('click', (event) => {
-        // Fecha o Menu Perfil Dropdown
-        if (dropdownMenu && !event.target.closest('.user-dropdown')) {
-            dropdownMenu.classList.remove("ativo");
-        }
-
-        // Fecha o Menu Hamburguer
-        if (menuCentral && !event.target.closest('.menu-central') && !event.target.closest('.btn-hamburguer-custom')) {
-            menuCentral.classList.remove('show');
-        }
-    });
 
     /* Interação da Paginação */
     const configurarPaginacao = (idPrev, idNext, seletorNums) => {

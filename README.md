@@ -9,7 +9,7 @@ O **Alento Saúde** é uma plataforma web desenvolvida para a gestão e agendame
 O projeto adota o padrão de arquitetura **MVC (Model-View-Controller)** para garantir a separação de responsabilidades, facilidade de manutenção e escalabilidade:
 
 - **Model (Modelos):** Localizado em `src/models/`, contém a lógica de dados e a comunicação direta com as tabelas do Supabase.
-- **View (Visões):** Localizado em `src/views/`, subdividido em áreas públicas (`public` para login, cadastro e index) e áreas privadas (`private` para as dashboards de pacientes, médicos e administradores).
+- **View (Páginas):** Localizado em `src/views/`, subdividido em áreas públicas (`public` para login, cadastro e index) e áreas privadas (`private` para as dashboards de pacientes, médicos e administradores).
 - **Controller (Controladores):** Localizado em `src/controllers/`, faz a ponte entre os modelos e as visões, processando as regras de negócio.
 - **Config:** A pasta `config/` centraliza a inicialização e segurança do cliente Supabase.
 
