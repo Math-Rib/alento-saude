@@ -906,51 +906,85 @@ body.dark-mode .modal-btn-action:hover {
     background-color: #132f44;
 }
 
-/* --- Calendário Dark Mode --- */
-
-body.dark-mode .calendar-card {
-    background: #1e293b;
-    border: 1px solid #4a5568;
+/* Container e Tabela base */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  background-color: #24303f;
+  border-radius: 8px;
+  border: 1px solid #3d4d60;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-body.dark-mode .calendar-days {
-    background: #1e293b;
+.alento-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #e2e8f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
 }
 
-body.dark-mode .day-name {
-    color: #cbd5e1;
+.alento-table th,
+.alento-table td {
+  padding: 16px;
+  border-bottom: 1px solid #3d4d60;
 }
 
-body.dark-mode .day-num {
-    color: #f1f5f9;
+.alento-table th {
+  background-color: #1a222c;
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
-body.dark-mode .day-num:hover {
-    background: #334155;
+.alento-table td {
+  font-size: 0.95rem;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
-body.dark-mode .day-num.active {
-    background: #3b82f6;
-    color: white;
+.alento-table tbody tr {
+  transition: background-color 0.2s ease;
 }
 
-body.dark-mode .day-num.muted {
-    color: #64748b;
+.alento-table tbody tr:hover {
+  background-color: #2c3a4d;
 }
 
-/* Footer */
-body.dark-mode .alento-footer {
-    background-color: #0b0f19;
-    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.6);
+.alento-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
-/* Transições Gerais */
-.main-header,
-.nav-link,
-.btn-agendar,
-.servico-card,
-.alento-footer {
-    transition: all 0.3s ease;
+/* Estilos para as Etiquetas de Status */
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Cores dos Status (Você pode adicionar mais conforme a necessidade do sistema) */
+.status.agendado {
+  background-color: rgba(2, 132, 199, 0.2); /* Fundo azul translúcido */
+  color: #38bdf8; /* Texto azul claro */
+  border: 1px solid #0284c7;
+}
+
+.status.concluido {
+  background-color: rgba(22, 163, 74, 0.2); /* Fundo verde translúcido */
+  color: #4ade80; /* Texto verde claro */
+  border: 1px solid #16a34a;
+}
+
+.status.cancelado {
+  background-color: rgba(220, 38, 38, 0.2); /* Fundo vermelho translúcido */
+  color: #f87171; /* Texto vermelho claro */
+  border: 1px solid #dc2626;
 }
 
 /* Para Telas maiores que 1050px */

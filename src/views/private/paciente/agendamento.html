@@ -113,143 +113,33 @@
                 </div>
             </div>
 
-            <section class="step-container">
-                <h3 class="step-title">Passo 1: Selecione a Especialidade e Profissional</h3>
-                <div class="form-grid">
-                    <div class="field-group">
-                        <label>Especialidade</label>
-                        <select>
-                            <option>Clínica Geral</option>
-                            <option>Cardiologia</option>
-                        </select>
-                    </div>
-                    <div class="field-group">
-                        <label>Profissional</label>
-                        <select>
-                            <option>Dra. Ana Silva</option>
-                            <option>Dr. Roberto Souza</option>
-                        </select>
-                    </div>
-                    <div class="field-group">
-                        <label>Tipo de Consulta</label>
-                        <select>
-                            <option>Presencial</option>
-                            <option>Telemedicina</option>
-                        </select>
-                    </div>
-                    <div class="field-group">
-                        <label>Motivo</label>
-                        <select>
-                            <option>Check-up Anual</option>
-                            <option>Dor Crônica</option>
-                        </select>
-                    </div>
-                </div>
-            </section>
-
-            <section class="step-container">
-                <h3 class="step-title">Passo 2: Escolha Data e Horário</h3>
-                <div class="scheduling-grid">
-                    <div class="calendar-card">
-                        <div class="calendar-header">
-                            <i class="fas fa-chevron-left" style="cursor:pointer"></i>
-                            <span>Junho 2024</span>
-                            <i class="fas fa-chevron-right" style="cursor:pointer"></i>
-                        </div>
-                        <div class="calendar-days">
-                            <div class="day-name">Sun</div>
-                            <div class="day-name">Seg</div>
-                            <div class="day-name">Mor</div>
-                            <div class="day-name">Qui</div>
-                            <div class="day-name">Viv</div>
-                            <div class="day-name">Sat</div>
-                            <div class="day-name">Sun</div>
-
-                            <div class="day-num muted">28</div>
-                            <div class="day-num muted">29</div>
-                            <div class="day-num muted">30</div>
-                            <div class="day-num">1</div>
-                            <div class="day-num">2</div>
-                            <div class="day-num">3</div>
-                            <div class="day-num">4</div>
-
-                            <div class="day-num">5</div>
-                            <div class="day-num">6</div>
-                            <div class="day-num">7</div>
-                            <div class="day-num">8</div>
-                            <div class="day-num">9</div>
-                            <div class="day-num">10</div>
-                            <div class="day-num">13</div>
-
-                            <div class="day-num">12</div>
-                            <div class="day-num">13</div>
-                            <div class="day-num">14</div>
-                            <div class="day-num">15</div>
-                            <div class="day-num">16</div>
-                            <div class="day-num">17</div>
-                            <div class="day-num">20</div>
-
-                            <div class="day-num">21</div>
-                            <div class="day-num">20</div>
-                            <div class="day-num active">24</div>
-                            <div class="day-num">22</div>
-                            <div class="day-num">23</div>
-                            <div class="day-num">24</div>
-                            <div class="day-num">27</div>
-                        </div>
-                    </div>
-
-                    <div class="time-panel">
-                        <p class="doctor-name">Dra. Ana Silva</p>
-                        <div class="slots-container">
-                            <div class="slot reserved">09:00<br>Reservado</div>
-                            <div class="slot reserved">09:30<br>Reservado</div>
-                            <div class="slot available">10:00<br>Disponível</div>
-                            <div class="slot selected">10:30<br>Disponível</div>
-                            <div class="slot reserved">11:00<br>Reservado</div>
-                            <div class="slot available">11:30<br>Disponível</div>
-                            <div class="slot available">14:00<br>Disponível</div>
-                            <div class="slot reserved">14:30<br>Reservado</div>
-                        </div>
-                        <div class="appointment-summary">
-                            <strong>Resumo do Agendamento</strong><br>
-                            Especialidade: Clínica Geral | Profissional: Dra. Ana Silva<br>
-                            Data: 24/06/2024 (Segunda) | Horário: 10:30<br>
-                            Local: Clínica Vida Saudável (Rua Flores, 123)
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="step-container">
-                <h3 class="step-title">Passo 3: Seus Dados (Obrigatório)</h3>
-                <div class="form-grid">
-                    <div class="field-group">
-                        <label>Nome</label>
-                        <input type="text" value="Cláudio Almeida">
-                    </div>
-                    <div class="field-group">
-                        <label>CPF</label>
-                        <input type="text" placeholder="000.000.000-00">
-                    </div>
-                    <div class="field-group">
-                        <label>E-mail</label>
-                        <input type="email" placeholder="claudio@email.com">
-                    </div>
-                    <div class="field-group">
-                        <label>Celular</label>
-                        <input type="tel" placeholder="(21) 99999-9999">
-                    </div>
-                    <div class="field-group">
-                        <label>Convênio</label>
-                        <select>
-                            <option>Unimed</option>
-                            <option>Bradesco Saúde</option>
-                            <option>Particular</option>
-                        </select>
-                    </div>
-                </div>
-            </section>
+            <div class="table-container">
+                <table class="alento-table">
+                    <thead>
+                        <tr>
+                            <th>ID Consulta</th>
+                            <th>Nome do Paciente</th>
+                            <th>Nome do Médico</th>
+                            <th>Especialidade</th>
+                            <th>Data da Consulta</th>
+                            <th>Hora da Consulta</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#1024</td>
+                            <td>Cláudio Almeida</td>
+                            <td>Dra. Ana Silva</td>
+                            <td>Clínica Geral</td>
+                            <td>24/06/2024</td>
+                            <td>10:30</td>
+                            <td><span class="status agendado">Agendado</span></td>
+                        </tr>
+                        <!-- Adicione as próximas consultas dinamicamente aqui -->
+                    </tbody>
+                </table>
+            </div>
         </main>
     </div>
 
