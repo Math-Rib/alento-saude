@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap e CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -15,8 +14,8 @@
 
 <body>
 
+    <!-- ===== HEADER ===== -->
     <header class="alento-header navbar navbar-expand-lg">
-        <!-- Barra Superior -->
         <div class="top-bar">
             <div class="top-bar-right">
                 <div class="top-bar-item nav-item">
@@ -24,61 +23,38 @@
                     <div id="toggle-dark-mode" class="toggle-dark-mode"></div>
                 </div>
                 <div class="top-bar-item nav-item">
-                    <button class="nav-link btn-ajuda"> <img class="img-item-default" src="/img/icone_ajuda.png"
-                            alt="Ícone de Ajuda">
-                        <img class="img-item-hover" src="/img/icone_ajuda_hover.png" alt="Ícone de Ajuda">
-                        <img class="img-item-dark-hover" src="/img/icone_ajuda_dark_hover.png" alt="Ícone de Ajuda">
+                    <button class="nav-link btn-ajuda">
+                        <img class="img-item-default"    src="/img/icone_ajuda.png"           alt="Ajuda">
+                        <img class="img-item-hover"      src="/img/icone_ajuda_hover.png"      alt="Ajuda">
+                        <img class="img-item-dark-hover" src="/img/icone_ajuda_dark_hover.png" alt="Ajuda">
                         Ajuda
                     </button>
                 </div>
             </div>
         </div>
-        <!-- Header Principal -->
-        <div class="container-fluid main-header">
 
-            <!-- Ícone Menu Hamburguer -->
+        <div class="container-fluid main-header">
             <button class="btn-hamburguer-custom order-0" id="btn-menu-mobile">
                 <i class="fa fa-bars"></i>
             </button>
-
-            <!-- Logo -->
             <a class="alento-logo d-flex align-items-center order-1" href="/admin/home">
-                <img src="/img/logo_padrao.png" alt="Ícone Padrão da Logo">
-                <h2> Alento Saúde </h2>
+                <img src="/img/logo_padrao.png" alt="Logo Alento Saúde">
+                <h2>Alento Saúde</h2>
             </a>
-
             <nav class="menu-central order-lg-2">
-                <a href="/admin/home">
-                    <img src="/img/icone_inicio.png">
-                    Início
-                </a>
-                <a href="/admin/gestao_usuarios">
-                    <img src="/img/icone_gestao_de_usuarios.png">
-                    Gestão de Usuários
-                </a>
-                <a href="/admin/gestao_especialidades">
-                    <img src="/img/icone_gestao_de_especialidades.png">
-                    Gestão de Especialidades
-                </a>
-                <a href="/admin/logs_sistema">
-                    <img src="/img/icone_logs_sistema.png">
-                    Logs de Sistema
-                </a>
-                <a href="/admin/backup_banco">
-                    <img src="/img/icone_backup_banco.png">
-                    Backup do Banco
-                </a>
+                <a href="/admin/home"><img src="/img/icone_inicio.png"> Início</a>
+                <a href="/admin/gestao_usuarios"><img src="/img/icone_gestao_de_usuarios.png"> Gestão de Usuários</a>
+                <a href="/admin/gestao_especialidades"><img src="/img/icone_gestao_de_especialidades.png"> Gestão de Especialidades</a>
+                <a href="/admin/logs_sistema"><img src="/img/icone_logs_sistema.png"> Logs de Sistema</a>
+                <a href="/admin/backup_banco"><img src="/img/icone_backup_banco.png"> Backup do Banco</a>
             </nav>
-
             <div class="user-dropdown d-flex align-items-center order-3">
                 <div class="user-profile">
                     <img src="/img/icone_perfil.png" alt="Perfil" class="img-perfil-nav">
                     <i class="fa fa-chevron-down arrow-icon"></i>
                 </div>
                 <div id="dropdownMenu" class="dropdown-content">
-                    <div class="dropdown-header">
-                        <h6>Olá, João Roberto da Silva!</h6>
-                    </div>
+                    <div class="dropdown-header"><h6>Olá, Administrador!</h6></div>
                     <a href=""><i class="fa fa-user"></i> Meu Perfil</a>
                     <hr>
                     <a href="/logout" id="btn-logout" class="logout-item">
@@ -88,15 +64,16 @@
             </div>
         </div>
     </header>
+
     <div class="main-wrapper">
 
-        <!-- Menu Lateral -->
+        <!-- ===== SIDEBAR ===== -->
         <nav class="sidebar">
             <ul class="menu-items">
                 <li>
                     <a href="/admin/home">
                         <img class="img-menu-default" src="/img/icone_inicio.png">
-                        <img class="img-menu-hover" src="/img/icone_inicio_ativo.png">
+                        <img class="img-menu-hover"   src="/img/icone_inicio_ativo.png">
                         Início
                     </a>
                 </li>
@@ -109,58 +86,65 @@
                 <li>
                     <a href="/admin/gestao_especialidades">
                         <img class="img-menu-default" src="/img/icone_gestao_de_especialidades.png">
-                        <img class="img-menu-hover" src="/img/icone_gestao_de_especialidades_ativo.png">
+                        <img class="img-menu-hover"   src="/img/icone_gestao_de_especialidades_ativo.png">
                         Gestão de Especialidades
                     </a>
                 </li>
                 <li>
                     <a href="/admin/logs_sistema">
                         <img class="img-menu-default" src="/img/icone_logs_sistema.png">
-                        <img class="img-menu-hover" src="/img/icone_logs_sistema_ativo.png">
+                        <img class="img-menu-hover"   src="/img/icone_logs_sistema_ativo.png">
                         Logs de Sistema
                     </a>
                 </li>
                 <li>
                     <a href="/admin/backup_banco">
                         <img class="img-menu-default" src="/img/icone_backup_banco.png">
-                        <img class="img-menu-hover" src="/img/icone_backup_banco_ativo.png">
+                        <img class="img-menu-hover"   src="/img/icone_backup_banco_ativo.png">
                         Backup do Banco
                     </a>
                 </li>
             </ul>
         </nav>
 
+        <!-- ===== CONTEÚDO ===== -->
         <main class="content">
-
             <div class="top-controls">
                 <div>
                     <h1>Gestão de Usuários</h1>
                     <div class="filters-group">
                         <div class="search-box">
-                            <input type="text" placeholder="Pesquise por Nome, Email, CPF...">
+                            <input type="text" id="inputBusca" placeholder="Pesquise por Nome, Email, CPF...">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <div class="filter-item">
                             <label>Data de Cadastro:</label>
-                            <select class="select-box">
-                                <option>Selecione</option>
+                            <select class="select-box" id="filtroData">
+                                <option value="">Todos</option>
+                                <option value="hoje">Hoje</option>
+                                <option value="7dias">Últimos 7 dias</option>
+                                <option value="30dias">Últimos 30 dias</option>
+                                <option value="mes">Este mês</option>
+                                <option value="ano">Este ano</option>
                             </select>
                         </div>
                         <div class="filter-item">
                             <label>Perfil:</label>
-                            <select class="select-box">
-                                <option>Selecione</option>
+                            <select class="select-box" id="filtroPerfil">
+                                <option value="">Todos</option>
                             </select>
                         </div>
                         <div class="filter-item">
                             <label>Status:</label>
-                            <select class="select-box">
-                                <option>Selecione</option>
+                            <select class="select-box" id="filtroStatus">
+                                <option value="">Todos</option>
+                                <option value="Ativo">Ativo</option>
+                                <option value="Inativo">Inativo</option>
                             </select>
                         </div>
                     </div>
                 </div>
-                <button class="btn-register">Cadastrar Usuário</button>
+                <button class="btn-register" id="btnAbrirCadastro">Cadastrar Usuário</button>
             </div>
 
             <div class="table-card">
@@ -177,222 +161,223 @@
                             <th>Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Administrador</td>
-                            <td>
-                                <div class="status">
-                                    <div class="dot dot-green"></div>Ativo
-                                </div>
-                            </td>
-                            <td>
-                                <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
-                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Médico</td>
-                            <td>
-                                <div class="status">
-                                    <div class="dot dot-green"></div>Ativo
-                                </div>
-                            </td>
-                            <td>
-                                <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
-                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Médico</td>
-                            <td>
-                                <div class="status">
-                                    <div class="dot dot-green"></div>Ativo
-                                </div>
-                            </td>
-                            <td>
-                                <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
-                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Paciente</td>
-                            <td>
-                                <div class="status">
-                                    <div class="dot dot-red"></div>Inativo
-                                </div>
-                            </td>
-                            <td>
-                                <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
-                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Paciente</td>
-                            <td>
-                                <div class="status">
-                                    <div class="dot dot-green"></div>Ativo
-                                </div>
-                            </td>
-                            <td>
-                                <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
-                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Paciente</td>
-                            <td>
-                                <div class="status">
-                                    <div class="dot dot-green"></div>Ativo
-                                </div>
-                            </td>
-                            <td>
-                                <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
-                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Médico</td>
-                            <td>
-                                <div class="status">
-                                    <div class="dot dot-red"></div>Inativo
-                                </div>
-                            </td>
-                            <td>
-                                <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
-                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>João Silva</td>
-                            <td>email1@email.com</td>
-                            <td>111.111.111-11</td>
-                            <td>(21) 12345-6789</td>
-                            <td>31/03/2026</td>
-                            <td>Paciente</td>
-                            <td>
-                                <div class="status">
-                                    <div class="dot dot-red"></div>Inativo
-                                </div>
-                            </td>
-                            <td>
-                                <div class="actions">
-                                    <button class="btn-action btn-list"><i class="fa-solid fa-list-ul"></i></button>
-                                    <button class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="btn-action btn-delete"><i class="fa-solid fa-trash-can"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                    <tbody id="tabelaUsuarios">
+                        <tr><td colspan="8" class="text-center">Carregando usuários...</td></tr>
                     </tbody>
                 </table>
-
-                <div class="pagination">
-                    <span>&lt;</span>
-                    <span>1</span>
-                    <span class="active">2</span>
-                    <span>3</span>
-                    <span>&gt;</span>
-                </div>
+                <div class="pagination" id="paginacaoUsuarios"></div>
             </div>
         </main>
     </div>
 
-    <!-- Modal Ajuda -->
+    <!-- ================================================================
+         MODAL — AJUDA
+    ================================================================ -->
     <div id="modalAjuda" class="modal-container">
         <div class="modal-box">
             <span class="modal-close" id="closeAjuda">&times;</span>
-
-            <h2 class="modal-title">Como podemos te ajudar?</h2>
-
+            <h2 class="modal-title" style="color:#5D99C6;">Como podemos te ajudar?</h2>
             <div class="modal-info-list text-format">
                 <h3>FAQ</h3>
-
                 <p><strong>Vocês aceitam convênios?</strong><br>
-                    Trabalhamos apenas com consultas particulares, mas fornecemos nota fiscal completa para você
-                    solicitar o reembolso junto ao seu plano de saúde.</p>
-
+                    Trabalhamos apenas com consultas particulares, mas fornecemos nota fiscal completa.</p>
                 <p><strong>Como faço para cancelar uma consulta?</strong><br>
-                    Os cancelamentos devem ser feitos diretamente via WhatsApp com pelo menos 24h de antecedência.</p>
-
+                    Via WhatsApp com pelo menos 24h de antecedência.</p>
                 <p><strong>Quais documentos preciso levar?</strong><br>
-                    Apenas um documento oficial com foto. Se possuir exames recentes de outras clínicas, recomendamos
-                    trazê-los.</p>
-
+                    Apenas um documento oficial com foto.</p>
                 <hr class="modal-divider">
-
                 <h3>Canais de Contato</h3>
-                <h6>Para casos de urgência ou dúvidas rápidas: </h6>
-                <p><strong>WhatsApp: </strong> (21) 99999-9999 <br> Seg a Sex - 08h às 18h | Sab - 08h às 14h.</p>
-
+                <h6>Para casos de urgência ou dúvidas rápidas:</h6>
+                <p><strong>WhatsApp:</strong> (21) 99999-9999 <br> Seg a Sex - 08h às 18h | Sab - 08h às 14h.</p>
                 <p><strong>Localização:</strong> Av. Rio Branco, 123 - Centro - Rio de Janeiro.</p>
-
-                <a class="modal-btn-action btn-whatsapp" href="https://wa.me" target="_blank">Falar com Atendente
-                    agora</a>
+                <a class="modal-btn-action btn-whatsapp" href="https://wa.me" target="_blank">Falar com Atendente agora</a>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- ================================================================
+         MODAL — CADASTRAR USUÁRIO
+    ================================================================ -->
+    <div id="modalCadastroUsuario" class="modal-container">
+        <div class="modal-box modal-box-form">
+            <span class="modal-close" data-close-modal="modalCadastroUsuario">&times;</span>
+            <h2 class="modal-title">Cadastrar Usuário</h2>
+            <div class="modal-alert" id="alertCadastro"></div>
+
+            <form id="formCadastroUsuario" class="modal-form">
+
+                <div class="form-group">
+                    <label for="cadNome">Nome Completo</label>
+                    <input type="text" id="cadNome" name="nome_completo" placeholder="Nome completo do usuário" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cadEmail">Email</label>
+                        <input type="email" id="cadEmail" name="email" placeholder="email@exemplo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cadCpf">CPF</label>
+                        <input type="text" id="cadCpf" name="cpf" maxlength="14" placeholder="000.000.000-00" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cadTelefone">Telefone</label>
+                        <input type="text" id="cadTelefone" name="telefone" maxlength="15" placeholder="(00) 00000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cadDataNascimento">Data de Nascimento</label>
+                        <input type="date" id="cadDataNascimento" name="data_nascimento" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cadDataCadastro">Data de Cadastro</label>
+                        <input type="text" id="cadDataCadastro" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="cadStatus">Status</label>
+                        <select id="cadStatus" name="status_conta">
+                            <option value="Ativo">Ativo</option>
+                            <option value="Inativo">Inativo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cadPerfil">Perfil</label>
+                        <select id="cadPerfil" name="id_funcao" required>
+                            <option value="">Selecione</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cadSenha">Senha</label>
+                        <div class="input-com-botao">
+                            <input type="text" id="cadSenha" name="senha" placeholder="Mínimo 6 caracteres" required>
+                            <button type="button" class="btn-gerar-senha" id="btnGerarSenha">Gerar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancelar" data-close-modal="modalCadastroUsuario">Cancelar</button>
+                    <button type="submit" class="btn-confirmar">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================================================================
+         MODAL — EDITAR USUÁRIO
+    ================================================================ -->
+    <div id="modalEditarUsuario" class="modal-container">
+        <div class="modal-box modal-box-form">
+            <span class="modal-close" data-close-modal="modalEditarUsuario">&times;</span>
+            <h2 class="modal-title">Editar Usuário</h2>
+            <div class="modal-alert" id="alertEditar"></div>
+
+            <form id="formEditarUsuario" class="modal-form">
+                <input type="hidden" id="editId" name="id_usuario">
+
+                <div class="form-group">
+                    <label for="editNome">Nome Completo</label>
+                    <input type="text" id="editNome" name="nome_completo" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editEmail">Email</label>
+                        <input type="email" id="editEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editCpf">CPF</label>
+                        <input type="text" id="editCpf" name="cpf" maxlength="14" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editTelefone">Telefone</label>
+                        <input type="text" id="editTelefone" name="telefone" maxlength="15" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editDataNascimento">Data de Nascimento</label>
+                        <input type="date" id="editDataNascimento" name="data_nascimento" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editDataCadastro">Data de Cadastro</label>
+                        <input type="text" id="editDataCadastro" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="editStatus">Status</label>
+                        <select id="editStatus" name="status_conta">
+                            <option value="Ativo">Ativo</option>
+                            <option value="Inativo">Inativo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="editPerfil">Perfil</label>
+                    <select id="editPerfil" name="id_funcao" required>
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancelar" data-close-modal="modalEditarUsuario">Cancelar</button>
+                    <button type="submit" class="btn-confirmar">Salvar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================================================================
+         MODAL — CONFIRMAR EXCLUSÃO
+    ================================================================ -->
+    <div id="modalExcluirUsuario" class="modal-container">
+        <div class="modal-box modal-box-small">
+            <span class="modal-close" data-close-modal="modalExcluirUsuario">&times;</span>
+            <h2 class="modal-title">Excluir Usuário</h2>
+            <p class="modal-confirm-text">
+                Tem certeza que deseja excluir o usuário
+                <strong id="nomeUsuarioExcluir"></strong>?<br>
+                Esta ação não pode ser desfeita.
+            </p>
+            <div class="modal-alert" id="alertExcluir"></div>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancelar" data-close-modal="modalExcluirUsuario">Cancelar</button>
+                <button type="button" class="btn-excluir" id="btnConfirmarExclusao">Excluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================
+         MODAL — DETALHES DO USUÁRIO
+    ================================================================ -->
+    <div id="modalDetalhesUsuario" class="modal-container">
+        <div class="modal-box modal-box-small">
+            <span class="modal-close" data-close-modal="modalDetalhesUsuario">&times;</span>
+            <h2 class="modal-title">Detalhes do Usuário</h2>
+            <div class="modal-detalhes" id="detalhesConteudo"></div>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancelar" data-close-modal="modalDetalhesUsuario">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
     <footer class="alento-footer">
         <p>© 2026 Alento Saúde - Todos os direitos reservados.</p>
     </footer>
-    
+
     <script type="module" src="/js/main.js"></script>
 </body>
-
 </html>

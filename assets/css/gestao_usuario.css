@@ -1,3 +1,11 @@
+:root {
+    --admin-accent:       #3470d0;
+    --admin-accent-hover: #2558c2;
+    --admin-danger:       #e53e3e;
+    --admin-danger-hover: #b91c1c;
+}
+
+/* ===== RESET BÁSICO ===== */
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +22,7 @@ body {
     overflow: hidden;
 }
 
-/* Estilização do Header */
+/* ===== HEADER ===== */
 .alento-header {
     background-color: white;
     display: flex;
@@ -80,7 +88,6 @@ body {
     color: #000000;
 }
 
-/* Troca dos Ícones do Botão Ajuda */
 .top-bar-item button .img-item-hover,
 .top-bar-item .img-item-dark-hover {
     display: none;
@@ -94,7 +101,7 @@ body {
     display: inline-block;
 }
 
-/* Estilização do Botão Modo Noturno */
+/* Botão Modo Noturno */
 .toggle-dark-mode {
     margin-top: 2px;
     width: 45px;
@@ -126,40 +133,21 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     background-color: white;
-    padding: 10px 20px;
+    padding: 0 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     width: 100%;
     min-height: 70px;
-    padding: 0 20px;
-}
-
-.header-left,
-.header-right {
-    flex: 1;
-}
-
-.header-center {
-    flex: 2;
-    display: flex;
-    justify-content: center;
 }
 
 .btn-hamburguer-custom {
     border: none;
+    background: none;
     color: #2b3d4f;
     padding: 5px 10px;
+    font-size: 24px;
+    cursor: pointer;
     display: none;
 }
-
-.header-right {
-    justify-content: flex-end;
-    display: flex;
-}
-
-.header-center button {
-    display: none;
-}
-
 
 .alento-logo {
     display: flex;
@@ -180,7 +168,7 @@ body {
     font-weight: bold;
 }
 
-/* Botão de Perfil */
+/* Dropdown de Perfil */
 .user-dropdown {
     position: relative;
     display: inline-block;
@@ -192,7 +180,7 @@ body {
     align-items: center;
     gap: 6px;
     cursor: pointer;
-    padding: 4px 10px 4px 10px;
+    padding: 4px 10px;
     background-color: transparent;
     border: 1.5px solid #197bb0;
     border-radius: 50px;
@@ -203,9 +191,6 @@ body {
 }
 
 .img-perfil-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -213,15 +198,9 @@ body {
     object-fit: cover;
 }
 
-.user-profile .arrow-icon {
-    color: #197bb0;
-}
+.user-profile .arrow-icon { color: #197bb0; }
+.user-profile:hover .arrow-icon { color: white; }
 
-.user-profile:hover .arrow-icon {
-    color: white;
-}
-
-/* Menu Dropdown */
 .dropdown-header {
     padding: 10px 20px;
     border-bottom: 1px solid #eee;
@@ -250,35 +229,23 @@ body {
 .dropdown-content a {
     color: #333;
     margin: 10px;
-    padding: 10px 10px;
+    padding: 10px;
     text-decoration: none;
     display: block;
     font-size: 14px;
     text-align: left;
 }
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
+.dropdown-content a:hover { background-color: #f1f1f1; }
 
 .dropdown-content .logout-item {
     color: #e74c3c;
     margin-bottom: 20px;
 }
 
-.dropdown-content.ativo {
-    display: block;
-}
+.dropdown-content.ativo { display: block; }
 
-.btn-hamburguer-custom {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #2b3d4f;
-}
-
+/* Menu Central (mobile) */
 .menu-central {
     display: none;
     gap: 20px;
@@ -295,7 +262,7 @@ body {
     height: 35px;
 }
 
-/* Sidebar fixa */
+/* ===== SIDEBAR ===== */
 .sidebar {
     width: 260px;
     background-color: #ffffff;
@@ -311,19 +278,13 @@ body {
     z-index: 900;
 }
 
-.sidebar .logo {
-    margin-bottom: 40px;
-}
-
 .menu-items {
     list-style: none;
     padding: 0;
     flex-grow: 1;
 }
 
-.menu-items li {
-    margin-bottom: 15px;
-}
+.menu-items li { margin-bottom: 15px; }
 
 .menu-items a {
     text-decoration: none;
@@ -342,7 +303,6 @@ body {
     width: 25px;
 }
 
-/* Estilo do item ativo*/
 .menu-items li.active a {
     background-color: #e0f2f1;
     color: #236a99;
@@ -354,19 +314,11 @@ body {
     color: #2196f3;
 }
 
-.menu-items a .img-menu-hover {
-    display: none;
-}
+.menu-items a .img-menu-hover { display: none; }
+.menu-items a:hover .img-menu-default { display: none; }
+.menu-items a:hover .img-menu-hover { display: inline-block; }
 
-.menu-items a:hover .img-menu-default {
-    display: none;
-}
-
-.menu-items a:hover .img-menu-hover {
-    display: inline-block;
-}
-
-/* --- ÁREA PRINCIPAL --- */
+/* ===== LAYOUT PRINCIPAL ===== */
 .main-wrapper {
     display: flex;
     flex-direction: row;
@@ -374,7 +326,6 @@ body {
     overflow-y: hidden;
 }
 
-/* --- CONTEÚDO DA PÁGINA --- */
 .content {
     padding: 30px;
     flex: 1;
@@ -390,7 +341,7 @@ h1 {
     color: #000;
 }
 
-/* --- FILTROS E BOTÃO --- */
+/* ===== FILTROS E BOTÃO ===== */
 .top-controls {
     display: flex;
     justify-content: space-between;
@@ -404,9 +355,7 @@ h1 {
     align-items: flex-end;
 }
 
-.search-box {
-    position: relative;
-}
+.search-box { position: relative; }
 
 .search-box input {
     width: 280px;
@@ -442,14 +391,15 @@ h1 {
     border: 1px solid #cbd5e0;
     border-radius: 6px;
     width: 160px;
-    color: #a0aec0;
+    color: #4a5568;
     appearance: none;
     background: #fff url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23cbd5e0%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E") no-repeat right 10px center;
     background-size: 10px;
+    outline: none;
 }
 
 .btn-register {
-    background-color: #3470d0;
+    background-color: var(--admin-accent);
     color: white;
     border: none;
     padding: 0 20px;
@@ -458,15 +408,19 @@ h1 {
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-/* --- TABELA --- */
+.btn-register:hover {
+    background-color: var(--admin-accent-hover);
+}
 
+/* ===== TABELA ===== */
 .table-card {
     background: white;
     border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     overflow-x: auto;
 }
 
@@ -491,7 +445,7 @@ td {
     border-bottom: 1px solid #e2e8f0;
 }
 
-/* --- STATUS (Bolinhas) --- */
+/* Status (bolinhas) */
 .status {
     display: flex;
     align-items: center;
@@ -502,21 +456,14 @@ td {
     width: 10px;
     height: 10px;
     border-radius: 50%;
+    flex-shrink: 0;
 }
 
-.dot-green {
-    background-color: #38a169;
-}
+.dot-green { background-color: #38a169; }
+.dot-red   { background-color: #e53e3e; }
 
-.dot-red {
-    background-color: #e53e3e;
-}
-
-/* --- BOTÕES DE AÇÃO NA TABELA --- */
-.actions {
-    display: flex;
-    gap: 8px;
-}
+/* Botões de ação na tabela */
+.actions { display: flex; gap: 8px; }
 
 .btn-action {
     width: 28px;
@@ -528,100 +475,332 @@ td {
     align-items: center;
     cursor: pointer;
     font-size: 12px;
-    transition: 0.2s;
+    transition: opacity 0.2s;
 }
+
+.btn-action:hover { opacity: 0.82; }
 
 .btn-list {
     background-color: #e8f0fe;
     border: 1px solid #a3c2e6;
-    color: #3470d0;
+    color: var(--admin-accent);
 }
 
 .btn-edit {
-    background-color: #3470d0;
+    background-color: var(--admin-accent);
     color: white;
 }
 
 .btn-delete {
-    background-color: #e53e3e;
+    background-color: var(--admin-danger);
     color: white;
 }
 
-/* --- PAGINAÇÃO --- */
+/* Célula vazia / carregando */
+.text-center {
+    text-align: center !important;
+    color: #888;
+    padding: 28px 0;
+}
+
+/* ===== PAGINAÇÃO ===== */
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    gap: 10px;
+    gap: 6px;
     color: #a0aec0;
     font-size: 14px;
 }
 
-.pagination .active {
-    color: #000;
+.pagination span {
+    cursor: pointer;
+    user-select: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: background-color 0.15s;
+}
+
+.pagination span:hover {
+    background-color: #eef2f6;
+    color: #333;
+}
+
+.pagination span.active {
+    background-color: var(--admin-accent);
+    color: #fff;
     font-weight: bold;
 }
 
-/* Modal Saiba Mais */
+/* ===== FOOTER ===== */
+.alento-footer {
+    background-color: #2f3e4e;
+    color: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.alento-footer p {
+    text-align: center;
+    font-size: 13px;
+}
+
+/* ============================================================
+   MODAIS — Base
+   ============================================================ */
 .modal-container {
     display: none;
-    justify-content: center;
-    align-items: center;
     position: fixed;
-    z-index: 10000;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
 }
 
-/* Área Modal Saiba Mais */
+/* Classe que o JS adiciona para abrir o modal */
+.modal-container.active {
+    display: flex;
+}
+
 .modal-box {
     background-color: #ffffff;
-    /* margin: 8% auto; */
-    padding: 35px;
-    border-radius: 25px;
+    padding: 32px;
+    border-radius: 16px;
     width: 90%;
     max-width: 500px;
     position: relative;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Botão Fechar Modal */
+/* Tamanho: modal com formulário longo */
+.modal-box-form {
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: left;
+}
+
+/* Tamanho: modal compacto (confirmação / detalhes) */
+.modal-box-small {
+    max-width: 440px;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: left;
+}
+
 .modal-close {
     position: absolute;
     right: 20px;
     top: 15px;
-    font-size: 28px;
+    font-size: 26px;
     cursor: pointer;
     color: #64748b;
+    line-height: 1;
 }
 
 .modal-close:hover {
-    color: #ef4444;
+    color: var(--admin-danger);
     transform: scale(1.1);
     transition: all 0.2s ease;
 }
 
-/* Título do Modal Saiba Mais */
 .modal-title {
-    color: #5D99C6;
-    margin-bottom: 10px;
-    font-size: 24px;
+    color: #222;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
 }
 
-/* Descrição do Modal Saiba Mais */
+/* ===== ALERTA DENTRO DO MODAL ===== */
+.modal-alert {
+    display: none;
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+}
+
+.modal-alert.show-error {
+    display: block;
+    background-color: #fdecec;
+    color: #b91c1c;
+    border: 1px solid #f5b5b5;
+}
+
+.modal-alert.show-success {
+    display: block;
+    background-color: #e7f6ec;
+    color: #1f8a4c;
+    border: 1px solid #b6e3c6;
+}
+
+/* ===== FORMULÁRIO DOS MODAIS ===== */
+.modal-form .form-group {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-form .form-row {
+    display: flex;
+    gap: 14px;
+}
+
+.modal-form .form-row .form-group {
+    flex: 1;
+}
+
+.modal-form label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.modal-form input,
+.modal-form select {
+    padding: 9px 12px;
+    border: 1px solid #d6dce5;
+    border-radius: 6px;
+    font-size: 0.93rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+    font-family: inherit;
+    color: #333;
+    background-color: #fff;
+}
+
+.modal-form input:focus,
+.modal-form select:focus {
+    border-color: var(--admin-accent);
+    box-shadow: 0 0 0 3px rgba(52, 112, 208, 0.12);
+}
+
+.modal-form input:disabled {
+    background-color: #f3f5f8;
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* Campo senha + botão gerar */
+.input-com-botao {
+    display: flex;
+    gap: 8px;
+}
+
+.input-com-botao input { flex: 1; }
+
+.btn-gerar-senha {
+    background-color: #eef2ff;
+    color: var(--admin-accent);
+    border: 1px solid var(--admin-accent);
+    border-radius: 6px;
+    padding: 0 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-gerar-senha:hover {
+    background-color: var(--admin-accent);
+    color: #fff;
+}
+
+/* ===== BOTÕES DE AÇÃO DOS MODAIS ===== */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.btn-confirmar,
+.btn-cancelar,
+.btn-excluir {
+    padding: 9px 22px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.93rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-confirmar {
+    background-color: var(--admin-accent);
+    color: #fff;
+}
+
+.btn-confirmar:hover { background-color: var(--admin-accent-hover); }
+
+.btn-cancelar {
+    background-color: #f1f3f6;
+    color: #444;
+}
+
+.btn-cancelar:hover { background-color: #e2e6ec; }
+
+.btn-excluir {
+    background-color: var(--admin-danger);
+    color: #fff;
+}
+
+.btn-excluir:hover { background-color: var(--admin-danger-hover); }
+
+/* ===== MODAL CONFIRMAÇÃO ===== */
+.modal-confirm-text {
+    font-size: 0.93rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+
+/* ===== MODAL DETALHES ===== */
+.modal-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.modal-detalhes .detalhe-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid #eef1f5;
+    padding-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.modal-detalhes .detalhe-item span:first-child {
+    font-weight: 600;
+    color: #555;
+    min-width: 130px;
+}
+
+.modal-detalhes .detalhe-item span:last-child {
+    color: #333;
+    text-align: right;
+}
+
+/* ===== MODAL AJUDA (mantido do original) ===== */
 .modal-description {
     color: #475569;
     margin-bottom: 25px;
     font-size: 16px;
 }
 
-/* Tópicos do Modal Saiba Mais */
 .modal-item {
     background-color: #f8fafc;
     border: 1px solid #e2e8f0;
@@ -631,22 +810,18 @@ td {
     text-align: left;
 }
 
-/* Títulos dos Topícos do Modal Saiba Mais */
 .modal-item-title {
     color: #1e293b;
     font-size: 16px;
-    /* font-weight: bold; */
     margin-bottom: 5px;
 }
 
-/* Descrição dos Tópicos do Modal Saiba Mais */
 .modal-item-text {
     color: #64748b;
     font-size: 14px;
     font-weight: 600;
 }
 
-/* Botão Agendar Consulta do Modal Saiba Mais */
 .modal-btn-action {
     display: inline-block;
     box-sizing: border-box;
@@ -670,7 +845,6 @@ td {
     box-shadow: 0 5px 15px rgba(93, 153, 198, 0.4);
 }
 
-/* Modal Ajuda */
 .text-format {
     text-align: left;
     padding: 10px;
@@ -691,9 +865,7 @@ td {
     margin-bottom: 15px;
 }
 
-.text-format strong {
-    color: #1e293b;
-}
+.text-format strong { color: #1e293b; }
 
 .modal-divider {
     border: 0;
@@ -708,7 +880,6 @@ td {
     color: #ffffff;
     text-decoration: none;
     border: none;
-    margin-top: 15px;
     padding: 12px 30px;
     border-radius: 50px;
     font-weight: bold;
@@ -730,36 +901,14 @@ td {
     padding-right: 10px;
 }
 
-/* Estilização do Footer */
-.alento-footer {
-    background-color: #2f3e4e;
-    color: #ffffff;
-    padding: 10px 0;
-    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
-    cursor: default;
-    flex-shrink: 0;
-    width: 100%;
-}
-
-/* Linha inferior */
-.alento-footer p {
-    text-align: center;
-    font-size: 13px;
-}
-
-/* Estilização da Página no Modo Noturno */
-/* Fundo da Página */
+/* ============================================================
+   MODO NOTURNO
+   ============================================================ */
 body.dark-mode {
     background-color: #353535;
     color: white;
 }
 
-body.dark-mode .main-content {
-    background-color: #353535;
-    color: white;
-}
-
-/* Botão do Modo Noturno */
 body.dark-mode .toggle-dark-mode {
     background-color: #2196F3;
 }
@@ -768,33 +917,24 @@ body.dark-mode .toggle-dark-mode::before {
     transform: translateX(25px);
 }
 
-/* Fundo da Barra Superior */
 body.dark-mode .top-bar {
     background-color: #2d3748;
 }
 
-body.dark-mode .top-bar-item button:hover .img-item-hover {
-    display: none;
-}
+body.dark-mode .top-bar-item button:hover .img-item-hover { display: none; }
 
 body.dark-mode .top-bar-item button:hover .img-item-dark-hover {
     display: inline-block;
 }
 
-body.dark-mode .top-bar-item button:hover {
-    color: #ffffff;
-}
+body.dark-mode .top-bar-item button:hover { color: #ffffff; }
 
-/* Fundo do Header Principal */
 body.dark-mode .main-header {
     background-color: #1a202c;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
-/* Texto da Logo */
-body.dark-mode .alento-logo h2 {
-    color: white;
-}
+body.dark-mode .alento-logo h2 { color: white; }
 
 body.dark-mode .main-header .user-dropdown .user-profile {
     border: 1.5px solid #2d3747;
@@ -808,188 +948,175 @@ body.dark-mode .main-header .user-dropdown .user-profile:hover .arrow-icon {
     color: #ffffff;
 }
 
-body.dark-mode .main-header .user-dropdown .dropdown-content h6 {
-    color: #2c3e50;
-}
-
-body.dark-mode .btn-hamburguer-custom {
-    color: white;
-}
+body.dark-mode .btn-hamburguer-custom { color: white; }
 
 body.dark-mode .menu-central {
     background-color: #2D3747;
 }
 
-body.dark-mode .menu-central a {
-    color: white;
-}
-
-/* Fundo do Menu Lateral */
-body.dark-mode .sidebar-wrapper {
-    background-color: #2d3747;
-    border-right: 1px solid #4a5568;
-}
+body.dark-mode .menu-central a { color: white; }
 
 body.dark-mode .sidebar {
     background-color: #2d3747;
     border-right: 1px solid #4a5568;
 }
 
-body.dark-mode .sidebar .menu-items li a {
-    color: #cbd5e0;
-}
+body.dark-mode .sidebar .menu-items li a { color: #cbd5e0; }
 
-body.dark-mode .sidebar .menu-items li.active {
-    background-color: #2d3748;
-}
+body.dark-mode .sidebar .menu-items li.active a { color: #63b3ed; }
 
-body.dark-mode .sidebar .menu-items li.active a {
-    color: #63b3ed;
-}
+/* Tabela */
+body.dark-mode .table-card { background: #1e293b; }
 
-/* Fundo Área do Modal Saiba Mais */
-body.dark-mode .modal-box {
-    background-color: #1e293b;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
-
-/* Descrição dos Tópicos do Modal Saiba Mais */
-body.dark-mode .modal-description {
-    color: #cbd5e1;
-}
-
-/* Botão de Fechar o Modal Saiba Mais */
-body.dark-mode .modal-close {
-    color: #94a3b8;
-}
-
-body.dark-mode .modal-close:hover {
-    color: #ef4444;
-    transform: scale(1.1);
-    transition: all 0.2s ease;
-}
-
-/* Tópicos do Modal Saiba Mais */
-body.dark-mode .modal-item {
-    background-color: #334155;
-    border-color: #475569;
-}
-
-/* Título dos Tópicos do Modal Saiba Mais */
-body.dark-mode .modal-item-title {
-    color: #f1f5f9;
-}
-
-/* Descrição dos Tópicos do Modal Saiba Mais */
-body.dark-mode .modal-item-text {
-    color: #94a3b8;
-}
-
-/* Título dos Tópicos do Modal Ajuda */
-body.dark-mode .text-format h3 {
-    color: #f1f5f9;
-}
-
-/* Subtítulo dos Tópicos do Modal Ajuda */
-body.dark-mode .text-format h6 {
-    color: #f1f5f9;
-}
-
-/* Descrição dos Tópicos do Modal Ajuda */
-body.dark-mode .text-format p {
-    color: #cbd5e1;
-}
-
-/* Descrição em Negrito dos Tópicos do Modal Ajuda */
-body.dark-mode .text-format strong {
+body.dark-mode th {
     color: #ffffff;
-}
-
-/* Linha de Divisão do Modal Ajuda */
-body.dark-mode .modal-divider {
-    border-color: #334155;
-}
-
-body.dark-mode .modal-btn-action:hover {
-    background-color: #132f44;
-}
-
-/* Modo dark */
-
-body.dark-mode .table-card {
-    background: #1e293b;
-}
-
-body.dark-mode th{
-
-    padding: 15px 20px;
-    font-size: 15px;
-    color: #ffffff;
-    font-weight: bold;
     border-bottom: 1px solid #334155;
 }
 
 body.dark-mode td {
-    padding: 15px 20px;
-    font-size: 13px;
     color: #ffffff;
     border-bottom: 1px solid #334155;
 }
 
 body.dark-mode h1,
-body.dark-mode .filter-item label{
-    color: #ffffff;
+body.dark-mode .filter-item label { color: #ffffff; }
+
+body.dark-mode .search-box input,
+body.dark-mode .select-box {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #f1f5f9;
 }
 
-/* Footer */
+body.dark-mode .pagination span:hover {
+    background-color: #334155;
+    color: #f1f5f9;
+}
+
+/* Modais — dark mode */
+body.dark-mode .modal-box {
+    background-color: #1e293b;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .modal-title { color: #f1f5f9; }
+
+body.dark-mode .modal-close { color: #94a3b8; }
+
+body.dark-mode .modal-close:hover { color: #ef4444; }
+
+body.dark-mode .modal-form label { color: #cbd5e0; }
+
+body.dark-mode .modal-form input,
+body.dark-mode .modal-form select {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #f1f5f9;
+}
+
+body.dark-mode .modal-form input:focus,
+body.dark-mode .modal-form select:focus {
+    border-color: #63b3ed;
+    box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.2);
+}
+
+body.dark-mode .modal-form input:disabled {
+    background-color: #1e293b;
+    color: #64748b;
+}
+
+body.dark-mode .modal-alert.show-error {
+    background-color: #3d1c1c;
+    color: #fca5a5;
+    border-color: #7f1d1d;
+}
+
+body.dark-mode .modal-alert.show-success {
+    background-color: #1a3328;
+    color: #86efac;
+    border-color: #166534;
+}
+
+body.dark-mode .btn-cancelar {
+    background-color: #334155;
+    color: #cbd5e0;
+}
+
+body.dark-mode .btn-cancelar:hover { background-color: #475569; }
+
+body.dark-mode .modal-confirm-text { color: #cbd5e0; }
+
+body.dark-mode .modal-detalhes .detalhe-item { border-bottom-color: #334155; }
+
+body.dark-mode .modal-detalhes .detalhe-item span:first-child { color: #94a3b8; }
+
+body.dark-mode .modal-detalhes .detalhe-item span:last-child { color: #f1f5f9; }
+
+body.dark-mode .btn-gerar-senha {
+    background-color: #1e2d45;
+    color: #63b3ed;
+    border-color: #63b3ed;
+}
+
+body.dark-mode .btn-gerar-senha:hover {
+    background-color: #2b6cb0;
+    color: #fff;
+}
+
+/* Modais Ajuda — dark mode */
+body.dark-mode .modal-item {
+    background-color: #334155;
+    border-color: #475569;
+}
+
+body.dark-mode .modal-item-title { color: #f1f5f9; }
+body.dark-mode .modal-item-text  { color: #94a3b8; }
+body.dark-mode .text-format h3   { color: #f1f5f9; }
+body.dark-mode .text-format h6   { color: #f1f5f9; }
+body.dark-mode .text-format p    { color: #cbd5e1; }
+body.dark-mode .text-format strong { color: #ffffff; }
+body.dark-mode .modal-divider    { border-color: #334155; }
+
 body.dark-mode .alento-footer {
     background-color: #0b0f19;
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* Responsividade */
-/* Para Telas menores que 1050px */
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
 @media (max-width: 1050px) {
-    .sidebar {
-        display: none;
-    }
+    .sidebar { display: none; }
 
-    .sidebar-wrapper {
-        display: none;
-    }
-
-    #btn-menu-mobile {
-        display: block !important;
-    }
+    #btn-menu-mobile { display: block !important; }
 
     .menu-central {
-    display: none;
-    position: fixed;
-    top: 100px;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    background: #fff;
-    padding: 15px 0;
-    z-index: 999999;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
-    gap: 10px;
-  }
+        display: none;
+        position: fixed;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: #fff;
+        padding: 15px 0;
+        z-index: 999999;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        gap: 10px;
+    }
 
-  .menu-central.show {
-    display: flex !important;
-  }
+    .menu-central.show { display: flex !important; }
 
-  .menu-central a {
-    display: block;
-    padding: 12px 20px;
-    text-decoration: none;
-    color: #CDCAC4;
-  }
-
+    .menu-central a {
+        display: block;
+        padding: 12px 20px;
+        color: #CDCAC4;
+    }
 }
 
-/* Responsividade da Gestão de Usuários */
+@media (min-width: 992px) {
+    #btn-menu-mobile { display: none; }
+}
+
 @media (max-width: 768px) {
     body {
         height: auto;
@@ -1025,9 +1152,7 @@ body.dark-mode .alento-footer {
     }
 
     .search-box input,
-    .select-box {
-        width: 100%;
-    }
+    .select-box { width: 100%; }
 
     .btn-register {
         width: 100%;
@@ -1041,102 +1166,41 @@ body.dark-mode .alento-footer {
         border-radius: 14px;
     }
 
-    table {
-        min-width: 900px;
+    table { min-width: 900px; }
+
+    /* Modais: empilhar campos em mobile */
+    .modal-form .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .modal-box-form,
+    .modal-box-small { padding: 22px 18px; }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+        gap: 8px;
+    }
+
+    .btn-confirmar,
+    .btn-cancelar,
+    .btn-excluir {
+        width: 100%;
+        text-align: center;
     }
 }
 
 @media (max-width: 440px) {
-    .content {
-        padding: 15px 10px;
-    }
+    .content { padding: 15px 10px; }
 
-    .table-card {
-        padding: 10px;
-    }
-
-    th,
-    td {
+    th, td {
         padding: 12px 14px;
         font-size: 12px;
     }
 
-    .pagination {
-        gap: 8px;
-        padding: 15px 5px;
-    }
-}
+    .pagination { gap: 6px; padding: 15px 5px; }
 
-/* Para Telas menores que 1050px */
-@media (max-width: 1050px) {
-    .sidebar {
-        display: none;
-    }
-
-    .sidebar-wrapper {
-        display: none;
-    }
-
-    #btn-menu-mobile {
-        display: block !important;
-    }
-
-}
-
-/* Para Telas menores que 992px */
-@media (min-width: 992px) {
-    #btn-menu-mobile {
-        display: none;
-    }
-
-}
-
-@media (max-width: 991px) {
-    .main-content {
-        margin-left: 0;
-        width: 100%;
-    }
-}
-
-/* Para Telas menores que 880px */
-@media (max-width: 880px) {
-
-    .sidebar-wrapper {
-        display: none !important;
-    }
-
-    .sidebar {
-        display: none !important;
-    }
-
-    .menu-central {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: white;
-        flex-direction: column;
-        padding: 10px 0;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        z-index: 999;
-    }
-
-    .menu-central.show {
-        display: flex;
-    }
-
-    .menu-central a {
-        padding: 15px 20px;
-        border-bottom: 1px solid #eee;
-    }
-}
-
-/* Para Telas menores que 440px */
-@media (max-width: 440px) {
-    .alento-logo h2 {
-        font-size: 16px !important;
-    }
+    .alento-logo h2 { font-size: 16px !important; }
 
     .alento-logo img {
         width: 30px !important;
@@ -1146,8 +1210,7 @@ body.dark-mode .alento-footer {
 
 @media (max-width: 400px) {
     .modal-close {
-        top: 30px !important;
+        top: 14px !important;
         right: 15px !important;
     }
 }
-
