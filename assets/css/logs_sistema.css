@@ -868,6 +868,33 @@ body.dark-mode .sidebar .menu-items li.active a {
     color: #63b3ed;
 }
 
+/* Fundo do Menu de Navegação logs de sistema */
+body.dark-mode .logs-container {
+    background-color: #334155;;
+}
+
+body.dark-mode .logs-title {
+    color: #ffffff;
+}
+
+body.dark-mode .table-container{
+    color: rgb(0, 0, 0);
+}
+
+body.dark-mode input.search::placeholder{
+    background-color: #475569;
+    color: #ffffff;
+}
+body.dark-mode .filters input, body.dark-mode .filters select {
+    background-color: #475569;
+    color: #ffffff;
+}
+
+body.dark-mode .table-container, body.dark-mode .thead-group {
+    background-color: #475569;
+    color: #ffffff;
+}
+
 /* Fundo Área do Modal Saiba Mais */
 body.dark-mode .modal-box {
     background-color: #1e293b;
