@@ -21,9 +21,9 @@ const AdminUsuarioModel = {
                 status_conta,
                 criado_em,
                 data_nascimento,
-                funcao_usuario ( id_funcao )
+                funcao_usuario ( funcao_id )
             `)
-            .order('criado_em', { ascending: false });
+            .order('criado_em', { ascending: true });
 
         if (busca) {
             query = query.or(`nome_completo.ilike.%${busca}%,email.ilike.%${busca}%,cpf.ilike.%${busca}%`);
@@ -62,7 +62,7 @@ const AdminUsuarioModel = {
         // Monta o resultado final
         let resultado = usuarios.map(usuario => {
             const vinculo   = usuario.funcao_usuario?.[0];
-            const id_funcao = vinculo?.id_funcao || null;
+            const funcao_id = vinculo?.funcao_id || null;
             return {
                 id_usuario:      usuario.id_usuario,
                 nome_completo:   usuario.nome_completo,
@@ -72,14 +72,14 @@ const AdminUsuarioModel = {
                 status_conta:    usuario.status_conta,
                 criado_em:       usuario.criado_em,
                 data_nascimento: usuario.data_nascimento,
-                id_funcao,
-                perfil: id_funcao ? (mapaFuncoes[id_funcao] || 'Sem perfil') : 'Sem perfil'
+                funcao_id:       funcao_id,
+                perfil: funcao_id ? (mapaFuncoes[funcao_id] || 'Sem perfil') : 'Sem perfil'
             };
         });
 
         // Filtro por perfil feito em JS (mais seguro que o join aninhado)
         if (perfil) {
-            resultado = resultado.filter(u => String(u.id_funcao) === String(perfil));
+            resultado = resultado.filter(u => String(u.funcao_id) === String(perfil));
         }
 
         return resultado;
@@ -98,22 +98,22 @@ const AdminUsuarioModel = {
                 status_conta,
                 criado_em,
                 data_nascimento,
-                funcao_usuario ( id_funcao )
+                funcao_usuario ( funcao_id )
             `)
             .eq('id_usuario', id)
             .single();
 
         if (error) throw error;
 
-        const id_funcao = data.funcao_usuario?.[0]?.id_funcao || null;
+        const funcao_id = data.funcao_usuario?.[0]?.funcao_id || null;
 
         // Busca o nome do perfil separadamente
         let nomePerfil = 'Sem perfil';
-        if (id_funcao) {
+        if (funcao_id) {
             const { data: funcao } = await supabase
                 .from('funcoes')
                 .select('nome')
-                .eq('id_funcao', id_funcao)
+                .eq('id_funcao', funcao_id)
                 .single();
             if (funcao) nomePerfil = funcao.nome;
         }
@@ -127,7 +127,7 @@ const AdminUsuarioModel = {
             status_conta:    data.status_conta,
             criado_em:       data.criado_em,
             data_nascimento: data.data_nascimento,
-            id_funcao,
+            funcao_id,
             perfil: nomePerfil
         };
     },
@@ -190,7 +190,7 @@ const AdminUsuarioModel = {
         // 4. Vincula ao perfil escolhido
         const { error: roleError } = await supabase
             .from('funcao_usuario')
-            .insert([{ id_usuario: novoUsuario.id_usuario, id_funcao }]);
+            .insert([{ usuario_id: novoUsuario.id_usuario, funcao_id: id_funcao }]);
 
         if (roleError) throw roleError;
 
@@ -214,8 +214,8 @@ const AdminUsuarioModel = {
         if (id_funcao) {
             const { error: roleError } = await supabase
                 .from('funcao_usuario')
-                .update({ id_funcao })
-                .eq('id_usuario', id);
+                .update({ funcao_id: id_funcao })
+                .eq('usuario_id', id);
 
             if (roleError) throw roleError;
         }
@@ -228,7 +228,7 @@ const AdminUsuarioModel = {
         const { error: funcaoError } = await supabase
             .from('funcao_usuario')
             .delete()
-            .eq('id_usuario', id);
+            .eq('usuario_id', id);
 
         if (funcaoError) throw funcaoError;
 

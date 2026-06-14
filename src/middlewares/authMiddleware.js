@@ -19,25 +19,25 @@ const checkAuth = async (req, res, next) => {
 
         if (userError || !usuario) throw new Error('Usuário não encontrado no banco de dados.');
 
-        // CORREÇÃO PASSO 1: Busca apenas o ID da função na tabela funcao_usuario
+        // Busca apenas o ID da função na tabela funcao_usuario
         const { data: vinculoFuncao, error: roleError } = await supabase
             .from('funcao_usuario')
-            .select('id_funcao')
-            .eq('id_usuario', usuario.id_usuario)
+            .select('funcao_id')
+            .eq('usuario_id', usuario.id_usuario)
             .maybeSingle();
 
         if (roleError || !vinculoFuncao) throw new Error('Nenhuma função vinculada ao usuário no banco de dados.');
 
-        // CORREÇÃO PASSO 2: Busca o nome da função diretamente na tabela funcoes
+        // Busca o nome da função diretamente na tabela funcoes
         const { data: funcaoData, error: funcaoError } = await supabase
             .from('funcoes')
             .select('nome')
-            .eq('id_funcao', vinculoFuncao.id_funcao)
+            .eq('id_funcao', vinculoFuncao.funcao_id)
             .maybeSingle();
 
         if (funcaoError || !funcaoData) throw new Error('Função correspondente não cadastrada na tabela funcoes.');
 
-        // CORREÇÃO PASSO 3: Remove os acentos e padroniza para minúsculo
+        // Remove os acentos e padroniza para minúsculo
         const roleNome = funcaoData.nome
             .toLowerCase()
             .normalize('NFD')
