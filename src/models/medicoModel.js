@@ -20,7 +20,7 @@ const MedicoModel = {
         const { data, error } = await supabase
             .from('perfil_medico')
             .select('*')
-            .eq('id_usuário', idUsuario)
+            .eq('usuario_id', idUsuario)
             .maybeSingle();
 
         if (error) throw error;
@@ -32,10 +32,10 @@ const MedicoModel = {
         const { data, error } = await supabase
             .from('perfil_medico')
             .insert([{
-                'id_usuário': idUsuario,
-                CRM:          CRM,
-                uf_crm:       uf_crm,
-                biografia:    biografia || null
+                usuario_id: idUsuario,
+                CRM:        CRM,
+                uf_crm:     uf_crm,
+                biografia:  biografia || null
             }])
             .select()
             .single();
@@ -49,7 +49,7 @@ const MedicoModel = {
         const { data, error } = await supabase
             .from('perfil_medico')
             .update({ CRM, uf_crm, biografia })
-            .eq('id_usuário', idUsuario)
+            .eq('usuario_id', idUsuario)
             .select()
             .single();
 
