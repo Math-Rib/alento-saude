@@ -69,7 +69,7 @@
                 </div>
                 <div id="dropdownMenu" class="dropdown-content">
                     <div class="dropdown-header">
-                        <h6>Olá, Dra. Cláudia Silva!</h6>
+                        <h6 id="nome-dropdown">Olá, médico(a)!</h6>
                     </div>
                     <a href=""><i class="fa fa-user"></i> Meu Perfil</a>
                     <hr>
@@ -203,8 +203,8 @@
             <!-- Bem-vindo -->
             <section class="welcome-section">
                 <div class="welcome-text">
-                    <h1>Bom dia, <span class="doctor-name">Dra. Cláudia Silva</span></h1>
-                    <p class="welcome-sub">Clínica Geral · Segunda-feira, 7 de janeiro de 2026</p>
+                    <h1><span id="saudacao">Bom dia</span>, <span class="doctor-name" id="nome-boas-vindas">médico(a)</span></h1>
+                    <p class="welcome-sub" id="data-hoje">Carregando...</p>
                     <span class="turno-badge">
                         <i class="fa fa-clock"></i> Turno Manhã: 08h às 13h
                     </span>
@@ -503,6 +503,7 @@
     </footer>
 
     <script type="module" src="/js/main.js"></script>
+    <script src="/js/home_medico.js"></script>
 </body>
 
 </html>
