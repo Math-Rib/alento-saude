@@ -1,7 +1,7 @@
 let listaLogsOriginal = [];
 let listaLogsFiltrados = [];
 let paginaAtual = 1;
-const registrosPorPagina = 3;
+const registrosPorPagina = 10;
 
 export function initLogsSistema() {
     const tabelaBody = document.getElementById('tabelaLogsBody');

@@ -1,7 +1,7 @@
 // Variáveis com escopo no módulo para não vazar para outros arquivos
 let listaEspecialidadesOriginal = [];
 let paginaAtual = 1;
-const registrosPorPagina = 3;
+const registrosPorPagina = 10;
 
 export function initGestaoEspecialidades() {
     // Cadastro
