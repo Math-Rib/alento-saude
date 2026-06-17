@@ -35,6 +35,8 @@ const adminUsuarioController = {
 
     criar: async (req, res) => {
         const { nome_completo, email, cpf, telefone, senha, status_conta, id_funcao, data_nascimento } = req.body;
+        // Identifica o usuário logado
+        const adminResponsavel = req.user.nome_completo;
 
         if (!nome_completo || !email || !cpf || !telefone || !senha || !id_funcao) {
             return res.status(400).json({ erro: 'Preencha todos os campos obrigatórios.' });
@@ -50,7 +52,7 @@ const adminUsuarioController = {
                 nome_completo, email, cpf, telefone, senha,
                 status_conta, id_funcao,
                 data_nascimento: dataNascimentoFinal
-            });
+            }, adminResponsavel);
             return res.status(201).json(novoUsuario);
         } catch (error) {
             console.error('Erro ao cadastrar usuário:', error.message);
@@ -61,6 +63,8 @@ const adminUsuarioController = {
     atualizar: async (req, res) => {
         const { id } = req.params;
         const { nome_completo, email, cpf, telefone, status_conta, id_funcao, data_nascimento } = req.body;
+        // Identifica o usuário logado
+        const adminResponsavel = req.user.nome_completo;
 
         if (!nome_completo || !email || !cpf || !telefone) {
             return res.status(400).json({ erro: 'Preencha todos os campos obrigatórios.' });
@@ -76,7 +80,7 @@ const adminUsuarioController = {
                 nome_completo, email, cpf, telefone,
                 status_conta, id_funcao,
                 data_nascimento: dataNascimentoFinal
-            });
+            }, adminResponsavel);
             return res.json(usuarioAtualizado);
         } catch (error) {
             console.error('Erro ao atualizar usuário:', error.message);
@@ -86,8 +90,10 @@ const adminUsuarioController = {
 
     deletar: async (req, res) => {
         const { id } = req.params;
+        // Identifica o usuário logado
+        const adminResponsavel = req.user.nome_completo;
         try {
-            await AdminUsuarioModel.deletar(id);
+            await AdminUsuarioModel.deletar(id, adminResponsavel);
             return res.json({ sucesso: true });
         } catch (error) {
             console.error('Erro ao excluir usuário:', error.message);

@@ -1,3 +1,4 @@
+const LogsModel = require('../models/logsModel');
 const AuthModel = require('../models/authModel');
 const supabase = require('../../config/supabase');
 
@@ -11,6 +12,18 @@ const authController = {
       const sessionData = await AuthModel.login(email, senha_hash);
       const token = sessionData.session.access_token;
       const userRole = sessionData.role;
+
+      // Busca o nome do usuário através do Model
+      const nomeUsuario = await AuthModel.buscarNomeUsuario(email);
+
+      // Registra o Login do Usuário na tabela Logs de Sistema
+      await LogsModel.registrar(
+        nomeUsuario, 
+        'LOGIN', 
+        'autenticação', 
+        `Usuário ${nomeUsuario} realizou login no sistema`, 
+        null
+      );
 
       // Salva o token em um cookie seguro HttpOnly
       res.cookie('alento_token', token, {
@@ -60,7 +73,15 @@ const authController = {
 
       }
       // Cadastrando usário no banco de dados
-      await AuthModel.registro(nome_completo, cpf, email, senha, dataFormatada, 3);
+      const usuarioCriado = await AuthModel.registro(nome_completo, cpf, email, senha, dataFormatada, 3);
+
+      await LogsModel.registrar(
+        nome_completo, 
+        'CADASTRO', 
+        'usuarios', 
+        'Novo usuário cadastrado', 
+        usuarioCriado.id_usuario
+      );
 
       // Caso o cadastro for concluído com sucesso, ele redireciona para o login
       return res.redirect('/login?sucesso=true');
@@ -73,6 +94,17 @@ const authController = {
 
   handleLogout: async (req, res) => {
     try {
+      if (req.user && req.user.email) {
+        const nomeUsuario = await AuthModel.buscarNomeUsuario(req.user.email);
+        
+        await LogsModel.registrar(
+          nomeUsuario, 
+          'LOGOUT', 
+          'autenticação', 
+          `Usuário ${nomeUsuario} encerrou a sessão`, 
+          null
+        );
+      }
       // Encerra a sessão ativa no servidor do Supabase
       await supabase.auth.signOut();
     } catch (error) {

@@ -391,19 +391,100 @@ body {
 }
 
 /* FILTROS */
-.filters {
+.top-controls {
     display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
     margin-bottom: 20px;
 }
 
-.filters input,
-.filters select {
-    padding: 10px;
+.filters-group {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.filtros-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    position: relative;
+    flex: 2;
+    min-width: 300px;
+}
+
+.search-box input {
+    width: 280px;
+    padding: 10px 10px 10px 15px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    outline: none;
+    color: #4a5568;
+}
+
+.search-box i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #cbd5e0;
+}
+
+/* Adicione ou modifique para incluir a classe .input-padrao */
+.search-box input,
+.input-padrao {
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
     border-radius: 8px;
-    border: 1px solid #ccc;
-    background: #fff;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+    color: #333;
+    transition: all 0.3s;
+    background-color: #ffffff;
+}
+
+.search-box input:focus,
+.input-padrao:focus {
+    border-color: #007bff;
+    /* Ou a cor do seu tema */
+}
+
+/* Garante que o label e o input fiquem organizados dentro do filter-item */
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filter-item label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+}
+
+.select-box {
+    padding: 10px 15px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    width: 160px;
+    color: #a0aec0;
+    appearance: none;
+    background: #fff url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23cbd5e0%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E") no-repeat right 10px center;
+    background-size: 10px;
 }
 
 /* BOTÃO */
@@ -421,6 +502,23 @@ body {
 }
 
 /* TABELA */
+.table-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    cursor: default;
+    width: 100%;
+    overflow-x: auto;
+    /* Permite scroll horizontal se as colunas apertarem */
+    overflow-y: visible;
+    /* Impede que as linhas de baixo sumam ou fiquem cortadas */
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 50px;
+    flex-shrink: 0;
+}
+
 .table-container {
     background: #fff;
     border-radius: 10px;
@@ -455,7 +553,7 @@ tbody tr:hover {
 /* BOTÃO AÇÃO */
 .btn-view {
     border: none;
-    background: #e0f2fe;
+    background: #FFC107;
     padding: 6px 10px;
     border-radius: 6px;
     cursor: pointer;
@@ -466,6 +564,46 @@ tbody tr:hover {
     text-align: center;
     padding: 15px;
     font-size: 14px;
+}
+
+#paginacaoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+    padding: 10px;
+}
+
+.btn-paginacao {
+    background-color: #ffffff;
+    border: 1px solid #d1d9e0;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #4a5568;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-paginacao:hover:not(:disabled) {
+    background-color: #f7fafc;
+    border-color: #cbd5e0;
+}
+
+.btn-paginacao:disabled {
+    background-color: #edf2f7;
+    color: #a0aec0;
+    cursor: not-allowed;
+}
+
+.info-paginacao {
+    font-size: 14px;
+    font-weight: 600;
+    color: #718096;
 }
 
 /* Modal Saiba Mais */
@@ -606,6 +744,14 @@ tbody tr:hover {
     margin: 20px 0;
 }
 
+.esp-table-container{
+    cursor: default;
+}
+
+.esp-table tbody tr:hover {
+    background-color: transparent !important;
+}
+
 .modal-btn-whatsapp {
     display: inline-block;
     box-sizing: border-box;
@@ -652,13 +798,27 @@ tbody tr:hover {
     font-size: 13px;
 }
 
-/* Fundo da Página */
-body.dark-mode {
-    background-color: #353535;
-    color: white;
+/* Botão do Modo Noturno */
+body.dark-mode .esp-table {
+    background-color: #1E293B !important;
+    color: #e0e0e0 !important;
 }
 
-/* Botão do Modo Noturno */
+body.dark-mode .esp-table tr {
+    border-bottom: 1px solid #1E293B;
+}
+
+body.dark-mode .btn-paginacao {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+}
+
+body.dark-mode .btn-paginacao:disabled {
+    background-color: #1a202c;
+    color: #4a5568;
+}
+
 body.dark-mode .toggle-dark-mode {
     background-color: #2196F3;
 }
@@ -870,28 +1030,58 @@ body.dark-mode .sidebar .menu-items li.active a {
 
 /* Fundo do Menu de Navegação logs de sistema */
 body.dark-mode .logs-container {
-    background-color: #334155;;
+    background-color: #1A1C23;
 }
 
 body.dark-mode .logs-title {
     color: #ffffff;
 }
 
-body.dark-mode .table-container{
-    color: rgb(0, 0, 0);
+body.dark-mode {
+    background-color: #1a1c23 !important;
+    color: #e0e0e0 !important;
 }
 
-body.dark-mode input.search::placeholder{
+body.dark-mode .alento-header {
+    background-color: #252830 !important;
+}
+
+body.dark-mode table {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode input.search::placeholder {
     background-color: #475569;
     color: #ffffff;
 }
-body.dark-mode .filters input, body.dark-mode .filters select {
+
+body.dark-mode .filters input,
+body.dark-mode .filters select {
     background-color: #475569;
     color: #ffffff;
 }
 
-body.dark-mode .table-container, body.dark-mode .thead-group {
-    background-color: #475569;
+body.dark-mode .table-container,
+body.dark-mode .thead-group {
+    background-color: #1E293B;
+    color: #ffffff;
+}
+
+body.dark-mode .filter-item label {
+    color: #e2e8f0;
+}
+
+body.dark-mode .input-padrao, 
+body.dark-mode .search-box input {
+    background-color: #1E293B;
+    border-color: #444;
+    color: #ecf0f1;
+}
+
+body.dark-mode .search-box input,
+body.dark-mode .select-box {
+    background-color: #1e293b;
+    border-color: #475569;
     color: #ffffff;
 }
 
@@ -899,6 +1089,11 @@ body.dark-mode .table-container, body.dark-mode .thead-group {
 body.dark-mode .modal-box {
     background-color: #1e293b;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .table-card {
+    background-color: #1e293b;
+    border-color: #475569;
 }
 
 /* Descrição dos Tópicos do Modal Saiba Mais */

@@ -58,6 +58,18 @@ const AuthModel = {
         };
     },
 
+    // Buscando o Nome de Usuário pelo email
+    buscarNomeUsuario: async (email) => {
+        const { data, error } = await supabase
+            .from('usuarios')
+            .select('nome_completo')
+            .ilike('email', email)
+            .maybeSingle();
+
+        if (error) throw error;
+        return data ? data.nome_completo : email;
+    },
+
     // Cadastrando usuários como pacientes pelo formulário de cadastro público
     registro: async (nomeCompleto, cpf, email, senha, dataNascimento, idFuncaoPadrao = 3) => {
         const emailLimpo = email ? email.trim() : '';
@@ -108,7 +120,7 @@ const AuthModel = {
 
         if (roleError) throw roleError;
 
-        return authData.user;
+        return novoUsuario;
     }
 };
 

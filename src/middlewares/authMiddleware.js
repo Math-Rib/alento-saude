@@ -13,7 +13,7 @@ const checkAuth = async (req, res, next) => {
         // Busca o usuário no banco
         const { data: usuario, error: userError } = await supabase
             .from('usuarios')
-            .select('id_usuario, email')
+            .select('id_usuario, email, nome_completo')
             .ilike('email', user.email)
             .single();
 
@@ -46,6 +46,7 @@ const checkAuth = async (req, res, next) => {
         req.user = {
             ...user,
             id_publico: usuario.id_usuario,
+            nome_completo: usuario.nome_completo,
             role: roleNome
         }; // Guarda o usuário na requisição
         

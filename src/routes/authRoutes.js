@@ -5,6 +5,7 @@ const path = require('path');
 // Importar o Controller de Autenticação e os Middlewares de proteção
 const authController = require('../controllers/authController');
 const especialidadeController = require('../controllers/especialidadeController');
+const logsController = require('../controllers/logController');
 const { checkAuth, isPaciente, isMedico, isAdmin } = require('../middlewares/authMiddleware');
 
 // Rotas Públicas
@@ -38,7 +39,7 @@ router.post('/login', authController.handleLogin);
 router.post('/cadastro', authController.handleCadastro);
 
 // Ações de formulário (GET) gerenciadas pelo Controller
-router.get('/logout', authController.handleLogout);
+router.get('/logout', checkAuth, authController.handleLogout);
 
 // Rotas Privadas do Paciente
 
@@ -129,6 +130,9 @@ router.get('/api/medico/perfil-teste', (req, res) => {
 
 /* Rota de Busca de Especialidades */
 router.get('/api/especialidades', checkAuth, especialidadeController.listarAPI);
+
+/* Rota da API de Busca de Logs */
+router.get('/api/logs', checkAuth, isAdmin, logsController.listarAPI);
 
 // PUT
 /* Rota de edição de Especialidades */

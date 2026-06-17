@@ -135,106 +135,60 @@
 
       <div class="logs-container">
 
-        <h2 class="logs-title">Logs de Sistema</h2>
+        <div class="top-controls">
+          <div>
+            <h1>Logs de Sistema</h1>
+            <div class="filters-group">
+              <div class="search-box">
+                <input type="text" id="inputBuscaLogs" placeholder="Pesquise por Usuário Responsável ou Descrição">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
 
-        <!-- FILTROS -->
-        <div class="filters">
+              <div class="filter-item">
+                <label>Data</label>
+                <input type="text" id="inputDataLog" class="input-padrao" placeholder="DD/MM/AAAA">
+              </div>
 
-          <input type="text" placeholder="Pesquise por Usuário, Evento..." class="search">
+              <div class="filter-item">
+                <label>Hora</label>
+                <input type="text" id="inputHoraLog" class="input-padrao" placeholder="HH:MM">
+              </div>
 
-          <select>
-            <option>Data de Alteração</option>
-          </select>
-
-          <select>
-            <option>Hora da Alteração</option>
-          </select>
-
-          <select>
-            <option>Entidade Afetada</option>
-          </select>
-
-          <button class="btn-relatorio">Gerar Relatório</button>
-
+              <div class="filter-item">
+                <label>Ação:</label>
+                <select id="selectAcaoLog" class="select-box">
+                  <option value="todos">Todas as Ações</option>
+                  <option value="INSERT">Insert</option>
+                  <option value="UPDATE">Update</option>
+                  <option value="DELETE">Delete</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- TABELA -->
-        <div class="table-container">
-          <table>
+        <div class="table-card">
+          <table class="esp-table">
             <thead class="thead-group">
               <tr>
-                <th>Usuário Responsável</th>
-                <th>Evento</th>
-                <th>Descrição</th>
-                <th>Entidade Afetada</th>
                 <th>ID</th>
+                <th>Usuário Responsável</th>
+                <th>Ação</th>
+                <th>Tabela Afetada</th>
+                <th>ID Afetado</th>
+                <th>Descrição</th>
                 <th>Hora</th>
                 <th>Data</th>
                 <th>Ações</th>
               </tr>
             </thead>
 
-            <tbody>
-              <tr>
-                <td>Evelyn Braga</td>
-                <td>UPDATE</td>
-                <td>Campo: CRM e especialidades.</td>
-                <td>Detalhes_Medico</td>
-                <td>1</td>
-                <td>15:00:00</td>
-                <td>30/03/2026</td>
-                <td><button class="btn-view">📄</button></td>
-              </tr>
-
-              <tr>
-                <td>Reinaldo Oliveira</td>
-                <td>UPDATE</td>
-                <td>Campo: CRM e especialidades.</td>
-                <td>Detalhes_Medico</td>
-                <td>2</td>
-                <td>17:59:15</td>
-                <td>31/03/2026</td>
-                <td><button class="btn-view">📄</button></td>
-              </tr>
-
-              <tr>
-                <td>Caio Pereira</td>
-                <td>UPDATE</td>
-                <td>Campo: CRM e especialidades.</td>
-                <td>Detalhes_Medico</td>
-                <td>3</td>
-                <td>18:51:12</td>
-                <td>31/03/2026</td>
-                <td><button class="btn-view">📄</button></td>
-              </tr>
-
-              <tr>
-                <td>Marcos Campos</td>
-                <td>UPDATE</td>
-                <td>Campo: CRM e especialidades.</td>
-                <td>Detalhes_Medico</td>
-                <td>4</td>
-                <td>19:45:38</td>
-                <td>31/03/2026</td>
-                <td><button class="btn-view">📄</button></td>
-              </tr>
-
-              <tr>
-                <td>André Souza</td>
-                <td>DELETE</td>
-                <td>Campo: CRM e especialidades.</td>
-                <td>Detalhes_Medico</td>
-                <td>5</td>
-                <td>19:58:53</td>
-                <td>31/03/2026</td>
-                <td><button class="btn-view">📄</button></td>
-              </tr>
-
+            <tbody id="tabelaLogsBody">
             </tbody>
           </table>
 
-          <div class="pagination">
-            &lt; 1 2 3 &gt;
+          <div id="paginacaoContainer" class="esp-paginacao-wrapper">
           </div>
 
         </div>

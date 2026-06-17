@@ -1,14 +1,11 @@
 const supabase = require('../../config/supabase');
+const LogsModel = require('./logsModel');
 
 const AdminUsuarioModel = {
 
     // Lista usuários com filtros
     listar: async (filtros = {}) => {
         const { busca, perfil, status, periodo } = filtros;
-
-        // CORREÇÃO: duas queries separadas em vez de join aninhado
-        // Isso evita falha silenciosa quando a FK funcao_usuario→funcoes
-        // não está declarada no painel do Supabase
 
         let query = supabase
             .from('usuarios')
@@ -144,12 +141,12 @@ const AdminUsuarioModel = {
     },
 
     // Cria usuário: verifica email duplicado → Auth → usuarios → funcao_usuario
-    criar: async (dados) => {
+    criar: async (dados, adminResponsavel) => {
         const { nome_completo, email, cpf, telefone, senha, status_conta, id_funcao, data_nascimento } = dados;
         const emailLimpo = email.trim();
         const senhaTexto = String(senha);
 
-        // 1. Verifica se o email já existe na tabela usuarios antes de ir pro Auth
+        // Verifica se o email já existe na tabela usuarios antes de ir pro Auth
         const { data: existente } = await supabase
             .from('usuarios')
             .select('id_usuario')
@@ -160,7 +157,7 @@ const AdminUsuarioModel = {
             throw new Error('Este e-mail já está cadastrado no sistema.');
         }
 
-        // 2. Cria no Supabase Auth via signUp (compatível com anon key)
+        // Cria no Supabase Auth via signUp (compatível com anon key)
         const { data: authData, error: authError } = await supabase.auth.signUp({
             email: emailLimpo,
             password: senhaTexto,
@@ -170,7 +167,7 @@ const AdminUsuarioModel = {
         if (authError) throw authError;
         if (!authData.user) throw new Error('Erro desconhecido ao criar usuário no Auth.');
 
-        // 3. Insere na tabela 'usuarios'
+        // Insere na tabela 'usuarios'
         const { data: novoUsuario, error: userError } = await supabase
             .from('usuarios')
             .insert([{
@@ -187,22 +184,25 @@ const AdminUsuarioModel = {
 
         if (userError) throw userError;
 
-        // 4. Vincula ao perfil escolhido
+        // Vincula ao perfil escolhido
         const { error: roleError } = await supabase
             .from('funcao_usuario')
             .insert([{ usuario_id: novoUsuario.id_usuario, funcao_id: id_funcao }]);
 
         if (roleError) throw roleError;
 
+        // Registro de Cadastro de Usuário no Logs de Sistema
+        await LogsModel.registrar(adminResponsavel, 'INSERT', 'usuarios', `Criou o usuário: ${nome_completo}`, novoUsuario.id_usuario);
+
         return { id_usuario: novoUsuario.id_usuario };
     },
 
     // Atualiza dados do usuário e perfil vinculado
-    atualizar: async (id, dados) => {
+    atualizar: async (id, dados, adminResponsavel) => {
         const { nome_completo, email, cpf, telefone, status_conta, id_funcao, data_nascimento } = dados;
         const emailNovo = email.trim();
 
-        // 1. Atualiza tabela 'usuarios'
+        // Atualiza tabela 'usuarios'
         const { error: userError } = await supabase
             .from('usuarios')
             .update({ nome_completo, email: emailNovo, cpf, telefone, status_conta, data_nascimento: data_nascimento || null })
@@ -210,7 +210,7 @@ const AdminUsuarioModel = {
 
         if (userError) throw userError;
 
-        // 2. Atualiza perfil vinculado
+        // Atualiza perfil vinculado
         if (id_funcao) {
             const { error: roleError } = await supabase
                 .from('funcao_usuario')
@@ -220,11 +220,14 @@ const AdminUsuarioModel = {
             if (roleError) throw roleError;
         }
 
+        // Registro de Atualização de Usuário no Logs de Sistema
+        await LogsModel.registrar(adminResponsavel, 'UPDATE', 'usuarios', 'Atualizou os dados do usuários', id);
+
         return { id_usuario: id };
     },
 
     // Remove vínculo de função + registro da tabela usuarios
-    deletar: async (id) => {
+    deletar: async (id, adminResponsavel) => {
         const { error: funcaoError } = await supabase
             .from('funcao_usuario')
             .delete()
@@ -238,6 +241,9 @@ const AdminUsuarioModel = {
             .eq('id_usuario', id);
 
         if (userError) throw userError;
+
+        // Registro de Exclusão de Usuário no Logs de Sistema
+        await LogsModel.registrar(adminResponsavel, 'DELETE', 'usuarios', 'Excluiu os dados do usuário', id);
     }
 
 };

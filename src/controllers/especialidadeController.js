@@ -6,9 +6,12 @@ const especialidadeController = {
         // Coleta as variáveis definidas pelo atributo 'name' de cada tag input do HTML
         const { titulo, descricao, tempoMedio, valor, status } = req.body;
 
+        // Identifica o usuário logado
+        const adminResponsavel = req.user.nome_completo;
+
         try {
             // Executa a persistência através do Model
-            await EspecialidadeModel.criar(titulo, descricao, tempoMedio, valor, status);
+            await EspecialidadeModel.criar(titulo, descricao, tempoMedio, valor, status, adminResponsavel);
 
             // Redireciona o Administrador de volta para a tela de listagem injetando um parâmetro de sucesso
             return res.redirect('/admin/gestao_especialidades?sucesso=true');
@@ -34,9 +37,12 @@ const especialidadeController = {
         // Coleta o ID e os novos dados do formulário
         const { id, titulo, descricao, tempoMedio, valor, status } = req.body;
 
+        // Identifica o usuário logado
+        const adminResponsavel = req.user.nome_completo;
+
         try {
             // Chama a função de atualização no Model
-            await EspecialidadeModel.atualizar(id, titulo, descricao, tempoMedio, valor, status);
+            await EspecialidadeModel.atualizar(id, titulo, descricao, tempoMedio, valor, status, adminResponsavel);
 
             // Redireciona com sucesso
             return res.redirect('/admin/gestao_especialidades?editado=true');
@@ -47,9 +53,13 @@ const especialidadeController = {
     },
 
     handleExcluir: async (req, res) => {
-        const { id } = req.body; // Recebe o ID vindo do front
+        const { id } = req.body;
+
+        // Identifica o usuário logado
+        const adminResponsavel = req.user.nome_completo;
+
         try {
-            await EspecialidadeModel.deletar(id);
+            await EspecialidadeModel.deletar(id, adminResponsavel);
             return res.status(200).json({ mensagem: 'Excluído com sucesso' });
         } catch (error) {
             return res.status(400).json({ erro: error.message });

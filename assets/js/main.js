@@ -7,6 +7,7 @@ import { initHomeMedico } from "./pages/home_medico.js";
 import { initHomeAdmin } from "./pages/home_admin.js";
 import { initGestaoEspecialidades } from "./pages/gestao_especialidades.js";
 import { initGestaoUsuarios } from "./pages/gestao_usuario.js";
+import { initLogsSistema } from "./pages/logs_sistema.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -42,6 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (path.includes("gestao_usuarios")) {
             initGestaoUsuarios();
+        }
+        if (path.includes("logs_sistema")) {
+            initLogsSistema();
         }
     } catch (error) {
         console.error("Erro ao inicializar scripts específicos da página atual:", error);
