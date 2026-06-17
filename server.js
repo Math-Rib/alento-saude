@@ -9,6 +9,7 @@ const authRoutes          = require('./src/routes/authRoutes');
 const pacienteRoutes      = require('./src/routes/pacienteRoutes');
 const medicoRoutes        = require('./src/routes/medicoRoutes');
 const adminUsuarioRoutes  = require('./src/routes/adminUsuarioRoutes'); 
+const gestaoAgendaRoutes = require('./src/routes/gestao_agendaRoutes');
 
 const app   = express();
 const porta = 3000;
@@ -25,7 +26,8 @@ app.use('/js',  express.static(path.join(__dirname, 'assets', 'js')));
 app.use(authRoutes);
 app.use(pacienteRoutes);
 app.use(medicoRoutes);
-app.use(adminUsuarioRoutes); 
+app.use(adminUsuarioRoutes);
+app.use(gestao_agendaRoutes);
 
 app.use((req, res) => {
     res.status(404).send('Página não encontrada.');

@@ -1,0 +1,127 @@
+const formulario = document.getElementById('formulario');
+const btnNovo = document.getElementById('novoAgendamento');
+const btnSalvar = document.getElementById('salvarConsulta');
+
+let editandoId = null;
+
+// Mostrar/Ocultar formulário
+btnNovo.addEventListener('click', () => {
+    formulario.classList.toggle('hidden');
+});
+
+// Salvar ou Atualizar
+btnSalvar.addEventListener('click', async () => {
+
+    const paciente = document.getElementById('paciente').value;
+    const dia_semana = document.getElementById('diaSemana').value;
+    const horario = document.getElementById('horario').value;
+
+    if (!paciente || !horario) {
+        alert('Preencha todos os campos.');
+        return;
+    }
+
+    const url = editandoId
+        ? `/api/agenda/${editandoId}`
+        : '/api/agenda';
+
+    const metodo = editandoId
+        ? 'PUT'
+        : 'POST';
+
+    const response = await fetch(url, {
+        method: metodo,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            paciente,
+            dia_semana,
+            horario
+        })
+    });
+
+    if (response.ok) {
+
+        document.getElementById('paciente').value = '';
+        document.getElementById('horario').value = '';
+        document.getElementById('diaSemana').selectedIndex = 0;
+
+        editandoId = null;
+
+        formulario.classList.add('hidden');
+
+        carregarAgenda();
+    }
+});
+
+// Listar consultas
+async function carregarAgenda() {
+
+    const response = await fetch('/api/agenda');
+    const consultas = await response.json();
+
+    document.querySelectorAll('.cards').forEach(card => {
+        card.innerHTML = '';
+    });
+
+    consultas.forEach(consulta => {
+
+        const card = document.createElement('div');
+
+        card.classList.add('consulta-card');
+
+        card.innerHTML = `
+            <strong>${consulta.paciente}</strong><br>
+            ${consulta.horario}
+            <br><br>
+
+            <button onclick="editarConsulta(
+                ${consulta.id},
+                '${consulta.paciente}',
+                '${consulta.dia_semana}',
+                '${consulta.horario}'
+            )">
+                Editar
+            </button>
+
+            <button onclick="excluirConsulta(${consulta.id})">
+                Excluir
+            </button>
+        `;
+
+        const coluna = document.getElementById(consulta.dia_semana);
+
+        if (coluna) {
+            coluna.appendChild(card);
+        }
+    });
+}
+
+// Editar
+window.editarConsulta = function(id, paciente, dia_semana, horario) {
+
+    editandoId = id;
+
+    document.getElementById('paciente').value = paciente;
+    document.getElementById('diaSemana').value = dia_semana;
+    document.getElementById('horario').value = horario;
+
+    formulario.classList.remove('hidden');
+};
+
+// Excluir
+window.excluirConsulta = async function(id) {
+
+    if (!confirm('Deseja excluir esta consulta?')) {
+        return;
+    }
+
+    await fetch(`/api/agenda/${id}`, {
+        method: 'DELETE'
+    });
+
+    carregarAgenda();
+};
+
+carregarAgenda();
